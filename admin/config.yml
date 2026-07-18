@@ -3,8 +3,7 @@ backend:
   branch: main
 
 media_folder: "content/images"
-public_folder: "../content/images"
-locale: "de"
+public_folder: "/images"
 
 collections:
   - name: "site"

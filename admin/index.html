@@ -6,44 +6,6 @@
   <title>Inhalte verwalten – Battermann</title>
 </head>
 <body>
-
-<script src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"></script>
-
-<script>
-window.CMS_MANUAL_INIT = true;
-
-CMS.init();
-
-CMS.registerEventListener({
-  name: "preSave",
-  handler: ({ entry }) => {
-    const data = entry.get("data").toJS();
-
-    if (data.gallery) {
-      data.gallery = data.gallery.map(item => {
-        if (item.image) {
-          item.image = item.image.replace(/^\/?images\//, "images/");
-        }
-        return item;
-      });
-    }
-
-    if (data.vorher_nachher) {
-      data.vorher_nachher = data.vorher_nachher.map(item => {
-        if (item.vorher) {
-          item.vorher = item.vorher.replace(/^\/?images\//, "images/");
-        }
-        if (item.nachher) {
-          item.nachher = item.nachher.replace(/^\/?images\//, "images/");
-        }
-        return item;
-      });
-    }
-
-    return entry.set("data", Immutable.fromJS(data));
-  }
-});
-</script>
-
+  <script src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"></script>
 </body>
 </html>

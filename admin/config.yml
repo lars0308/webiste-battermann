@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images"
-public_folder: "/images"
+media_folder: "content/images"
+public_folder: "/content/images"
 
 locale: "de"
 
@@ -44,8 +44,8 @@ collections:
               - label: "Vorher-Bild"
                 name: "vorher"
                 widget: "image"
-                media_folder: "images/vorher-nachher"
-                public_folder: "/images/vorher-nachher"
+                media_folder: "content/images/vorher-nachher"
+                public_folder: "/content/images/vorher-nachher"
 
               - label: "Vorher – Beschreibung"
                 name: "vorher_alt"
@@ -55,8 +55,8 @@ collections:
                 name: "nachher"
                 widget: "image"
                 required: false
-                media_folder: "images/vorher-nachher"
-                public_folder: "/images/vorher-nachher"
+                media_folder: "content/images/vorher-nachher"
+                public_folder: "/content/images/vorher-nachher"
 
               - label: "Nachher – Beschreibung"
                 name: "nachher_alt"

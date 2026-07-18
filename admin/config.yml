@@ -2,8 +2,10 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "content/images"
+media_folder: "images"
 public_folder: "/images"
+
+locale: "de"
 
 collections:
   - name: "site"

@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "content/images"
-public_folder: "/content/images"
+media_folder: "images"
+public_folder: "/images"
 
 locale: "de"
 
@@ -15,7 +15,7 @@ collections:
         label: "Galerie & Vorher/Nachher"
         name: "site"
         fields:
-          - label: "Hinweistext über der Galerie"
+          - label: "Hinweistext Ã¼ber der Galerie"
             name: "gallery_note"
             widget: "text"
 
@@ -28,7 +28,7 @@ collections:
                 name: "image"
                 widget: "image"
 
-              - label: "Beschreibung (für Suchmaschinen, nicht sichtbar)"
+              - label: "Beschreibung (fÃ¼r Suchmaschinen, nicht sichtbar)"
                 name: "alt"
                 widget: "string"
 
@@ -45,7 +45,7 @@ collections:
                 name: "vorher"
                 widget: "image"
 
-              - label: "Vorher – Beschreibung"
+              - label: "Vorher â€“ Beschreibung"
                 name: "vorher_alt"
                 widget: "string"
 
@@ -54,13 +54,13 @@ collections:
                 widget: "image"
                 required: false
 
-              - label: "Nachher – Beschreibung"
+              - label: "Nachher â€“ Beschreibung"
                 name: "nachher_alt"
                 widget: "string"
                 required: false
                 default: ""
 
-              - label: "Noch in Arbeit? (zeigt „Nachher folgt“ statt Bild)"
+              - label: "Noch in Arbeit? (zeigt â€žNachher folgtâ€œ statt Bild)"
                 name: "pending"
                 widget: "boolean"
                 default: false

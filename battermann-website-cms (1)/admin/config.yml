@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+locale: "de"
+
+collections:
+  - name: "site"
+    label: "Website-Inhalte"
+    files:
+      - file: "content/site.json"
+        label: "Galerie & Vorher/Nachher"
+        name: "site"
+        fields:
+          - label: "Hinweistext über der Galerie"
+            name: "gallery_note"
+            widget: "text"
+          - label: "Galerie-Bilder"
+            name: "gallery"
+            widget: "list"
+            summary: "{{alt}}"
+            fields:
+              - { label: "Bild", name: "image", widget: "image" }
+              - { label: "Beschreibung (für Suchmaschinen, nicht sichtbar)", name: "alt", widget: "string" }
+          - label: "Einleitungstext Vorher/Nachher"
+            name: "vn_intro"
+            widget: "text"
+          - label: "Vorher/Nachher-Paare"
+            name: "vorher_nachher"
+            widget: "list"
+            summary: "{{vorher_alt}}"
+            fields:
+              - { label: "Vorher-Bild", name: "vorher", widget: "image" }
+              - { label: "Vorher – Beschreibung", name: "vorher_alt", widget: "string" }
+              - { label: "Nachher-Bild (leer lassen, solange noch nicht fertig)", name: "nachher", widget: "image", required: false }
+              - { label: "Nachher – Beschreibung", name: "nachher_alt", widget: "string", required: false, default: "" }
+              - { label: "Noch in Arbeit? (zeigt „Nachher folgt“ statt Bild)", name: "pending", widget: "boolean", default: false }

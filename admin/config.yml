@@ -44,7 +44,7 @@ collections:
               - label: "Vorher-Bild"
                 name: "vorher"
                 widget: "image"
-                media_folder: "content/images/vorher-nachher"
+                media_folder: "/content/images/vorher-nachher"
                 public_folder: "/content/images/vorher-nachher"
 
               - label: "Vorher – Beschreibung"
@@ -55,7 +55,7 @@ collections:
                 name: "nachher"
                 widget: "image"
                 required: false
-                media_folder: "content/images/vorher-nachher"
+                media_folder: "/content/images/vorher-nachher"
                 public_folder: "/content/images/vorher-nachher"
 
               - label: "Nachher – Beschreibung"

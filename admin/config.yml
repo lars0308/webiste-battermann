@@ -187,3 +187,35 @@ collections:
             hint: "Nach diesem Tag erscheint das Popup nicht mehr, auch wenn oben noch aktiviert ist"
 
           - {label: "Überschrift des Bewertungs-Bereichs", name: "reviews_headline", widget: "string", default: "Das sagen Kunden", required: false}
+
+          - label: "— Reihenfolge der Abschnitte — (Einträge per Ziehen am ⋮⋮-Symbol beliebig anordnen, so erscheinen die Bereiche auf der Startseite)"
+            name: "section_order"
+            widget: "list"
+            required: false
+            summary: "{{fields.section}}"
+            default:
+              - section: "hero"
+              - section: "kernbereiche"
+              - section: "ueber-mich"
+              - section: "warum"
+              - section: "leistungen"
+              - section: "galerie"
+              - section: "vorher-nachher"
+              - section: "bewertungen"
+              - section: "einsatzgebiet"
+              - section: "kontakt"
+            fields:
+              - label: "Abschnitt"
+                name: "section"
+                widget: "select"
+                options:
+                  - {label: "Hero (Titelbereich mit Überschrift & Zielgruppen-Buttons)", value: "hero"}
+                  - {label: "Kernbereiche (3 Kacheln)", value: "kernbereiche"}
+                  - {label: "Über mich", value: "ueber-mich"}
+                  - {label: "Warum Battermann", value: "warum"}
+                  - {label: "Leistungen", value: "leistungen"}
+                  - {label: "Galerie (Einblicke in meine Arbeit)", value: "galerie"}
+                  - {label: "Vorher/Nachher", value: "vorher-nachher"}
+                  - {label: "Bewertungen", value: "bewertungen"}
+                  - {label: "Einsatzgebiet", value: "einsatzgebiet"}
+                  - {label: "Kontakt", value: "kontakt"}

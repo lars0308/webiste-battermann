@@ -136,3 +136,20 @@ collections:
           - {label: "Kontakt-Einleitungstext (für Hausverwaltung & Firmen)", name: "contact_intro_business", widget: "text", required: false}
 
           - {label: "— Fußzeile —", name: "footer_text", widget: "string", hint: "Copyright-Text unten"}
+
+          - label: "Ankündigung anzeigen? (z. B. Rabatt-Aktion oder Urlaubshinweis)"
+            name: "announce_active"
+            widget: "boolean"
+            default: false
+
+          - label: "Ankündigungstext"
+            name: "announce_text"
+            widget: "string"
+            required: false
+            hint: "z. B. „Bis zum 30.07.2026 gibt es 15% Rabatt für Neukunden“"
+
+          - label: "Automatisch ausblenden ab diesem Datum (optional)"
+            name: "announce_until"
+            widget: "date"
+            required: false
+            hint: "Nach diesem Tag erscheint das Popup nicht mehr, auch wenn oben noch aktiviert ist"

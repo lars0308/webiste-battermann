@@ -34,6 +34,12 @@ collections:
                 name: "alt"
                 widget: "string"
 
+              - label: "Datum (optional — neueste Bilder erscheinen automatisch zuerst)"
+                name: "datum"
+                widget: "datetime"
+                type: "date"
+                required: false
+
           - label: "Einleitungstext Vorher/Nachher"
             name: "vn_intro"
             widget: "text"
@@ -48,6 +54,12 @@ collections:
                 widget: "string"
                 required: false
                 default: ""
+
+              - label: "Datum (optional — neueste Projekte erscheinen automatisch zuerst)"
+                name: "datum"
+                widget: "datetime"
+                type: "date"
+                required: false
 
               - label: "Titel für dieses Bildpaar (z. B. „Armatur-Reinigung“)"
                 name: "pair_title"
@@ -91,6 +103,10 @@ collections:
           - {label: "Textfarbe", name: "color_ink", widget: "color"}
           - {label: "Hauptfarbe (dunkel, z. B. Header/Fußzeile)", name: "color_primary", widget: "color"}
           - {label: "Überschriften-Farbe (z. B. Logo-Grün)", name: "color_heading", widget: "color"}
+          - label: "Hintergrundfarbe der Menüleiste oben (mit Transparenz einstellbar)"
+            name: "color_header_bg"
+            widget: "color"
+            enableAlpha: true
           - {label: "Akzentfarbe (Buttons, Hervorhebungen)", name: "color_accent", widget: "color"}
           - {label: "Zweitfarbe (Grün-Ton)", name: "color_sage", widget: "color"}
 
@@ -169,3 +185,17 @@ collections:
             type: "date"
             required: false
             hint: "Nach diesem Tag erscheint das Popup nicht mehr, auch wenn oben noch aktiviert ist"
+
+          - {label: "— Bewertungen — (Abschnitt erscheint erst, sobald hier etwas eingetragen ist)", name: "reviews_headline", widget: "string", hint: "Überschrift des Bewertungs-Bereichs", default: "Das sagen Kunden", required: false}
+          - {label: "Google-Sternebewertung (z. B. 4.8) — bitte nur echte Werte von deinem Google-Unternehmensprofil eintragen", name: "google_bewertung_sterne", widget: "number", required: false}
+          - {label: "Anzahl Google-Bewertungen (optional)", name: "google_bewertung_anzahl", widget: "string", required: false}
+          - {label: "Link zu deinem Google-Unternehmensprofil (für den „Alle Bewertungen ansehen“-Button)", name: "google_bewertung_link", widget: "string", required: false}
+          - label: "Einzelne Kundenstimmen (optional, bitte nur echte Rückmeldungen von echten Kunden eintragen)"
+            name: "bewertungen"
+            widget: "list"
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Name des Kunden", name: "name", widget: "string"}
+              - {label: "Sterne (1–5)", name: "sterne", widget: "number", min: 1, max: 5, default: 5}
+              - {label: "Text der Bewertung", name: "text", widget: "text"}

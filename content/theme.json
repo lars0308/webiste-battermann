@@ -43,5 +43,17 @@
   "announce_active": false,
   "announce_text": "",
   "announce_until": "",
-  "reviews_headline": "Das sagen Kunden"
+  "reviews_headline": "Das sagen Kunden",
+  "section_order": [
+    {"section": "hero"},
+    {"section": "kernbereiche"},
+    {"section": "ueber-mich"},
+    {"section": "warum"},
+    {"section": "leistungen"},
+    {"section": "galerie"},
+    {"section": "vorher-nachher"},
+    {"section": "bewertungen"},
+    {"section": "einsatzgebiet"},
+    {"section": "kontakt"}
+  ]
 }

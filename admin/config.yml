@@ -41,8 +41,14 @@ collections:
           - label: "Vorher/Nachher-Paare"
             name: "vorher_nachher"
             widget: "list"
-            summary: "{{fields.pair_title}} — {{vorher_alt}}"
+            summary: "{{fields.kategorie}} · {{fields.pair_title}} — {{vorher_alt}}"
             fields:
+              - label: "Kategorie (frei wählbar, z. B. „Elektro“, „Sanitär“, „Garten“, „Holz“ — wird automatisch als Filter-Button oben angezeigt)"
+                name: "kategorie"
+                widget: "string"
+                required: false
+                default: ""
+
               - label: "Titel für dieses Bildpaar (z. B. „Armatur-Reinigung“)"
                 name: "pair_title"
                 widget: "string"
@@ -101,11 +107,17 @@ collections:
           - {label: "Firmenname (groß, im Header)", name: "brand_name", widget: "string"}
           - {label: "Firmenzusatz (klein, im Header)", name: "brand_sub", widget: "string"}
 
+          - {label: "— Zielgruppen-Umschalter —", name: "audience_label_privat", widget: "string", hint: "Beschriftung Button 1", default: "Privatkunden"}
+          - {label: "Beschriftung Button 2", name: "audience_label_business", widget: "string", default: "Hausverwaltung & Firmen"}
+
           - {label: "— Startbereich (Hero) —", name: "hero_eyebrow", widget: "string", hint: "Kleiner Text über der Überschrift"}
           - {label: "Überschrift – Zeile 1", name: "hero_headline_1", widget: "string"}
           - {label: "Überschrift – Zeile 2", name: "hero_headline_2", widget: "string"}
           - {label: "Überschrift – Zeile 3 (kursiv)", name: "hero_headline_3", widget: "string"}
-          - {label: "Beschreibungstext", name: "hero_lead", widget: "text"}
+          - {label: "Beschreibungstext (für Privatkunden, Standard-Ansicht)", name: "hero_lead", widget: "text"}
+          - {label: "Beschreibungstext (für Hausverwaltung & Firmen)", name: "hero_lead_business", widget: "text", required: false}
+          - {label: "Zusatz-Hinweis für Privatkunden (optional, erscheint zusätzlich unter dem Text)", name: "audience_note_privat", widget: "text", required: false}
+          - {label: "Zusatz-Hinweis für Hausverwaltung & Firmen (optional)", name: "audience_note_business", widget: "text", required: false}
 
           - {label: "— Über-mich-Bereich —", name: "about_tag", widget: "string", hint: "Kurzer Titel am Bild"}
           - {label: "Kleiner Text über der Überschrift", name: "about_eyebrow", widget: "string"}
@@ -120,5 +132,7 @@ collections:
           - {label: "WhatsApp-Nummer (technisch, nur Ziffern, z. B. 4915567467763)", name: "whatsapp_number", widget: "string"}
           - {label: "E-Mail-Adresse", name: "email", widget: "string"}
           - {label: "Öffnungszeiten (Text)", name: "hours_text", widget: "string"}
+          - {label: "Kontakt-Einleitungstext (für Privatkunden)", name: "contact_intro_privat", widget: "text", required: false}
+          - {label: "Kontakt-Einleitungstext (für Hausverwaltung & Firmen)", name: "contact_intro_business", widget: "text", required: false}
 
           - {label: "— Fußzeile —", name: "footer_text", widget: "string", hint: "Copyright-Text unten"}

@@ -44,6 +44,20 @@ collections:
             name: "vn_intro"
             widget: "text"
 
+          - label: "Bildertagebuch (jedes Bild mit eigener kurzer Notiz, erscheint auf der Bilder-Seite)"
+            name: "bildertagebuch"
+            widget: "list"
+            required: false
+            summary: "{{fields.text}}"
+            fields:
+              - {label: "Bild", name: "bild", widget: "image"}
+              - {label: "Notiz (z. B. „Leuchten hatten Brandschaden“)", name: "text", widget: "string"}
+              - label: "Datum (optional — neueste Einträge erscheinen automatisch zuerst)"
+                name: "datum"
+                widget: "datetime"
+                type: "date"
+                required: false
+
           - label: "Vorher/Nachher-Paare"
             name: "vorher_nachher"
             widget: "list"

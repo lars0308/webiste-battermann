@@ -44,7 +44,7 @@ collections:
             name: "vn_intro"
             widget: "text"
 
-          - label: "Bildertagebuch (jedes Bild mit eigener kurzer Notiz, erscheint auf der Bilder-Seite)"
+          - label: "Zusätzliche Bildertagebuch-Einträge (nur nötig für Bilder, die NICHT schon oben in Galerie oder Vorher/Nachher stehen — die erscheinen automatisch mit ihrer bestehenden Beschriftung im Bildertagebuch)"
             name: "bildertagebuch"
             widget: "list"
             required: false

@@ -8,9 +8,8 @@
   "section_spacing": "normal",
   "logo": "/images/logo-icon.png",
   "portrait": "/images/portrait-lars.jpg",
-  "brand_name": "Battermann",
-  "brand_sub": "Objekt- & Reparaturservice",
-  "footer_text": "© 2026 Objekt- und Reparaturservice Battermann · Lars Battermann",
+  "brand_name": "Objekt- und Reparaturservice",
+  "brand_sub": "Battermann",
   "hero_eyebrow": "Hausmeisterservice · Objektbetreuung · Allround-Handwerk",
   "hero_headline_1": "Zuverlässig.",
   "hero_headline_2": "Vielseitig.",
@@ -27,5 +26,6 @@
   "phone_tel": "+4915567467763",
   "whatsapp_number": "4915567467763",
   "email": "service.battermann@gmx.de",
-  "hours_text": "Mo – Sa, 09:00 – 20:00 Uhr"
+  "hours_text": "Mo – Sa, 09:00 – 20:00 Uhr",
+  "footer_text": "© 2026 Objekt- und Reparaturservice Battermann · Lars Battermann"
 }

@@ -71,6 +71,12 @@ collections:
                 name: "vorher"
                 widget: "image"
 
+              - label: "Weitere Vorher-Bilder (optional, z. B. andere Blickwinkel)"
+                name: "vorher_weitere"
+                widget: "list"
+                required: false
+                field: {label: "Bild", name: "bild", widget: "image"}
+
               - label: "Vorher – Beschreibung"
                 name: "vorher_alt"
                 widget: "string"
@@ -79,6 +85,12 @@ collections:
                 name: "nachher"
                 widget: "image"
                 required: false
+
+              - label: "Weitere Nachher-Bilder (optional, z. B. andere Blickwinkel)"
+                name: "nachher_weitere"
+                widget: "list"
+                required: false
+                field: {label: "Bild", name: "bild", widget: "image"}
 
               - label: "Nachher – Beschreibung"
                 name: "nachher_alt"

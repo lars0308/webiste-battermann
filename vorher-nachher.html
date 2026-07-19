@@ -461,6 +461,22 @@
     grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
     gap:32px;
   }
+  .tagebuch-list{ display:flex; flex-direction:column; gap:18px; }
+  .tagebuch-entry{
+    display:flex; gap:20px; align-items:center;
+    background:var(--paper);
+    border-radius:var(--radius);
+    padding:16px;
+  }
+  .tagebuch-entry img{
+    width:120px; height:120px; object-fit:cover; border-radius:4px; flex:none;
+  }
+  .tagebuch-entry-text{ font-size:0.98rem; color:var(--ink); }
+  @media (max-width: 560px){
+    .tagebuch-entry{ flex-direction:column; align-items:flex-start; gap:12px; }
+    .tagebuch-entry img{ width:100%; height:200px; }
+  }
+
   .vn-filters{
     display:flex; flex-wrap:wrap; gap:10px;
     margin:0 0 28px;
@@ -932,6 +948,17 @@
     </div>
   </section>
 
+  <section class="alt" id="tagebuchSection" style="display:none;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Bildertagebuch</p>
+        <h2>Jedes Bild, jede Notiz</h2>
+        <p class="intro-block">Alle Bilder im Überblick, mit einer kurzen Notiz dazu, was jeweils gemacht wurde — neueste zuerst.</p>
+      </div>
+      <div class="tagebuch-list" id="tagebuchList"></div>
+    </div>
+  </section>
+
 </main>
 
 <!-- VN COMPARE MODAL -->
@@ -1040,10 +1067,33 @@
   fetch('content/site.json', {cache: 'no-store'})
     .then(function(res){ return res.ok ? res.json() : null; })
     .then(function(data){
-      if(!data || !Array.isArray(data.vorher_nachher) || !data.vorher_nachher.length) return;
-      renderVnAccordionFull(data.vorher_nachher);
+      if(!data) return;
+      if(Array.isArray(data.vorher_nachher) && data.vorher_nachher.length){
+        renderVnAccordionFull(data.vorher_nachher);
+      }
+      if(Array.isArray(data.bildertagebuch) && data.bildertagebuch.length){
+        renderTagebuch(data.bildertagebuch);
+      }
     })
     .catch(function(){ /* keep the static fallback already in the page */ });
+
+  function renderTagebuch(entries){
+    const valid = entries.filter(function(e){ return e && e.bild; });
+    if(!valid.length) return;
+    const sorted = valid.slice().sort(function(a, b){
+      if(a.datum && b.datum) return b.datum.localeCompare(a.datum);
+      if(a.datum) return -1;
+      if(b.datum) return 1;
+      return 0;
+    });
+    document.getElementById('tagebuchList').innerHTML = sorted.map(function(entry){
+      return '<div class="tagebuch-entry">' +
+        '<img src="' + entry.bild + '" alt="' + (entry.text || '').replace(/"/g,'&quot;') + '">' +
+        '<p class="tagebuch-entry-text">' + (entry.text || '').replace(/</g,'&lt;') + '</p>' +
+        '</div>';
+    }).join('');
+    document.getElementById('tagebuchSection').style.display = '';
+  }
 
   function vnExtraStripHtml(pair){
     const vExtras = Array.isArray(pair.vorher_weitere) ? pair.vorher_weitere : [];

@@ -3,7 +3,8 @@
   "gallery": [
     {
       "image": "/images/arbeit-leuchte.jpg",
-      "alt": "Montage einer Außenleuchte auf der Leiter"
+      "alt": "Montage einer Außenleuchte auf der Leiter",
+      "kategorie": ""
     },
     {
       "image": "/images/arbeit-garten.jpg",
@@ -35,7 +36,8 @@
   "vorher_nachher": [
     {
       "kategorie": "Bad",
-      "pair_title": "Armatur-Reinigung",
+      "datum": "",
+      "pair_title": "Fliesenfugen erneuert",
       "vorher": "/images/vorher-nachher/bad-vorher-2.jpg",
       "vorher_alt": "Armatur vor der Reinigung",
       "nachher": "/images/vorher-nachher/bad-nachher-2.jpg",
@@ -44,8 +46,12 @@
     },
     {
       "kategorie": "Bad",
-      "pair_title": "Fliesenfugen-Reinigung",
-      "vorher": "/images/vorher-nachher/bad-vorher-3.jpg",
+      "datum": "",
+      "pair_title": "Schimmel an den Fugen Bekämpft",
+      "vorher": "/images/vorher-nachher/bad-vorher-1.jpg",
+      "vorher_weitere": [
+        "/images/IMG_20260612_170056.jpg"
+      ],
       "vorher_alt": "Fliesenfugen vor der Reinigung",
       "nachher": "/images/vorher-nachher/bad-nachher-3.jpg",
       "nachher_alt": "Fliesenfugen nach der Reinigung",
@@ -53,8 +59,9 @@
     },
     {
       "kategorie": "Bad",
-      "pair_title": "Fugenecke-Reinigung",
-      "vorher": "/images/vorher-nachher/bad-vorher-1.jpg",
+      "datum": "",
+      "pair_title": "Duscharmatur wieder Montiert und geprüft",
+      "vorher": "/images/IMG_20260703_152722.jpg",
       "vorher_alt": "Fugenecke vor der Reinigung",
       "nachher": "/images/vorher-nachher/bad-nachher-1.jpg",
       "nachher_alt": "Fugenecke nach der Reinigung",
@@ -62,8 +69,13 @@
     },
     {
       "kategorie": "Elektro",
-      "pair_title": "Elektro-Projekt",
+      "datum": "",
+      "pair_title": "Fehlersuche in der Kellerbeleuchtung",
       "vorher": "/images/elektro/elektro-vorbereitung.jpg",
+      "vorher_weitere": [
+        "/images/elektro/elektro-ursache.jpg",
+        "/images/elektro/elektro-fehlersuche.jpg"
+      ],
       "vorher_alt": "Elektroinstallation vor dem Austausch der Schalter und Leuchten",
       "nachher": "",
       "nachher_alt": "",

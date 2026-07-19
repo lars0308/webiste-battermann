@@ -33,6 +33,7 @@
   "vn_intro": "Drei abgeschlossene Beispiele aus einer Bad-Grundreinigung sowie ein laufendes Elektro-Projekt — auf ein Bildpaar klicken für den direkten Vergleich mit Schieberegler.",
   "vorher_nachher": [
     {
+      "pair_title": "Fliesenfugen erneut",
       "vorher": "/images/IMG_20260612_170922.jpg",
       "vorher_alt": "Armatur vor der Reinigung",
       "nachher": "/images/vorher-nachher/bad-nachher-2.jpg",
@@ -40,6 +41,7 @@
       "pending": false
     },
     {
+      "pair_title": "",
       "vorher": "/images/vorher-nachher/bad-vorher-3.jpg",
       "vorher_alt": "Fliesenfugen vor der Reinigung",
       "nachher": "/images/IMG_20260703_152726.jpg",
@@ -47,6 +49,7 @@
       "pending": false
     },
     {
+      "pair_title": "Silikonfugen erneuert",
       "vorher": "/images/vorher-nachher/bad-vorher-1.jpg",
       "vorher_alt": "Fugenecke vor der Reinigung",
       "nachher": "/images/IMG_20260710_150150.jpg",
@@ -54,6 +57,7 @@
       "pending": false
     },
     {
+      "pair_title": "Elektro Provisorium Installiert, bis die neuen leuchten montiert werden können.",
       "vorher": "/images/elektro/elektro-vorbereitung.jpg",
       "vorher_alt": "Elektroinstallation vor dem Austausch der Schalter und Leuchten",
       "nachher": "",

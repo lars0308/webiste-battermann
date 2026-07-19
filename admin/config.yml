@@ -43,7 +43,7 @@ collections:
             widget: "list"
             summary: "{{fields.kategorie}} · {{fields.pair_title}} — {{vorher_alt}}"
             fields:
-              - label: "Kategorie (frei wählbar, z. B. „Elektro“, „Sanitär“, „Garten“, „Holz“ — wird automatisch als Filter-Button oben angezeigt)"
+              - label: "Kategorie (frei wählbar, z. B. „Elektro“, „Sanitär“, „Garten“, „Holz“ — Bildpaare mit gleicher Kategorie werden automatisch in einer aufklappbaren Gruppe zusammengefasst)"
                 name: "kategorie"
                 widget: "string"
                 required: false

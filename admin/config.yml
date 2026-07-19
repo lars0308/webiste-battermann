@@ -65,12 +65,13 @@ collections:
                 type: "date"
                 required: false
 
-          - label: "Vorher/Nachher-Paare"
+          - label: "Vorher/Nachher-Projekte"
             name: "vorher_nachher"
             widget: "list"
-            summary: "{{fields.kategorie}} · {{fields.pair_title}} — {{vorher_alt}}"
+            collapsed: true
+            summary: "{{fields.kategorie}} · {{fields.pair_title}}"
             fields:
-              - label: "Kategorie (frei wählbar, z. B. „Elektro“, „Sanitär“, „Garten“, „Holz“ — Bildpaare mit gleicher Kategorie werden automatisch in einer aufklappbaren Gruppe zusammengefasst)"
+              - label: "Kategorie (frei wählbar, z. B. „Elektro“, „Sanitär“, „Garten“, „Holz“ — Projekte mit gleicher Kategorie werden automatisch in einer aufklappbaren Gruppe zusammengefasst)"
                 name: "kategorie"
                 widget: "string"
                 required: false
@@ -82,47 +83,23 @@ collections:
                 type: "date"
                 required: false
 
-              - label: "Titel für dieses Bildpaar (z. B. „Armatur-Reinigung“)"
+              - label: "Titel für dieses Projekt (z. B. „Armatur-Reinigung“)"
                 name: "pair_title"
                 widget: "string"
                 required: false
                 default: ""
 
-              - label: "Vorher-Bild"
-                name: "vorher"
-                widget: "image"
-
-              - label: "Weitere Vorher-Bilder (optional, z. B. andere Blickwinkel)"
-                name: "vorher_weitere"
+              - label: "Bildpaare (meist reicht eins — hast du 2 oder 3 Vergleiche zum selben Thema, einfach mehrere hinzufügen; im Schieberegler kann man dann zwischen ihnen durchblättern)"
+                name: "bildpaare"
                 widget: "list"
-                required: false
-                field: {label: "Bild", name: "bild", widget: "image"}
-
-              - label: "Vorher – Beschreibung"
-                name: "vorher_alt"
-                widget: "string"
-
-              - label: "Nachher-Bild (leer lassen, solange noch nicht fertig)"
-                name: "nachher"
-                widget: "image"
-                required: false
-
-              - label: "Weitere Nachher-Bilder (optional, z. B. andere Blickwinkel)"
-                name: "nachher_weitere"
-                widget: "list"
-                required: false
-                field: {label: "Bild", name: "bild", widget: "image"}
-
-              - label: "Nachher – Beschreibung"
-                name: "nachher_alt"
-                widget: "string"
-                required: false
-                default: ""
-
-              - label: "Noch in Arbeit? (zeigt „Nachher folgt“ statt Bild)"
-                name: "pending"
-                widget: "boolean"
-                default: false
+                collapsed: true
+                summary: "Bildpaar {{index}}"
+                fields:
+                  - {label: "Vorher-Bild", name: "vorher", widget: "image"}
+                  - {label: "Vorher – Beschreibung", name: "vorher_alt", widget: "string", required: false, default: ""}
+                  - {label: "Nachher-Bild (leer lassen, solange noch nicht fertig)", name: "nachher", widget: "image", required: false}
+                  - {label: "Nachher – Beschreibung", name: "nachher_alt", widget: "string", required: false, default: ""}
+                  - {label: "Noch in Arbeit? (zeigt „Nachher folgt“ statt Bild)", name: "pending", widget: "boolean", default: false}
 
   - name: "theme"
     label: "Design & Kontakt"

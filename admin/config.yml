@@ -90,6 +90,7 @@ collections:
           - {label: "Hintergrundfarbe (Wechsel-Abschnitte)", name: "color_bg_alt", widget: "color"}
           - {label: "Textfarbe", name: "color_ink", widget: "color"}
           - {label: "Hauptfarbe (dunkel, z. B. Header/Fußzeile)", name: "color_primary", widget: "color"}
+          - {label: "Überschriften-Farbe (z. B. Logo-Grün)", name: "color_heading", widget: "color"}
           - {label: "Akzentfarbe (Buttons, Hervorhebungen)", name: "color_accent", widget: "color"}
           - {label: "Zweitfarbe (Grün-Ton)", name: "color_sage", widget: "color"}
 
@@ -107,6 +108,19 @@ collections:
           - {label: "Firmenname (groß, im Header)", name: "brand_name", widget: "string"}
           - {label: "Firmenzusatz (klein, im Header)", name: "brand_sub", widget: "string"}
 
+          - label: "Bilder-Karussell dreht automatisch weiter?"
+            name: "gallery_autoplay"
+            widget: "boolean"
+            default: true
+
+          - label: "Geschwindigkeit (Sekunden zwischen den Schritten)"
+            name: "gallery_autoplay_seconds"
+            widget: "number"
+            default: 4
+            min: 2
+            max: 15
+            required: false
+
           - {label: "— Zielgruppen-Umschalter —", name: "audience_label_privat", widget: "string", hint: "Beschriftung Button 1", default: "Privatkunden"}
           - {label: "Beschriftung Button 2", name: "audience_label_business", widget: "string", default: "Hausverwaltung & Firmen"}
 
@@ -116,6 +130,7 @@ collections:
           - {label: "Überschrift – Zeile 3 (kursiv)", name: "hero_headline_3", widget: "string"}
           - {label: "Beschreibungstext (für Privatkunden, Standard-Ansicht)", name: "hero_lead", widget: "text"}
           - {label: "Beschreibungstext (für Hausverwaltung & Firmen)", name: "hero_lead_business", widget: "text", required: false}
+          - {label: "Vertrauens-Punkt 4 (unter den Hero-Buttons, z. B. „Kein Callcenter“)", name: "trust_item_4", widget: "string", required: false}
           - {label: "Zusatz-Hinweis für Privatkunden (optional, erscheint zusätzlich unter dem Text)", name: "audience_note_privat", widget: "text", required: false}
           - {label: "Zusatz-Hinweis für Hausverwaltung & Firmen (optional)", name: "audience_note_business", widget: "text", required: false}
 

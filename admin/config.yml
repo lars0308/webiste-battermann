@@ -2,6 +2,7 @@ backend:
   name: github
   repo: lars0308/webiste-battermann
   branch: main
+  base_url: DEIN-WORKER-URL-HIER-EINTRAGEN
 
 media_folder: "images"
 public_folder: "/images"

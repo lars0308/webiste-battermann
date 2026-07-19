@@ -186,16 +186,4 @@ collections:
             required: false
             hint: "Nach diesem Tag erscheint das Popup nicht mehr, auch wenn oben noch aktiviert ist"
 
-          - {label: "— Bewertungen — (Abschnitt erscheint erst, sobald hier etwas eingetragen ist)", name: "reviews_headline", widget: "string", hint: "Überschrift des Bewertungs-Bereichs", default: "Das sagen Kunden", required: false}
-          - {label: "Google-Sternebewertung (z. B. 4.8) — bitte nur echte Werte von deinem Google-Unternehmensprofil eintragen", name: "google_bewertung_sterne", widget: "number", required: false}
-          - {label: "Anzahl Google-Bewertungen (optional)", name: "google_bewertung_anzahl", widget: "string", required: false}
-          - {label: "Link zu deinem Google-Unternehmensprofil (für den „Alle Bewertungen ansehen“-Button)", name: "google_bewertung_link", widget: "string", required: false}
-          - label: "Einzelne Kundenstimmen (optional, bitte nur echte Rückmeldungen von echten Kunden eintragen)"
-            name: "bewertungen"
-            widget: "list"
-            required: false
-            summary: "{{fields.name}}"
-            fields:
-              - {label: "Name des Kunden", name: "name", widget: "string"}
-              - {label: "Sterne (1–5)", name: "sterne", widget: "number", min: 1, max: 5, default: 5}
-              - {label: "Text der Bewertung", name: "text", widget: "text"}
+          - {label: "Überschrift des Bewertungs-Bereichs", name: "reviews_headline", widget: "string", default: "Das sagen Kunden", required: false}

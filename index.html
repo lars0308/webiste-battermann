@@ -86,7 +86,6 @@
   .nav{
     display:flex; align-items:center; justify-content:space-between;
     padding:16px 28px;
-    max-width:1120px; margin:0 auto;
   }
   .brand{
     display:flex; align-items:center; gap:12px;
@@ -410,7 +409,7 @@
     font-size:0.92rem;
   }
   .gallery-note svg{ margin-top:2px; }
-  .gallery-carousel-wrap{ position:relative; height:280px; overflow:hidden; }
+  .gallery-carousel-wrap{ position:relative; height:280px; overflow:hidden; touch-action:pan-y; cursor:grab; }
   .gallery-grid{
     position:relative;
     width:100%; height:100%;
@@ -1393,7 +1392,35 @@
     }
     prevBtn.addEventListener('click', function(){ goTo(current - 1); restartAutoplay(); });
     nextBtn.addEventListener('click', function(){ goTo(current + 1); restartAutoplay(); });
+    let dragActive = false;
+    let dragStartX = 0;
+    let dragDelta = 0;
+    let dragMoved = false;
+    wrap.addEventListener('pointerdown', function(e){
+      dragActive = true;
+      dragStartX = e.clientX;
+      dragDelta = 0;
+      dragMoved = false;
+      stopAutoplay();
+    });
+    wrap.addEventListener('pointermove', function(e){
+      if(!dragActive) return;
+      dragDelta = e.clientX - dragStartX;
+      if(Math.abs(dragDelta) > 8) dragMoved = true;
+    });
+    function endDrag(){
+      if(!dragActive) return;
+      dragActive = false;
+      const threshold = 40;
+      if(dragDelta > threshold) goTo(current - 1);
+      else if(dragDelta < -threshold) goTo(current + 1);
+      restartAutoplay();
+    }
+    wrap.addEventListener('pointerup', endDrag);
+    wrap.addEventListener('pointerleave', function(){ if(dragActive) endDrag(); });
+
     grid.addEventListener('click', function(e){
+      if(dragMoved){ dragMoved = false; return; }
       const tile = e.target.closest('.gallery-tile');
       if(!tile) return;
       const idx = Array.from(grid.children).indexOf(tile);

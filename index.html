@@ -732,9 +732,10 @@
   .contact-section .eyebrow{ color:var(--accent-light); }
   .contact-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
+    grid-template-columns:1fr;
+    gap:36px;
   }
+  .contact-grid > div:first-child{ max-width:640px; }
   .contact-info-list{ display:flex; flex-direction:column; gap:20px; margin-bottom:34px; }
   .contact-info-item{ display:flex; gap:14px; align-items:flex-start; }
   .contact-info-item svg{ width:22px; height:22px; color:var(--accent-light); flex:none; margin-top:2px; }

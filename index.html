@@ -1776,8 +1776,10 @@
         color_sage: '--sage'
       };
       Object.keys(colorMap).forEach(function(key){
-        if(data[key]){
-          document.documentElement.style.setProperty(colorMap[key], data[key]);
+        const customValue = data[key + '_custom'];
+        const value = (customValue && customValue.trim()) ? customValue.trim() : data[key];
+        if(value){
+          document.documentElement.style.setProperty(colorMap[key], value);
         }
       });
 

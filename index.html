@@ -112,7 +112,7 @@
   nav.links{
     display:flex; align-items:center; gap:30px;
   }
-  .mobile-only-cta{ display:none; }
+  nav.links .mobile-only-cta{ display:none; }
   .announce-overlay{
     display:none;
     position:fixed; inset:0; z-index:200;
@@ -361,17 +361,6 @@
   .why-card p{ color:var(--ink-soft); font-size:0.92rem; margin:0; }
 
   /* SERVICES */
-  .service-group{ margin-bottom:36px; }
-  .service-group:last-of-type{ margin-bottom:0; }
-  .service-group-title{
-    font-family:'JetBrains Mono', monospace;
-    text-transform:uppercase;
-    font-size:0.76rem;
-    letter-spacing:0.1em;
-    color:var(--accent);
-    font-weight:500;
-    margin:0 0 16px;
-  }
   .services-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
@@ -417,29 +406,25 @@
     font-size:0.92rem;
   }
   .gallery-note svg{ margin-top:2px; }
-  .gallery-carousel-wrap{ position:relative; }
+  .gallery-carousel-wrap{ position:relative; height:280px; overflow:hidden; }
   .gallery-grid{
-    display:flex;
-    gap:16px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    scroll-behavior:smooth;
-    padding-bottom:6px;
-    -webkit-overflow-scrolling:touch;
+    position:relative;
+    width:100%; height:100%;
   }
-  .gallery-grid::-webkit-scrollbar{ height:6px; }
-  .gallery-grid::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
   .gallery-tile{
-    flex:0 0 auto;
-    width:min(280px, 78vw);
+    position:absolute;
+    top:50%; left:50%;
+    width:220px;
     aspect-ratio:1;
-    scroll-snap-align:start;
+    margin:-110px 0 0 -110px;
     background:var(--primary);
     border-radius:var(--radius);
     display:flex; align-items:center; justify-content:center;
     color:rgba(255,255,255,0.3);
-    position:relative;
     overflow:hidden;
+    cursor:pointer;
+    box-shadow:0 20px 40px -20px rgba(18,40,34,0.5);
+    transition:transform 0.5s ease, opacity 0.5s ease;
   }
   .gallery-tile:nth-child(2n){ background:var(--sage); }
   .gallery-tile:nth-child(3n){ background:var(--accent); }
@@ -461,7 +446,11 @@
   .gallery-nav svg{ width:18px; height:18px; }
   .gallery-nav-row{ display:flex; align-items:center; gap:14px; }
   .gallery-nav-row .gallery-carousel-wrap{ flex:1; min-width:0; }
-  @media (max-width: 640px){ .gallery-nav{ display:none; } }
+  @media (max-width: 640px){
+    .gallery-carousel-wrap{ height:220px; }
+    .gallery-tile{ width:170px; margin:-85px 0 0 -85px; }
+  }
+
 
   /* VORHER / NACHHER */
   .vn-grid{
@@ -720,7 +709,11 @@
     border:1px solid var(--line);
     border-radius:20px;
     color:var(--primary);
+    text-decoration:none;
+    display:inline-block;
+    transition:border-color 0.15s ease, color 0.15s ease;
   }
+  .town-chip:hover{ border-color:var(--accent); color:var(--accent); }
   .radius-note{
     display:flex; align-items:center; gap:12px;
     font-size:0.92rem; color:var(--ink-soft);
@@ -809,7 +802,7 @@
       display:none; gap:18px;
     }
     nav.links.open{ display:flex; }
-    .mobile-only-cta{ display:inline-flex; }
+    nav.links.open .mobile-only-cta{ display:inline-flex; }
     .burger{ display:block; }
     .hero-grid, .about-grid, .area-grid, .contact-grid{ grid-template-columns:1fr; }
     .hero-visual{ display:none; }
@@ -995,66 +988,51 @@
         <h2>Was ich für Sie übernehme</h2>
         <p>Von der kleinen Reparatur bis zur laufenden Objektpflege — hier finden Sie die Bereiche, in denen ich regelmäßig im Einsatz bin.</p>
       </div>
-      <div class="service-group">
-        <h3 class="service-group-title">Haus &amp; Objekt</h3>
-        <div class="services-grid">
-          <div class="service-card reveal">
-            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
-            <h3>Objektbetreuung</h3>
-            <p>Regelmäßige Kontrolle, Pflege und kleinere Arbeiten rund ums Objekt.</p>
-          </div>
-          <div class="service-card reveal">
-            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h12"/></svg></div>
-            <h3>Hausmeisterservice</h3>
-            <p>Sauberkeit, Ordnung und regelmäßige Pflege von Haus, Hof und Gemeinschaftsflächen.</p>
-          </div>
-          <div class="service-card reveal">
-            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h3l2 12h11l2-8H6"/><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg></div>
-            <h3>Entrümpelung &amp; Entsorgung</h3>
-            <p>Unterstützung bei Haushaltsauflösungen, Keller- und Garagenräumungen sowie fachgerechter Entsorgung.</p>
-          </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+          <h3>Objektbetreuung</h3>
+          <p>Regelmäßige Kontrolle, Pflege und kleinere Arbeiten rund ums Objekt.</p>
         </div>
-      </div>
-
-      <div class="service-group">
-        <h3 class="service-group-title">Reparatur &amp; Technik</h3>
-        <div class="services-grid">
-          <div class="service-card reveal">
-            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
-            <h3>Elektroarbeiten</h3>
-            <p>Reparaturen, Fehlersuche und Installationen im gesetzlich zulässigen Rahmen ohne Meisterpflicht — z. B. Austausch von Schaltern und Lampen oder die Ursachensuche bei einer auslösenden Sicherung.</p>
-          </div>
-          <div class="service-card reveal">
-            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c4-3 7-6.5 7-11a7 7 0 0 0-14 0c0 4.5 3 8 7 11z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
-            <h3>Sanitärarbeiten</h3>
-            <p>Siphons, Dichtungen, WC-Sitze und Armaturenwechsel im zulässigen Rahmen ohne Meisterpflicht.</p>
-          </div>
-          <div class="service-card reveal">
-            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 0 0-1.4l-1.6-1.6a1 1 0 0 0-1.4 0L13.1 3.3a1 1 0 0 0 0 1.4z"/><path d="m21 21-6-6"/><path d="m3 3 7.5 7.5"/><path d="M6.3 14.7a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 0 0-1.4L9.3 13.1a1 1 0 0 0-1.4 0z"/></svg></div>
-            <h3>Kleinreparaturen</h3>
-            <p>Montagearbeiten, Reparaturen und Instandhaltung im und am Haus.</p>
-          </div>
-          <div class="service-card reveal">
-            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 10h16"/><path d="M10 10v10"/></svg></div>
-            <h3>Montagearbeiten</h3>
-            <p>Aufbau und Montage von Möbeln, Regalen, Lampen, Gardinenstangen, Sichtschutz und Zäunen.</p>
-          </div>
+        <div class="service-card reveal">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v8"/><path d="M12 10c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 10c3 0 5-2 5-5-3 0-5 2-5 5z"/><path d="M12 22v-8"/></svg></div>
+          <h3>Garten- &amp; Außenpflege</h3>
+          <p>Rasenmähen, Kanten schneiden, Beetpflege und Rückschnitt.</p>
         </div>
-      </div>
-
-      <div class="service-group">
-        <h3 class="service-group-title">Hof, Garten &amp; Sonstiges</h3>
-        <div class="services-grid">
-          <div class="service-card reveal">
-            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v8"/><path d="M12 10c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 10c3 0 5-2 5-5-3 0-5 2-5 5z"/><path d="M12 22v-8"/></svg></div>
-            <h3>Garten- &amp; Außenpflege</h3>
-            <p>Rasenmähen, Kanten schneiden, Beetpflege und Rückschnitt.</p>
-          </div>
-          <div class="service-card reveal">
-            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="16" r="3"/><path d="M10.5 9.5 14.5 13.5"/></svg></div>
-            <h3>Koordination weiterer Gewerke</h3>
-            <p>Auf Wunsch Ansprechpartner vor Ort und Abstimmung mit passenden Fachbetrieben.</p>
-          </div>
+        <div class="service-card reveal">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 0 0-1.4l-1.6-1.6a1 1 0 0 0-1.4 0L13.1 3.3a1 1 0 0 0 0 1.4z"/><path d="m21 21-6-6"/><path d="m3 3 7.5 7.5"/><path d="M6.3 14.7a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 0 0-1.4L9.3 13.1a1 1 0 0 0-1.4 0z"/></svg></div>
+          <h3>Kleinreparaturen</h3>
+          <p>Montagearbeiten, Reparaturen und Instandhaltung im und am Haus.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+          <h3>Elektroarbeiten</h3>
+          <p>Reparaturen, Fehlersuche und Installationen im gesetzlich zulässigen Rahmen ohne Meisterpflicht — z. B. Austausch von Schaltern und Lampen oder die Ursachensuche bei einer auslösenden Sicherung.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c4-3 7-6.5 7-11a7 7 0 0 0-14 0c0 4.5 3 8 7 11z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
+          <h3>Sanitärarbeiten</h3>
+          <p>Siphons, Dichtungen, WC-Sitze und Armaturenwechsel im zulässigen Rahmen ohne Meisterpflicht.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 10h16"/><path d="M10 10v10"/></svg></div>
+          <h3>Montagearbeiten</h3>
+          <p>Aufbau und Montage von Möbeln, Regalen, Lampen, Gardinenstangen, Sichtschutz und Zäunen.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h12"/></svg></div>
+          <h3>Hausmeisterservice</h3>
+          <p>Sauberkeit, Ordnung und regelmäßige Pflege von Haus, Hof und Gemeinschaftsflächen.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h3l2 12h11l2-8H6"/><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg></div>
+          <h3>Entrümpelung &amp; Entsorgung</h3>
+          <p>Unterstützung bei Haushaltsauflösungen, Keller- und Garagenräumungen sowie fachgerechter Entsorgung.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="16" r="3"/><path d="M10.5 9.5 14.5 13.5"/></svg></div>
+          <h3>Koordination weiterer Gewerke</h3>
+          <p>Auf Wunsch Ansprechpartner vor Ort und Abstimmung mit passenden Fachbetrieben.</p>
         </div>
       </div>
       <p class="services-note reveal">Nicht aufgeführt, aber trotzdem ein Anliegen? Auf Anfrage übernehme ich fast jede handwerkliche Aufgabe rund um Haus, Hof und Garten — einfach kurz schildern, ich sage Ihnen ehrlich, ob und wie ich helfen kann.</p>
@@ -1147,12 +1125,12 @@
         <h2 style="margin:12px 0 18px;">Vor Ort in Ihrer Nähe</h2>
         <p style="color:var(--ink-soft); margin-bottom:0;">Ich bin hauptsächlich in Lindhorst, Stadthagen, Bückeburg, Bad Nenndorf, Beckedorf, Barsinghausen und Umgebung tätig.</p>
         <div class="town-list">
-          <span class="town-chip">Lindhorst</span>
-          <span class="town-chip">Stadthagen</span>
-          <span class="town-chip">Bückeburg</span>
-          <span class="town-chip">Bad Nenndorf</span>
-          <span class="town-chip">Beckedorf</span>
-          <span class="town-chip">Barsinghausen</span>
+          <a class="town-chip" href="https://www.google.com/maps/dir/?api=1&destination=Lindhorst" target="_blank" rel="noopener">Lindhorst</a>
+          <a class="town-chip" href="https://www.google.com/maps/dir/?api=1&destination=Stadthagen" target="_blank" rel="noopener">Stadthagen</a>
+          <a class="town-chip" href="https://www.google.com/maps/dir/?api=1&destination=B%C3%BCckeburg" target="_blank" rel="noopener">Bückeburg</a>
+          <a class="town-chip" href="https://www.google.com/maps/dir/?api=1&destination=Bad+Nenndorf" target="_blank" rel="noopener">Bad Nenndorf</a>
+          <a class="town-chip" href="https://www.google.com/maps/dir/?api=1&destination=Beckedorf" target="_blank" rel="noopener">Beckedorf</a>
+          <a class="town-chip" href="https://www.google.com/maps/dir/?api=1&destination=Barsinghausen" target="_blank" rel="noopener">Barsinghausen</a>
         </div>
         <div class="radius-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>
@@ -1356,22 +1334,54 @@
   document.getElementById('audienceBtnBusiness').addEventListener('click', function(){ applyAudience('business'); });
   applyAudience('privat');
 
-  // Gallery carousel arrows + slow auto-rotation (looping), configurable via CMS
+  // Coverflow-style carousel: center tile highlighted, side tiles peek, true infinite loop via circular index math
   (function(){
     const grid = document.getElementById('galleryGrid');
+    const wrap = document.querySelector('.gallery-carousel-wrap');
     const prevBtn = document.getElementById('galleryPrev');
     const nextBtn = document.getElementById('galleryNext');
-    if(!grid || !prevBtn || !nextBtn) return;
+    if(!grid || !prevBtn || !nextBtn || !wrap) return;
 
-    function tileStep(){
-      const tile = grid.querySelector('.gallery-tile');
-      return tile ? tile.getBoundingClientRect().width + 16 : 300;
+    let current = 0;
+
+    function layout(){
+      const tiles = Array.from(grid.children);
+      const n = tiles.length;
+      if(!n) return;
+      const wrapWidth = wrap.clientWidth;
+      const tileWidth = tiles[0].getBoundingClientRect().width || 220;
+      const gap = Math.max(tileWidth * 0.72, Math.min(wrapWidth * 0.32, tileWidth * 0.95));
+      tiles.forEach(function(tile, i){
+        let delta = (i - current) % n;
+        if(delta > n / 2) delta -= n;
+        if(delta < -n / 2) delta += n;
+        const absD = Math.abs(delta);
+        let scale = 1, opacity = 1, z = 10, pointer = 'auto';
+        if(absD === 0){ scale = 1; opacity = 1; z = 10; }
+        else if(absD === 1){ scale = 0.78; opacity = 0.6; z = 5; }
+        else if(absD === 2){ scale = 0.6; opacity = 0.28; z = 2; }
+        else { scale = 0.5; opacity = 0; z = 1; pointer = 'none'; }
+        tile.style.transform = 'translateX(' + (delta * gap) + 'px) scale(' + scale + ')';
+        tile.style.opacity = opacity;
+        tile.style.zIndex = z;
+        tile.style.pointerEvents = pointer;
+      });
     }
-    function scrollByTile(dir){
-      grid.scrollBy({ left: dir * tileStep() * 2, behavior: 'smooth' });
+
+    function goTo(index){
+      const n = grid.children.length;
+      current = ((index % n) + n) % n;
+      layout();
     }
-    prevBtn.addEventListener('click', function(){ scrollByTile(-1); stopAutoplay(true); });
-    nextBtn.addEventListener('click', function(){ scrollByTile(1); stopAutoplay(true); });
+    prevBtn.addEventListener('click', function(){ goTo(current - 1); restartAutoplay(); });
+    nextBtn.addEventListener('click', function(){ goTo(current + 1); restartAutoplay(); });
+    grid.addEventListener('click', function(e){
+      const tile = e.target.closest('.gallery-tile');
+      if(!tile) return;
+      const idx = Array.from(grid.children).indexOf(tile);
+      if(idx !== current){ goTo(idx); restartAutoplay(); }
+    });
+    window.addEventListener('resize', layout);
 
     let autoplayTimer = null;
     let resumeTimer = null;
@@ -1379,28 +1389,24 @@
       const enabled = !window.SITE_THEME || window.SITE_THEME.gallery_autoplay !== false;
       if(!enabled) return;
       const seconds = (window.SITE_THEME && window.SITE_THEME.gallery_autoplay_seconds) || 4;
-      stopAutoplay(false);
-      autoplayTimer = setInterval(function(){
-        const atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10;
-        if(atEnd){
-          grid.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          grid.scrollBy({ left: tileStep(), behavior: 'smooth' });
-        }
-      }, seconds * 1000);
+      stopAutoplay();
+      autoplayTimer = setInterval(function(){ goTo(current + 1); }, seconds * 1000);
     }
-    function stopAutoplay(temporary){
+    function stopAutoplay(){
       if(autoplayTimer){ clearInterval(autoplayTimer); autoplayTimer = null; }
       if(resumeTimer){ clearTimeout(resumeTimer); resumeTimer = null; }
-      if(temporary){
-        resumeTimer = setTimeout(startAutoplay, 8000);
-      }
     }
-    grid.addEventListener('mouseenter', function(){ stopAutoplay(false); });
-    grid.addEventListener('mouseleave', startAutoplay);
-    grid.addEventListener('touchstart', function(){ stopAutoplay(true); }, {passive:true});
+    function restartAutoplay(){
+      stopAutoplay();
+      resumeTimer = setTimeout(startAutoplay, 6000);
+    }
+    wrap.addEventListener('mouseenter', stopAutoplay);
+    wrap.addEventListener('mouseleave', startAutoplay);
+
+    layout();
     startAutoplay();
     window.restartGalleryAutoplay = startAutoplay;
+    window.relayoutGalleryCarousel = layout;
   })();
 
   window.SITE_CONTACT_EMAIL = 'service.battermann@gmx.de';
@@ -1508,6 +1514,7 @@
         grid.innerHTML = data.gallery.map(function(item){
           return '<div class="gallery-tile"><img src="' + item.image + '" alt="' + (item.alt || '').replace(/"/g,'&quot;') + '"></div>';
         }).join('');
+        if(window.relayoutGalleryCarousel) window.relayoutGalleryCarousel();
       }
 
       if(data.vn_intro){

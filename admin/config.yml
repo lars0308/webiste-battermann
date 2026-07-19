@@ -147,11 +147,6 @@ collections:
           - {label: "WhatsApp-Nummer (technisch, nur Ziffern, z. B. 4915567467763)", name: "whatsapp_number", widget: "string"}
           - {label: "E-Mail-Adresse", name: "email", widget: "string"}
           - {label: "Öffnungszeiten (Text)", name: "hours_text", widget: "string"}
-          - label: "Formular-Versanddienst „Access Key“ (von web3forms.com, damit Anfragen direkt bei dir ankommen)"
-            name: "web3forms_key"
-            widget: "string"
-            required: false
-            hint: "Leer lassen = Formular öffnet stattdessen das E-Mail-Programm des Kunden"
           - {label: "Kontakt-Einleitungstext (für Privatkunden)", name: "contact_intro_privat", widget: "text", required: false}
           - {label: "Kontakt-Einleitungstext (für Hausverwaltung & Firmen)", name: "contact_intro_business", widget: "text", required: false}
 

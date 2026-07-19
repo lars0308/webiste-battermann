@@ -947,7 +947,7 @@
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" data-section-key="hero">
     <svg class="hero-bg-lines" viewBox="0 0 1120 700" preserveAspectRatio="none">
       <path id="heroTrace" d="M-20,560 C120,560 140,480 220,480 C280,480 300,430 360,430 L420,430 L440,360 L470,360 L500,300 C540,240 600,260 640,220 C700,160 780,190 860,140 C920,105 980,150 1140,110"
         fill="none" stroke="#4E7A69" stroke-width="2" stroke-dasharray="6 3" opacity="0.5"/>
@@ -1004,7 +1004,7 @@
   </section>
 
   <!-- KERNBEREICHE -->
-  <section style="padding:56px 0;">
+  <section style="padding:56px 0;" data-section-key="kernbereiche">
     <div class="wrap">
       <div class="why-grid kernbereiche-grid reveal">
         <div class="why-card" style="text-align:center; padding:32px 24px;">
@@ -1027,7 +1027,7 @@
   </section>
 
   <!-- REVIEWS -->
-  <section class="alt" id="bewertungenSection">
+  <section class="alt" id="bewertungenSection" data-section-key="bewertungen">
     <div class="wrap">
       <div class="reviews-head reveal">
         <div>
@@ -1040,7 +1040,7 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="ueber-mich">
+  <section id="ueber-mich" data-section-key="ueber-mich">
     <div class="wrap about-grid reveal">
       <div class="portrait">
         <img src="images/portrait-lars.jpg" alt="Lars Battermann bei der Arbeit" id="portraitImg2">
@@ -1058,7 +1058,7 @@
   </section>
 
   <!-- WHY -->
-  <section class="alt">
+  <section class="alt" data-section-key="warum">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Warum Battermann</p>
@@ -1086,7 +1086,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="leistungen">
+  <section id="leistungen" data-section-key="leistungen">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Leistungen im Überblick</p>
@@ -1145,7 +1145,7 @@
   </section>
 
   <!-- GALLERY -->
-  <section class="alt">
+  <section class="alt" data-section-key="galerie">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Erste Eindrücke</p>
@@ -1173,7 +1173,7 @@
   </section>
 
   <!-- VORHER / NACHHER -->
-  <section class="alt">
+  <section class="alt" data-section-key="vorher-nachher">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Vorher / Nachher</p>
@@ -1222,7 +1222,7 @@
   </section>
 
   <!-- AREA -->
-  <section id="einsatzgebiet">
+  <section id="einsatzgebiet" data-section-key="einsatzgebiet">
     <div class="wrap area-grid reveal">
       <div>
         <p class="eyebrow">Einsatzgebiet</p>
@@ -1251,7 +1251,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="kontakt" class="contact-section">
+  <section id="kontakt" class="contact-section" data-section-key="kontakt">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Kontakt &amp; Anfrage</p>
@@ -1778,6 +1778,7 @@
       if(data.trust_item_4){ document.getElementById('trustItem4').textContent = data.trust_item_4; }
       applyAnnouncement(data);
       applyReviews(data);
+      applySectionOrder(data.section_order);
       if(data.audience_label_privat){ document.getElementById('audienceBtnPrivat').textContent = data.audience_label_privat; }
       if(data.audience_label_business){ document.getElementById('audienceBtnBusiness').textContent = data.audience_label_business; }
 
@@ -1839,6 +1840,18 @@
         loadMap();
       });
     }
+  }
+
+  function applySectionOrder(order){
+    if(!Array.isArray(order) || !order.length) return;
+    const main = document.getElementById('top');
+    if(!main) return;
+    order.forEach(function(entry){
+      const key = entry && entry.section;
+      if(!key) return;
+      const el = main.querySelector('[data-section-key="' + key + '"]');
+      if(el) main.appendChild(el);
+    });
   }
 
   function applyReviews(data){

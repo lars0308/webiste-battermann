@@ -903,6 +903,8 @@
     .burger{ margin-left:2px; }
   }
 </style>
+<!-- Elfsight Google Reviews | Untitled Google Reviews -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
 </head>
 <body>
 
@@ -1025,19 +1027,15 @@
   </section>
 
   <!-- REVIEWS -->
-  <section class="alt" id="bewertungenSection" style="display:none;">
+  <section class="alt" id="bewertungenSection">
     <div class="wrap">
       <div class="reviews-head reveal">
         <div>
           <p class="eyebrow">Bewertungen</p>
           <h2 id="reviewsHeadline">Das sagen Kunden</h2>
         </div>
-        <a href="#" target="_blank" rel="noopener" class="reviews-google-link" id="reviewsGoogleLink" style="display:none;">
-          <span class="reviews-stars" id="reviewsStars"></span>
-          <span id="reviewsSummaryText"></span>
-        </a>
       </div>
-      <div class="reviews-grid reveal" id="reviewsGrid"></div>
+      <div class="elfsight-app-34a4a894-f4ea-4d0c-a8cd-b505233be96c" data-elfsight-app-lazy></div>
     </div>
   </section>
 
@@ -1843,34 +1841,8 @@
     }
   }
 
-  function starString(n){
-    n = Math.max(0, Math.min(5, Math.round(Number(n) || 0)));
-    return '★★★★★☆☆☆☆☆'.slice(5 - n, 10 - n);
-  }
   function applyReviews(data){
-    const reviews = Array.isArray(data.bewertungen) ? data.bewertungen.filter(function(r){ return r && r.text; }) : [];
-    const hasGoogle = data.google_bewertung_link && data.google_bewertung_sterne;
-    if(!reviews.length && !hasGoogle) return; // nothing real to show yet
-
-    document.getElementById('bewertungenSection').style.display = '';
     if(data.reviews_headline){ document.getElementById('reviewsHeadline').textContent = data.reviews_headline; }
-
-    if(hasGoogle){
-      const link = document.getElementById('reviewsGoogleLink');
-      link.href = data.google_bewertung_link;
-      link.style.display = 'flex';
-      document.getElementById('reviewsStars').textContent = starString(data.google_bewertung_sterne);
-      const count = data.google_bewertung_anzahl ? ' (' + data.google_bewertung_anzahl + ' Bewertungen bei Google)' : ' bei Google';
-      document.getElementById('reviewsSummaryText').textContent = Number(data.google_bewertung_sterne).toFixed(1) + ' von 5' + count;
-    }
-
-    document.getElementById('reviewsGrid').innerHTML = reviews.map(function(r){
-      return '<div class="review-card">' +
-        '<span class="reviews-stars">' + starString(r.sterne) + '</span>' +
-        '<p>' + (r.text || '').replace(/</g,'&lt;') + '</p>' +
-        '<div class="review-name">' + (r.name || '').replace(/</g,'&lt;') + '</div>' +
-        '</div>';
-    }).join('');
   }
 
   // Announcement popup (e.g. temporary discount or vacation notice)

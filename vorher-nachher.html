@@ -1071,16 +1071,35 @@
       if(Array.isArray(data.vorher_nachher) && data.vorher_nachher.length){
         renderVnAccordionFull(data.vorher_nachher);
       }
-      if(Array.isArray(data.bildertagebuch) && data.bildertagebuch.length){
-        renderTagebuch(data.bildertagebuch);
-      }
+      renderTagebuch(data);
     })
     .catch(function(){ /* keep the static fallback already in the page */ });
 
-  function renderTagebuch(entries){
-    const valid = entries.filter(function(e){ return e && e.bild; });
-    if(!valid.length) return;
-    const sorted = valid.slice().sort(function(a, b){
+  function renderTagebuch(data){
+    const entries = [];
+
+    (data.gallery || []).forEach(function(item){
+      if(item && item.image){ entries.push({ bild: item.image, text: item.alt || '', datum: item.datum || '' }); }
+    });
+
+    (data.vorher_nachher || []).forEach(function(pair){
+      if(!pair) return;
+      if(pair.vorher){ entries.push({ bild: pair.vorher, text: pair.vorher_alt || pair.pair_title || '', datum: pair.datum || '' }); }
+      if(pair.nachher){ entries.push({ bild: pair.nachher, text: pair.nachher_alt || pair.pair_title || '', datum: pair.datum || '' }); }
+      (pair.vorher_weitere || []).forEach(function(extra){
+        if(extra && extra.bild){ entries.push({ bild: extra.bild, text: pair.pair_title || '', datum: pair.datum || '' }); }
+      });
+      (pair.nachher_weitere || []).forEach(function(extra){
+        if(extra && extra.bild){ entries.push({ bild: extra.bild, text: pair.pair_title || '', datum: pair.datum || '' }); }
+      });
+    });
+
+    (data.bildertagebuch || []).forEach(function(item){
+      if(item && item.bild){ entries.push({ bild: item.bild, text: item.text || '', datum: item.datum || '' }); }
+    });
+
+    if(!entries.length) return;
+    const sorted = entries.slice().sort(function(a, b){
       if(a.datum && b.datum) return b.datum.localeCompare(a.datum);
       if(a.datum) return -1;
       if(b.datum) return 1;

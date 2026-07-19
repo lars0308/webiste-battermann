@@ -752,6 +752,13 @@
     padding:34px;
     border-radius:var(--radius);
   }
+  .tally-embed-wrap{
+    background:var(--paper);
+    border-radius:var(--radius);
+    overflow:hidden;
+    padding:10px;
+  }
+  .tally-embed-wrap iframe{ display:block; border:0; }
   .form-row-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   .form-row{ display:flex; flex-direction:column; gap:6px; margin-bottom:18px; }
   .form-row label{ font-size:0.82rem; font-weight:600; color:var(--primary); }
@@ -1191,66 +1198,9 @@
             <div class="badge-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Unverbindliche Anfragen jederzeit möglich</div>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
-          <div class="form-row-grid business-only" id="businessFields" style="display:none;">
-            <div class="form-row">
-              <label for="firma">Firma / Hausverwaltung</label>
-              <input type="text" id="firma" name="firma" placeholder="Name des Unternehmens">
-            </div>
-            <div class="form-row">
-              <label for="anzahlObjekte">Anzahl Objekte (ca.)</label>
-              <input type="text" id="anzahlObjekte" name="anzahlObjekte" placeholder="z. B. 3">
-            </div>
-          </div>
-          <div class="form-row-grid">
-            <div class="form-row">
-              <label for="name">Name *</label>
-              <input type="text" id="name" name="name" required placeholder="Ihr Name">
-            </div>
-            <div class="form-row">
-              <label for="email">E-Mail</label>
-              <input type="email" id="email" name="email" placeholder="Für die Rückantwort">
-            </div>
-          </div>
-          <div class="form-row-grid">
-            <div class="form-row">
-              <label for="phone">Telefon</label>
-              <input type="tel" id="phone" name="phone" placeholder="Für eine schnelle Rückmeldung">
-            </div>
-            <div class="form-row">
-              <label for="ort">Ort / Adresse</label>
-              <input type="text" id="ort" name="ort" placeholder="z. B. Stadthagen">
-            </div>
-          </div>
-          <div class="form-row-grid">
-            <div class="form-row">
-              <label for="art">Art der Anfrage</label>
-              <select id="art" name="art">
-                <option value="">Bitte wählen (optional)</option>
-                <option value="Hausmeisterservice">Hausmeisterservice</option>
-                <option value="Objektbetreuung">Objektbetreuung</option>
-                <option value="Garten- und Außenpflege">Garten- und Außenpflege</option>
-                <option value="Kleinreparaturen / Montage">Kleinreparaturen / Montage</option>
-                <option value="Elektroarbeiten">Elektroarbeiten</option>
-                <option value="Sanitärarbeiten">Sanitärarbeiten</option>
-                <option value="Entrümpelung und Entsorgung">Entrümpelung und Entsorgung</option>
-                <option value="Sonstiges">Sonstiges / auf Anfrage</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label for="termin">Wunschtermin</label>
-              <input type="text" id="termin" name="termin" placeholder="z. B. nächste Woche, flexibel">
-            </div>
-          </div>
-          <div class="form-row">
-            <label for="message">Ihr Anliegen *</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Was kann ich für Sie erledigen?"></textarea>
-          </div>
-          <button type="submit" class="cta-btn accent form-submit" id="formSubmitBtn">Anfrage senden</button>
-          <p class="form-note" id="formNote">Ihre Anfrage geht direkt bei mir ein. Haben Sie Fotos zum Anliegen (z. B. von einem Schaden)? Die können Sie mir gerne zusätzlich per WhatsApp oder E-Mail schicken.</p>
-          <p class="form-success" id="formSuccess" style="display:none;">Vielen Dank! Ihre Anfrage ist bei mir eingegangen — ich melde mich zeitnah bei Ihnen.</p>
-          <p class="form-error" id="formError" style="display:none;">Da ist leider etwas schiefgelaufen. Bitte versuchen Sie es erneut, oder schreiben Sie mir direkt per <a href="#" class="js-email-link">E-Mail</a> oder <a href="#" class="js-tel-link">Telefon</a>.</p>
-        </form>
+        <div class="tally-embed-wrap">
+          <iframe data-tally-src="https://tally.so/embed/kdg4ZJ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Kontaktformular"></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -1338,7 +1288,8 @@
     const intro = mode === 'business' ? t.contact_intro_business : t.contact_intro_privat;
     if(intro){ introEl.textContent = intro; }
 
-    document.getElementById('businessFields').style.display = mode === 'business' ? 'grid' : 'none';
+    const businessFieldsEl = document.getElementById('businessFields');
+    if(businessFieldsEl){ businessFieldsEl.style.display = mode === 'business' ? 'grid' : 'none'; }
 
     const trustEl = document.getElementById('trustItem3');
     if(trustEl){
@@ -1454,92 +1405,23 @@
     window.relayoutGalleryCarousel = layout;
   })();
 
-  window.SITE_CONTACT_EMAIL = 'service.battermann@gmx.de';
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const ort = document.getElementById('ort').value.trim();
-    const art = document.getElementById('art').value.trim();
-    const termin = document.getElementById('termin').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const firma = document.getElementById('firma') ? document.getElementById('firma').value.trim() : '';
-    const anzahlObjekte = document.getElementById('anzahlObjekte') ? document.getElementById('anzahlObjekte').value.trim() : '';
-    const isBusiness = document.body.getAttribute('data-audience') === 'business';
-    const subjectText = 'Anfrage über die Website — ' + (art || firma || name);
-
-    function fallbackMailto(){
-      const subject = encodeURIComponent(subjectText);
-      const body = encodeURIComponent(
-        (isBusiness && firma ? 'Firma/Hausverwaltung: ' + firma + '\n' : '') +
-        (isBusiness && anzahlObjekte ? 'Anzahl Objekte: ' + anzahlObjekte + '\n' : '') +
-        'Name: ' + name + '\n' +
-        (email ? 'E-Mail: ' + email + '\n' : '') +
-        (phone ? 'Telefon: ' + phone + '\n' : '') +
-        (ort ? 'Ort/Adresse: ' + ort + '\n' : '') +
-        (art ? 'Art der Anfrage: ' + art + '\n' : '') +
-        (termin ? 'Wunschtermin: ' + termin + '\n' : '') +
-        '\nAnliegen:\n' + message
-      );
-      window.location.href = 'mailto:' + window.SITE_CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+  // Tally embed loader (official snippet)
+  (function(){
+    var d = document, w = "https://tally.so/widgets/embed.js";
+    function v(){
+      if (typeof Tally !== "undefined") { Tally.loadEmbeds(); }
+      else {
+        d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){ e.src = e.dataset.tallySrc; });
+      }
     }
+    if (typeof Tally !== "undefined") { v(); }
+    else if (d.querySelector('script[src="' + w + '"]') == null) {
+      var s = d.createElement("script");
+      s.src = w; s.onload = v; s.onerror = v;
+      d.body.appendChild(s);
+    } else { v(); }
+  })();
 
-    const key = window.SITE_THEME && window.SITE_THEME.web3forms_key;
-    if(!key){
-      // No form service configured yet in the CMS — fall back to the visitor's own email app
-      fallbackMailto();
-      return;
-    }
-
-    const submitBtn = document.getElementById('formSubmitBtn');
-    const successEl = document.getElementById('formSuccess');
-    const errorEl = document.getElementById('formError');
-    successEl.style.display = 'none';
-    errorEl.style.display = 'none';
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Wird gesendet …';
-
-    const payload = {
-      access_key: key,
-      subject: subjectText,
-      from_name: name,
-      Name: name,
-      'E-Mail des Kunden': email,
-      Telefon: phone,
-      'Ort/Adresse': ort,
-      'Art der Anfrage': art,
-      Wunschtermin: termin,
-      Anliegen: message
-    };
-    if(isBusiness){
-      payload['Firma/Hausverwaltung'] = firma;
-      payload['Anzahl Objekte'] = anzahlObjekte;
-    }
-
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload)
-    })
-      .then(function(res){ return res.json(); })
-      .then(function(data){
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Anfrage senden';
-        if(data.success){
-          form.reset();
-          successEl.style.display = 'block';
-        } else {
-          errorEl.style.display = 'block';
-        }
-      })
-      .catch(function(){
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Anfrage senden';
-        errorEl.style.display = 'block';
-      });
-  });
 
   // Vorher/Nachher compare modal
   const vnModal = document.getElementById('vnModal');

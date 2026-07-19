@@ -8,11 +8,13 @@
     },
     {
       "image": "/images/arbeit-garten.jpg",
-      "alt": "Kantenschnitt und Rasenpflege an einer Einfahrt"
+      "alt": "Kantenschnitt und Rasenpflege an einer Einfahrt",
+      "datum": ""
     },
     {
       "image": "/images/arbeit-montage.jpg",
-      "alt": "Ausrichten eines Zaunpfostens mit der Wasserwaage"
+      "alt": "Ausrichten eines Zaunpfostens mit der Wasserwaage",
+      "datum": ""
     },
     {
       "image": "/images/elektro/elektro-fehlersuche.jpg",
@@ -46,15 +48,19 @@
     {
       "kategorie": "Bad",
       "datum": "",
-      "pair_title": "Fliesenfugen-Reinigung",
-      "vorher": "/images/vorher-nachher/bad-vorher-3.jpg",
-      "vorher_alt": "Fliesenfugen vor der Reinigung",
+      "pair_title": "Schimmelbildung an den Silikonfugen",
+      "vorher": "/images/vorher-nachher/bad-vorher-1.jpg",
+      "vorher_weitere": [
+        "/images/IMG_20260612_170056.jpg"
+      ],
+      "vorher_alt": "Silikonfugen entfernt",
       "nachher": "/images/vorher-nachher/bad-nachher-3.jpg",
-      "nachher_alt": "Fliesenfugen nach der Reinigung",
+      "nachher_alt": "Neue Silikonfugen",
       "pending": false
     },
     {
       "kategorie": "Bad",
+      "datum": "",
       "pair_title": "Fugenecke-Reinigung",
       "vorher": "/images/vorher-nachher/bad-vorher-1.jpg",
       "vorher_alt": "Fugenecke vor der Reinigung",

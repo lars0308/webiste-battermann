@@ -28,6 +28,8 @@
     --section-gap-mobile: 64px;
     --heading-green: #5F6A42;
     --header-bg: rgba(246,243,236,0.92);
+    --brand-color: var(--primary);
+    --brand-sub-color: var(--ink-soft);
   }
 
   *{box-sizing:border-box;}
@@ -97,7 +99,7 @@
     font-family:'Zilla Slab', serif;
     font-weight:600;
     font-size:1.05rem;
-    color:var(--primary);
+    color:var(--brand-color);
     line-height:1.15;
   }
   .brand-text span{
@@ -106,7 +108,7 @@
     font-weight:400;
     font-size:0.66rem;
     letter-spacing:0.08em;
-    color:var(--ink-soft);
+    color:var(--brand-sub-color);
     text-transform:uppercase;
   }
   nav.links{
@@ -1782,6 +1784,11 @@
           document.documentElement.style.setProperty(colorMap[key], value);
         }
       });
+
+      const brandColor = (data.color_brand_custom && data.color_brand_custom.trim()) ? data.color_brand_custom.trim() : data.color_brand;
+      if(brandColor){ document.documentElement.style.setProperty('--brand-color', brandColor); }
+      const brandSubColor = (data.color_brand_sub_custom && data.color_brand_sub_custom.trim()) ? data.color_brand_sub_custom.trim() : data.color_brand_sub;
+      if(brandSubColor){ document.documentElement.style.setProperty('--brand-sub-color', brandSubColor); }
 
       // Abstand zwischen Abschnitten
       if(data.section_spacing){

@@ -638,6 +638,45 @@
   .cookie-banner-inner p{ margin:0; font-size:0.85rem; color:#D9E0DB; flex:1; min-width:220px; }
   .cookie-banner-inner a{ color:var(--paper); text-decoration:underline; }
 
+  .gallery-lightbox{
+    display:none;
+    position:fixed; inset:0; z-index:300;
+    background:rgba(10,15,12,0.92);
+    align-items:center; justify-content:center;
+  }
+  .gallery-lightbox.open{ display:flex; }
+  .gallery-lightbox img{
+    max-width:88vw; max-height:82vh;
+    object-fit:contain;
+    border-radius:var(--radius);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .gallery-lightbox-close{
+    position:absolute; top:18px; right:22px;
+    background:none; border:none;
+    color:#fff; font-size:2rem; line-height:1;
+    cursor:pointer;
+  }
+  .gallery-lightbox-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:46px; height:46px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.3);
+    color:#fff;
+    cursor:pointer;
+  }
+  .gallery-lightbox-nav:hover{ background:rgba(255,255,255,0.22); }
+  .gallery-lightbox-nav svg{ width:20px; height:20px; }
+  .gallery-lightbox-prev{ left:18px; }
+  .gallery-lightbox-next{ right:18px; }
+  @media (max-width: 640px){
+    .gallery-lightbox-nav{ width:38px; height:38px; }
+  }
+
+  .tagebuch-entry{ cursor:pointer; }
+
   .vn-modal{
     position:fixed; inset:0; z-index:200;
     background:rgba(20,19,14,0.92);
@@ -953,8 +992,9 @@
       <div class="section-head reveal">
         <p class="eyebrow">Bildertagebuch</p>
         <h2>Jedes Bild, jede Notiz</h2>
-        <p class="intro-block">Alle Bilder im Überblick, mit einer kurzen Notiz dazu, was jeweils gemacht wurde — neueste zuerst.</p>
+        <p class="intro-block">Alle Bilder im Überblick, mit einer kurzen Notiz dazu, was jeweils gemacht wurde — neueste zuerst. Auf ein Bild klicken für die Großansicht.</p>
       </div>
+      <div class="vn-filters" id="tagebuchFilters"></div>
       <div class="tagebuch-list" id="tagebuchList"></div>
     </div>
   </section>
@@ -975,6 +1015,15 @@
       <span class="vn-modal-tag vn-after">Nachher</span>
     </div>
   </div>
+</div>
+
+<!-- BILDERTAGEBUCH LIGHTBOX -->
+<div class="gallery-lightbox" id="tagebuchLightbox">
+  <button class="gallery-lightbox-close" id="tagebuchLightboxClose" aria-label="Schließen">&times;</button>
+  <button class="gallery-lightbox-nav gallery-lightbox-prev" id="tagebuchLightboxPrev" aria-label="Vorheriges Bild"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+  <img id="tagebuchLightboxImg" alt="">
+  <button class="gallery-lightbox-nav gallery-lightbox-next" id="tagebuchLightboxNext" aria-label="Nächstes Bild"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+</div>
 
 
 <footer>
@@ -1079,23 +1128,24 @@
     const entries = [];
 
     (data.gallery || []).forEach(function(item){
-      if(item && item.image){ entries.push({ bild: item.image, text: item.alt || '', datum: item.datum || '' }); }
+      if(item && item.image){ entries.push({ bild: item.image, text: item.alt || '', datum: item.datum || '', kategorie: item.kategorie || '' }); }
     });
 
     (data.vorher_nachher || []).forEach(function(pair){
       if(!pair) return;
-      if(pair.vorher){ entries.push({ bild: pair.vorher, text: pair.vorher_alt || pair.pair_title || '', datum: pair.datum || '' }); }
-      if(pair.nachher){ entries.push({ bild: pair.nachher, text: pair.nachher_alt || pair.pair_title || '', datum: pair.datum || '' }); }
+      const kat = pair.kategorie || '';
+      if(pair.vorher){ entries.push({ bild: pair.vorher, text: pair.vorher_alt || pair.pair_title || '', datum: pair.datum || '', kategorie: kat }); }
+      if(pair.nachher){ entries.push({ bild: pair.nachher, text: pair.nachher_alt || pair.pair_title || '', datum: pair.datum || '', kategorie: kat }); }
       (pair.vorher_weitere || []).forEach(function(extra){
-        if(extra && extra.bild){ entries.push({ bild: extra.bild, text: pair.pair_title || '', datum: pair.datum || '' }); }
+        if(extra && extra.bild){ entries.push({ bild: extra.bild, text: pair.pair_title || '', datum: pair.datum || '', kategorie: kat }); }
       });
       (pair.nachher_weitere || []).forEach(function(extra){
-        if(extra && extra.bild){ entries.push({ bild: extra.bild, text: pair.pair_title || '', datum: pair.datum || '' }); }
+        if(extra && extra.bild){ entries.push({ bild: extra.bild, text: pair.pair_title || '', datum: pair.datum || '', kategorie: kat }); }
       });
     });
 
     (data.bildertagebuch || []).forEach(function(item){
-      if(item && item.bild){ entries.push({ bild: item.bild, text: item.text || '', datum: item.datum || '' }); }
+      if(item && item.bild){ entries.push({ bild: item.bild, text: item.text || '', datum: item.datum || '', kategorie: item.kategorie || '' }); }
     });
 
     if(!entries.length) return;
@@ -1105,13 +1155,71 @@
       if(b.datum) return 1;
       return 0;
     });
-    document.getElementById('tagebuchList').innerHTML = sorted.map(function(entry){
-      return '<div class="tagebuch-entry">' +
+
+    const list = document.getElementById('tagebuchList');
+    list.innerHTML = sorted.map(function(entry){
+      return '<div class="tagebuch-entry" data-kategorie="' + entry.kategorie.replace(/"/g,'&quot;') + '">' +
         '<img src="' + entry.bild + '" alt="' + (entry.text || '').replace(/"/g,'&quot;') + '">' +
         '<p class="tagebuch-entry-text">' + (entry.text || '').replace(/</g,'&lt;') + '</p>' +
         '</div>';
     }).join('');
     document.getElementById('tagebuchSection').style.display = '';
+
+    // Filter buttons, only shown if more than one category is present
+    const cats = [];
+    sorted.forEach(function(e){ if(e.kategorie && cats.indexOf(e.kategorie) === -1) cats.push(e.kategorie); });
+    const filterBar = document.getElementById('tagebuchFilters');
+    if(cats.length > 1){
+      filterBar.innerHTML = '<button type="button" class="vn-filter-btn active" data-filter="">Alle</button>' +
+        cats.map(function(c){ return '<button type="button" class="vn-filter-btn" data-filter="' + c.replace(/"/g,'&quot;') + '">' + c.replace(/</g,'&lt;') + '</button>'; }).join('');
+      filterBar.addEventListener('click', function(e){
+        const btn = e.target.closest('.vn-filter-btn');
+        if(!btn) return;
+        filterBar.querySelectorAll('.vn-filter-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        list.querySelectorAll('.tagebuch-entry').forEach(function(el){
+          el.style.display = (!filter || el.getAttribute('data-kategorie') === filter) ? '' : 'none';
+        });
+      });
+    }
+
+    // Click a photo to open the lightbox, with prev/next through the currently visible entries
+    const lightbox = document.getElementById('tagebuchLightbox');
+    const lightboxImg = document.getElementById('tagebuchLightboxImg');
+    function visibleEntries(){
+      return Array.from(list.querySelectorAll('.tagebuch-entry')).filter(function(el){ return el.style.display !== 'none'; });
+    }
+    function openTagebuchLightbox(idx){
+      const els = visibleEntries();
+      if(!els[idx]) return;
+      const img = els[idx].querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.dataset.index = idx;
+      lightbox.classList.add('open');
+    }
+    function stepTagebuchLightbox(dir){
+      const els = visibleEntries();
+      const idx = (parseInt(lightbox.dataset.index, 10) + dir + els.length) % els.length;
+      openTagebuchLightbox(idx);
+    }
+    list.addEventListener('click', function(e){
+      const entry = e.target.closest('.tagebuch-entry');
+      if(!entry) return;
+      const idx = visibleEntries().indexOf(entry);
+      if(idx > -1) openTagebuchLightbox(idx);
+    });
+    document.getElementById('tagebuchLightboxClose').addEventListener('click', function(){ lightbox.classList.remove('open'); });
+    document.getElementById('tagebuchLightboxPrev').addEventListener('click', function(){ stepTagebuchLightbox(-1); });
+    document.getElementById('tagebuchLightboxNext').addEventListener('click', function(){ stepTagebuchLightbox(1); });
+    lightbox.addEventListener('click', function(e){ if(e.target === lightbox) lightbox.classList.remove('open'); });
+    window.addEventListener('keydown', function(e){
+      if(!lightbox.classList.contains('open')) return;
+      if(e.key === 'Escape'){ lightbox.classList.remove('open'); }
+      else if(e.key === 'ArrowLeft'){ stepTagebuchLightbox(-1); }
+      else if(e.key === 'ArrowRight'){ stepTagebuchLightbox(1); }
+    });
   }
 
   function vnExtraStripHtml(pair){

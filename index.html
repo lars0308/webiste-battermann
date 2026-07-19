@@ -112,6 +112,38 @@
     display:flex; align-items:center; gap:30px;
   }
   .mobile-only-cta{ display:none; }
+  .announce-overlay{
+    display:none;
+    position:fixed; inset:0; z-index:200;
+    background:rgba(18,40,34,0.55);
+    align-items:center; justify-content:center;
+    padding:20px;
+  }
+  .announce-overlay.open{ display:flex; }
+  .announce-box{
+    position:relative;
+    background:var(--paper);
+    border-radius:var(--radius);
+    max-width:440px; width:100%;
+    padding:36px 30px 30px;
+    box-shadow:var(--shadow);
+    text-align:center;
+  }
+  .announce-box p{
+    margin:0;
+    font-family:'Zilla Slab', serif;
+    font-size:1.2rem;
+    color:var(--primary);
+    line-height:1.4;
+  }
+  .announce-close{
+    position:absolute; top:10px; right:14px;
+    background:none; border:none;
+    font-size:1.6rem; line-height:1;
+    color:var(--ink-soft);
+    cursor:pointer;
+  }
+
   .intro-block{
     background:var(--paper);
     border:1px solid var(--line);
@@ -787,6 +819,13 @@
 </style>
 </head>
 <body>
+
+<div class="announce-overlay" id="announceOverlay">
+  <div class="announce-box">
+    <button type="button" class="announce-close" id="announceClose" aria-label="Schließen">&times;</button>
+    <p id="announceText"></p>
+  </div>
+</div>
 
 <header>
   <div class="nav">
@@ -1502,6 +1541,7 @@
       if(data.brand_name){ document.getElementById('brandMain').textContent = data.brand_name; }
       if(data.brand_sub){ document.getElementById('brandSub').textContent = data.brand_sub; }
       if(data.footer_text){ document.getElementById('footerText').textContent = data.footer_text; }
+      applyAnnouncement(data);
       if(data.audience_label_privat){ document.getElementById('audienceBtnPrivat').textContent = data.audience_label_privat; }
       if(data.audience_label_business){ document.getElementById('audienceBtnBusiness').textContent = data.audience_label_business; }
 
@@ -1563,6 +1603,27 @@
       });
     }
   }
+
+  // Announcement popup (e.g. temporary discount or vacation notice)
+  function applyAnnouncement(data){
+    if(!data.announce_active || !data.announce_text) return;
+    if(data.announce_until){
+      const until = new Date(data.announce_until + 'T23:59:59');
+      if(!isNaN(until.getTime()) && new Date() > until) return;
+    }
+    if(sessionStorage.getItem('announceDismissed') === data.announce_text) return;
+    document.getElementById('announceText').textContent = data.announce_text;
+    document.getElementById('announceOverlay').classList.add('open');
+  }
+  const announceOverlay = document.getElementById('announceOverlay');
+  document.getElementById('announceClose').addEventListener('click', function(){
+    const txt = document.getElementById('announceText').textContent;
+    sessionStorage.setItem('announceDismissed', txt);
+    announceOverlay.classList.remove('open');
+  });
+  announceOverlay.addEventListener('click', function(e){
+    if(e.target === announceOverlay){ document.getElementById('announceClose').click(); }
+  });
 
   // Cookie banner
   (function(){

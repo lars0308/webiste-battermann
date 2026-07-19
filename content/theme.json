@@ -4,17 +4,18 @@
   "color_ink": "#1B231F",
   "color_primary": "#122822",
   "color_heading": "#5F6A42",
-  "color_header_bg": "rgba(246,243,236,0.92)",
+  "color_header_bg": "#ffff0024",
   "color_accent": "#C1622D",
   "color_sage": "#6F8F6B",
   "section_spacing": "normal",
   "logo": "/images/logo-icon.png",
   "portrait": "/images/portrait-lars.jpg",
-  "brand_name": "Battermann",
-  "brand_sub": "Objekt- & Reparaturservice",
+  "brand_name": "Objekt- und Reparaturservice",
+  "brand_sub": "Battermann",
   "gallery_autoplay": true,
-  "gallery_autoplay_seconds": 4,
-  "footer_text": "© 2026 Objekt- und Reparaturservice Battermann · Lars Battermann",
+  "gallery_autoplay_seconds": 3,
+  "audience_label_privat": "Privatkunden",
+  "audience_label_business": "Hausverwaltung & Firmen",
   "hero_eyebrow": "Hausmeisterservice · Objektbetreuung · Allround-Handwerk",
   "hero_headline_1": "Zuverlässig.",
   "hero_headline_2": "Vielseitig.",
@@ -22,12 +23,8 @@
   "hero_lead": "Ihr persönlicher Partner für Hausmeisterservice, Objektbetreuung und handwerkliche Arbeiten rund um Haus, Hof und Garten in Lindhorst, Stadthagen und Umgebung — freundlich im Umgang, verbindlich bei Terminen, gründlich in der Ausführung.",
   "hero_lead_business": "Ein fester Ansprechpartner für Hausverwaltungen und Firmen — für die laufende Betreuung mehrerer Objekte, verlässliche Terminabsprachen und unkomplizierte Abwicklung wiederkehrender Aufträge. Bereits mehrere Hausverwaltungen vertrauen auf die Zusammenarbeit.",
   "trust_item_4": "Kein Callcenter — direkter Draht zu mir",
-  "audience_label_privat": "Privatkunden",
-  "audience_label_business": "Hausverwaltung & Firmen",
-  "audience_note_privat": "",
-  "audience_note_business": "Auf Wunsch mit Rahmenvereinbarung für mehrere Objekte, fester Ansprechpartner und Abrechnung per E-Rechnung möglich.",
-  "contact_intro_privat": "Erreichbar Mo–Sa von 09:00 bis 20:00 Uhr. Für eine unverbindliche Anfrage genügt das Formular — oder schreiben Sie direkt per Telefon, WhatsApp oder E-Mail.",
-  "contact_intro_business": "Für Hausverwaltungen und Firmen: Erreichbar Mo–Sa von 09:00 bis 20:00 Uhr. Gerne besprechen wir eine Rahmenvereinbarung für mehrere Objekte — nutzen Sie das Formular oder schreiben Sie direkt per Telefon, WhatsApp oder E-Mail.",
+  "audience_note_privat": "Steuervorteil für Privatkunden\nArbeits- und Fahrtkosten werden auf unseren Rechnungen separat ausgewiesen. So können Sie Handwerkerleistungen unter bestimmten Voraussetzungen steuerlich geltend machen (§ 35a EStG).",
+  "audience_note_business": "Ihre Vorteile als Hausverwaltung Schnelle Reaktionszeiten, transparente Abrechnung,E-Rechnung, zuverlässige Ausführung und professionelle Dokumentation – ideal für die Betreuung Ihrer Objekte.",
   "about_tag": "Lars Battermann · Inhaber",
   "about_eyebrow": "Wer steckt dahinter",
   "about_headline": "Hallo, ich bin Lars Battermann.",
@@ -40,20 +37,43 @@
   "whatsapp_number": "4915567467763",
   "email": "service.battermann@gmx.de",
   "hours_text": "Mo – Sa, 09:00 – 20:00 Uhr",
+  "contact_intro_privat": "Erreichbar Mo–Sa von 09:00 bis 20:00 Uhr. Für eine unverbindliche Anfrage genügt das Formular — oder schreiben Sie direkt per Telefon, WhatsApp oder E-Mail.",
+  "contact_intro_business": "Für Hausverwaltungen und Firmen: Erreichbar Mo–Sa von 09:00 bis 20:00 Uhr. Gerne besprechen wir eine Rahmenvereinbarung für mehrere Objekte — nutzen Sie das Formular oder schreiben Sie direkt per Telefon, WhatsApp oder E-Mail.",
+  "footer_text": "© 2026 Objekt- und Reparaturservice Battermann · Lars Battermann",
   "announce_active": false,
   "announce_text": "",
   "announce_until": "",
-  "reviews_headline": "Das sagen Kunden",
+  "reviews_headline": "Das sagen Kunden über Mich",
   "section_order": [
-    {"section": "hero"},
-    {"section": "kernbereiche"},
-    {"section": "ueber-mich"},
-    {"section": "warum"},
-    {"section": "leistungen"},
-    {"section": "galerie"},
-    {"section": "vorher-nachher"},
-    {"section": "bewertungen"},
-    {"section": "einsatzgebiet"},
-    {"section": "kontakt"}
+    {
+      "section": "hero"
+    },
+    {
+      "section": "kernbereiche"
+    },
+    {
+      "section": "ueber-mich"
+    },
+    {
+      "section": "warum"
+    },
+    {
+      "section": "leistungen"
+    },
+    {
+      "section": "galerie"
+    },
+    {
+      "section": "vorher-nachher"
+    },
+    {
+      "section": "bewertungen"
+    },
+    {
+      "section": "einsatzgebiet"
+    },
+    {
+      "section": "kontakt"
+    }
   ]
 }

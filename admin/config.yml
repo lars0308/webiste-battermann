@@ -238,6 +238,38 @@ collections:
           - {label: "Firmenname (groß, im Header)", name: "brand_name", widget: "string"}
           - {label: "Firmenzusatz (klein, im Header)", name: "brand_sub", widget: "string"}
 
+          - label: "Farbe „Battermann“ im Header (großer Text)"
+            name: "color_brand"
+            widget: "select"
+            required: false
+            options:
+              - {label: "Wie Hauptfarbe (Standard)", value: ""}
+              - {label: "Dunkelgrün", value: "#122822"}
+              - {label: "Terracotta", value: "#C1622D"}
+              - {label: "Schwarz", value: "#111111"}
+              - {label: "Logo-Oliv", value: "#5F6A42"}
+          - label: "Eigener Hex-Code dafür (optional, überschreibt die Auswahl oben)"
+            name: "color_brand_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #122822 — leer lassen, um die Auswahl oben zu nutzen"
+
+          - label: "Farbe „Objekt- & Reparaturservice“ im Header (kleiner Text)"
+            name: "color_brand_sub"
+            widget: "select"
+            required: false
+            options:
+              - {label: "Wie gedämpfte Textfarbe (Standard)", value: ""}
+              - {label: "Grau-Grün", value: "#4B564F"}
+              - {label: "Terracotta", value: "#C1622D"}
+              - {label: "Logo-Oliv", value: "#5F6A42"}
+              - {label: "Grau", value: "#767676"}
+          - label: "Eigener Hex-Code dafür (optional, überschreibt die Auswahl oben)"
+            name: "color_brand_sub_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #4B564F — leer lassen, um die Auswahl oben zu nutzen"
+
           - label: "Bilder-Karussell dreht automatisch weiter?"
             name: "gallery_autoplay"
             widget: "boolean"

@@ -18,19 +18,23 @@
     },
     {
       "image": "/images/elektro/elektro-fehlersuche.jpg",
-      "alt": "Fehlersuche an einer Elektroinstallation"
+      "alt": "Fehlersuche an einer Elektroinstallation",
+      "datum": ""
     },
     {
       "image": "/images/elektro/elektro-ursache.jpg",
-      "alt": "Ursache gefunden: durchgebrannte Ader an einer Lampe"
+      "alt": "Ursache gefunden: durchgebrannte Ader an einer Lampe",
+      "datum": ""
     },
     {
       "image": "/images/elektro/elektro-vorbereitung.jpg",
-      "alt": "Vorbereitung für den Austausch von Schaltern und Lampen"
+      "alt": "Vorbereitung für den Austausch von Schaltern und Lampen",
+      "datum": ""
     },
     {
       "image": "/images/fahrzeug-logo.jpg",
-      "alt": "Firmenfahrzeug von Objekt- und Reparaturservice Battermann"
+      "alt": "Firmenfahrzeug von Objekt- und Reparaturservice Battermann",
+      "datum": ""
     }
   ],
   "vn_intro": "Drei abgeschlossene Aufträge aus einer Bad-Grundreinigung sowie ein laufendes Elektro-Projekt — auf ein Bildpaar klicken für den direkten Vergleich mit Schieberegler.",
@@ -61,8 +65,8 @@
     {
       "kategorie": "Bad",
       "datum": "",
-      "pair_title": "Fugenecke-Reinigung",
-      "vorher": "/images/vorher-nachher/bad-vorher-1.jpg",
+      "pair_title": "Duscharmatur montiert",
+      "vorher": "/images/IMG_20260703_152722.jpg",
       "vorher_alt": "Fugenecke vor der Reinigung",
       "nachher": "/images/vorher-nachher/bad-nachher-1.jpg",
       "nachher_alt": "Fugenecke nach der Reinigung",
@@ -70,6 +74,7 @@
     },
     {
       "kategorie": "Elektro",
+      "datum": "",
       "pair_title": "Elektro-Projekt",
       "vorher": "/images/elektro/elektro-vorbereitung.jpg",
       "vorher_alt": "Elektroinstallation vor dem Austausch der Schalter und Leuchten",

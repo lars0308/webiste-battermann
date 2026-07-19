@@ -110,17 +110,17 @@ collections:
         label: "Design, Logo & Kontaktdaten"
         name: "theme"
         fields:
-          - {label: "— Farben — (Hex-Code eintippen, z. B. #EDE6D6)", name: "color_bg", widget: "string", hint: "Hintergrundfarbe"}
-          - {label: "Hintergrundfarbe (Wechsel-Abschnitte)", name: "color_bg_alt", widget: "string", hint: "Hex-Code, z. B. #EDE6D6"}
-          - {label: "Textfarbe", name: "color_ink", widget: "string", hint: "Hex-Code, z. B. #1B231F"}
-          - {label: "Hauptfarbe (dunkel, z. B. Header/Fußzeile)", name: "color_primary", widget: "string", hint: "Hex-Code, z. B. #122822"}
-          - {label: "Überschriften-Farbe (z. B. Logo-Grün)", name: "color_heading", widget: "string", hint: "Hex-Code, z. B. #5F6A42"}
-          - label: "Hintergrundfarbe der Menüleiste oben"
+          - {label: "— Farben —", name: "color_bg", widget: "color", hint: "Hintergrundfarbe"}
+          - {label: "Hintergrundfarbe (Wechsel-Abschnitte)", name: "color_bg_alt", widget: "color"}
+          - {label: "Textfarbe", name: "color_ink", widget: "color"}
+          - {label: "Hauptfarbe (dunkel, z. B. Header/Fußzeile)", name: "color_primary", widget: "color"}
+          - {label: "Überschriften-Farbe (z. B. Logo-Grün)", name: "color_heading", widget: "color"}
+          - label: "Hintergrundfarbe der Menüleiste oben (mit Transparenz einstellbar)"
             name: "color_header_bg"
-            widget: "string"
-            hint: "Hex-Code oder rgba(...), z. B. rgba(246,243,236,0.92) für einen halbdurchsichtigen Header"
-          - {label: "Akzentfarbe (Buttons, Hervorhebungen)", name: "color_accent", widget: "string", hint: "Hex-Code, z. B. #C1622D"}
-          - {label: "Zweitfarbe (Grün-Ton)", name: "color_sage", widget: "string", hint: "Hex-Code, z. B. #6F8F6B"}
+            widget: "color"
+            enableAlpha: true
+          - {label: "Akzentfarbe (Buttons, Hervorhebungen)", name: "color_accent", widget: "color"}
+          - {label: "Zweitfarbe (Grün-Ton)", name: "color_sage", widget: "color"}
 
           - label: "Abstand zwischen Abschnitten"
             name: "section_spacing"

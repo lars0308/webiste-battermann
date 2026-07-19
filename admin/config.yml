@@ -38,7 +38,7 @@ collections:
             name: "vn_intro"
             widget: "text"
 
-          - - label: "Vorher/Nachher-Paare"
+          - label: "Vorher/Nachher-Paare"
             name: "vorher_nachher"
             widget: "list"
             summary: "{{fields.pair_title}} — {{vorher_alt}}"
@@ -48,7 +48,7 @@ collections:
                 widget: "string"
                 required: false
                 default: ""
-                
+
               - label: "Vorher-Bild"
                 name: "vorher"
                 widget: "image"

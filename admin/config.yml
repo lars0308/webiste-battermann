@@ -2,7 +2,7 @@ backend:
   name: github
   repo: lars0308/webiste-battermann
   branch: main
-  base_url: base_url: https://sveltia-cms-auth.lars-batt13.workers.dev
+  base_url: https://sveltia-cms-auth.lars-batt13.workers.dev
 
 media_folder: "images"
 public_folder: "/images"

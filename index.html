@@ -775,6 +775,9 @@
     border:none; cursor:pointer; font-size:0.98rem; padding:14px 20px;
   }
   .form-note{ font-size:0.78rem; color:var(--ink-soft); margin-top:12px; text-align:center; }
+  .form-success{ font-size:0.9rem; color:var(--sage); margin-top:12px; text-align:center; font-weight:600; }
+  .form-error{ font-size:0.85rem; color:var(--accent); margin-top:12px; text-align:center; }
+  .form-error a{ color:var(--accent); text-decoration:underline; }
 
   footer{
     background:var(--primary);
@@ -1231,8 +1234,10 @@
             <label for="message">Ihr Anliegen *</label>
             <textarea id="message" name="message" rows="4" required placeholder="Was kann ich für Sie erledigen?"></textarea>
           </div>
-          <button type="submit" class="cta-btn accent form-submit">Anfrage per E-Mail senden</button>
-          <p class="form-note" id="formNote">Öffnet Ihr E-Mail-Programm mit einer vorausgefüllten Nachricht an <span class="js-email-text">service.battermann@gmx.de</span>. Haben Sie Fotos zum Anliegen (z. B. von einem Schaden)? Einfach direkt an diese E-Mail anhängen, bevor Sie sie absenden.</p>
+          <button type="submit" class="cta-btn accent form-submit" id="formSubmitBtn">Anfrage senden</button>
+          <p class="form-note" id="formNote">Ihre Anfrage geht direkt bei mir ein. Haben Sie Fotos zum Anliegen (z. B. von einem Schaden)? Die können Sie mir gerne zusätzlich per WhatsApp oder E-Mail schicken.</p>
+          <p class="form-success" id="formSuccess" style="display:none;">Vielen Dank! Ihre Anfrage ist bei mir eingegangen — ich melde mich zeitnah bei Ihnen.</p>
+          <p class="form-error" id="formError" style="display:none;">Da ist leider etwas schiefgelaufen. Bitte versuchen Sie es erneut, oder schreiben Sie mir direkt per <a href="#" class="js-email-link">E-Mail</a> oder <a href="#" class="js-tel-link">Telefon</a>.</p>
         </form>
       </div>
     </div>
@@ -1423,19 +1428,77 @@
     const firma = document.getElementById('firma') ? document.getElementById('firma').value.trim() : '';
     const anzahlObjekte = document.getElementById('anzahlObjekte') ? document.getElementById('anzahlObjekte').value.trim() : '';
     const isBusiness = document.body.getAttribute('data-audience') === 'business';
-    const subject = encodeURIComponent('Anfrage über die Website — ' + (art || firma || name));
-    const body = encodeURIComponent(
-      (isBusiness && firma ? 'Firma/Hausverwaltung: ' + firma + '\n' : '') +
-      (isBusiness && anzahlObjekte ? 'Anzahl Objekte: ' + anzahlObjekte + '\n' : '') +
-      'Name: ' + name + '\n' +
-      (email ? 'E-Mail: ' + email + '\n' : '') +
-      (phone ? 'Telefon: ' + phone + '\n' : '') +
-      (ort ? 'Ort/Adresse: ' + ort + '\n' : '') +
-      (art ? 'Art der Anfrage: ' + art + '\n' : '') +
-      (termin ? 'Wunschtermin: ' + termin + '\n' : '') +
-      '\nAnliegen:\n' + message
-    );
-    window.location.href = 'mailto:' + window.SITE_CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+    const subjectText = 'Anfrage über die Website — ' + (art || firma || name);
+
+    function fallbackMailto(){
+      const subject = encodeURIComponent(subjectText);
+      const body = encodeURIComponent(
+        (isBusiness && firma ? 'Firma/Hausverwaltung: ' + firma + '\n' : '') +
+        (isBusiness && anzahlObjekte ? 'Anzahl Objekte: ' + anzahlObjekte + '\n' : '') +
+        'Name: ' + name + '\n' +
+        (email ? 'E-Mail: ' + email + '\n' : '') +
+        (phone ? 'Telefon: ' + phone + '\n' : '') +
+        (ort ? 'Ort/Adresse: ' + ort + '\n' : '') +
+        (art ? 'Art der Anfrage: ' + art + '\n' : '') +
+        (termin ? 'Wunschtermin: ' + termin + '\n' : '') +
+        '\nAnliegen:\n' + message
+      );
+      window.location.href = 'mailto:' + window.SITE_CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+    }
+
+    const key = window.SITE_THEME && window.SITE_THEME.web3forms_key;
+    if(!key){
+      // No form service configured yet in the CMS — fall back to the visitor's own email app
+      fallbackMailto();
+      return;
+    }
+
+    const submitBtn = document.getElementById('formSubmitBtn');
+    const successEl = document.getElementById('formSuccess');
+    const errorEl = document.getElementById('formError');
+    successEl.style.display = 'none';
+    errorEl.style.display = 'none';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet …';
+
+    const payload = {
+      access_key: key,
+      subject: subjectText,
+      from_name: name,
+      Name: name,
+      'E-Mail des Kunden': email,
+      Telefon: phone,
+      'Ort/Adresse': ort,
+      'Art der Anfrage': art,
+      Wunschtermin: termin,
+      Anliegen: message
+    };
+    if(isBusiness){
+      payload['Firma/Hausverwaltung'] = firma;
+      payload['Anzahl Objekte'] = anzahlObjekte;
+    }
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Anfrage senden';
+        if(data.success){
+          form.reset();
+          successEl.style.display = 'block';
+        } else {
+          errorEl.style.display = 'block';
+        }
+      })
+      .catch(function(){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Anfrage senden';
+        errorEl.style.display = 'block';
+      });
   });
 
   // Vorher/Nachher compare modal

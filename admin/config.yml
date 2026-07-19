@@ -188,11 +188,12 @@ collections:
 
           - {label: "Überschrift des Bewertungs-Bereichs", name: "reviews_headline", widget: "string", default: "Das sagen Kunden", required: false}
 
-          - label: "— Reihenfolge der Abschnitte — (Einträge per Ziehen am ⋮⋮-Symbol beliebig anordnen, so erscheinen die Bereiche auf der Startseite)"
+          - label: "Reihenfolge der Bereiche auf der Startseite"
             name: "section_order"
             widget: "list"
             required: false
             summary: "{{fields.section}}"
+            hint: "So sortierst du die Startseite um: Auf das Symbol ⋮⋮ links neben einem Eintrag tippen, gedrückt halten und an die gewünschte Stelle ziehen. Der oberste Eintrag in dieser Liste erscheint ganz oben auf der Seite, der unterste ganz unten."
             default:
               - section: "hero"
               - section: "kernbereiche"

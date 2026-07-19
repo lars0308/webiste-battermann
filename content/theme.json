@@ -34,5 +34,8 @@
   "phone_tel": "+4915567467763",
   "whatsapp_number": "4915567467763",
   "email": "service.battermann@gmx.de",
-  "hours_text": "Mo – Sa, 09:00 – 20:00 Uhr"
+  "hours_text": "Mo – Sa, 09:00 – 20:00 Uhr",
+  "announce_active": false,
+  "announce_text": "",
+  "announce_until": ""
 }

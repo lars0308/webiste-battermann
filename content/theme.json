@@ -43,9 +43,5 @@
   "announce_active": false,
   "announce_text": "",
   "announce_until": "",
-  "reviews_headline": "Das sagen Kunden",
-  "google_bewertung_sterne": "",
-  "google_bewertung_anzahl": "",
-  "google_bewertung_link": "",
-  "bewertungen": []
+  "reviews_headline": "Das sagen Kunden"
 }

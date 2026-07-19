@@ -595,6 +595,17 @@
     background:var(--bg-alt);
   }
   .vn-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .vn-extra-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2px;
+    margin-top:6px;
+  }
+  .vn-extra-strip{ display:flex; gap:6px; flex-wrap:wrap; }
+  .vn-extra-strip img{
+    width:56px; height:56px; object-fit:cover; border-radius:4px; flex:none;
+    border:1px solid var(--line);
+  }
   .vn-placeholder{
     display:flex; align-items:center; justify-content:center;
     background:var(--bg-alt);
@@ -1680,16 +1691,33 @@
 
 
   // Build the Vorher/Nachher item markup (shared shape used on homepage and full gallery page)
+  function vnExtraStripHtml(pair){
+    const vExtras = Array.isArray(pair.vorher_weitere) ? pair.vorher_weitere : [];
+    const nExtras = Array.isArray(pair.nachher_weitere) ? pair.nachher_weitere : [];
+    if(!vExtras.length && !nExtras.length) return '';
+    function imgs(list, alt){
+      return list.map(function(item){
+        const src = item && item.bild;
+        if(!src) return '';
+        return '<img src="' + src + '" alt="' + alt.replace(/"/g,'&quot;') + '">';
+      }).join('');
+    }
+    return '<div class="vn-extra-row">' +
+      '<div class="vn-extra-strip">' + imgs(vExtras, 'Weiteres Vorher-Bild') + '</div>' +
+      '<div class="vn-extra-strip">' + imgs(nExtras, 'Weiteres Nachher-Bild') + '</div>' +
+      '</div>';
+  }
   function vnItemHtml(pair){
     const caption = pair.pair_title ? '<p class="vn-caption">' + pair.pair_title.replace(/</g,'&lt;') + '</p>' : '';
     const katAttr = ' data-kategorie="' + (pair.kategorie || '').replace(/"/g,'&quot;') + '"';
+    const extraRow = vnExtraStripHtml(pair);
     const vorherTile = '<div class="vn-photo"><img src="' + pair.vorher + '" alt="' + (pair.vorher_alt||'').replace(/"/g,'&quot;') + '"><span class="vn-tag vn-before">Vorher</span></div>';
     if(pair.pending || !pair.nachher){
       return '<div class="vn-item"' + katAttr + '>' + caption + '<div class="vn-pair vn-pending">' + vorherTile +
-        '<div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>in Kürze</span><span class="vn-tag vn-after">Nachher</span></div></div></div>';
+        '<div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>in Kürze</span><span class="vn-tag vn-after">Nachher</span></div></div>' + extraRow + '</div>';
     }
     const nachherTile = '<div class="vn-photo"><img src="' + pair.nachher + '" alt="' + (pair.nachher_alt||'').replace(/"/g,'&quot;') + '"><span class="vn-tag vn-after">Nachher</span></div>';
-    return '<div class="vn-item"' + katAttr + '>' + caption + '<div class="vn-pair">' + vorherTile + nachherTile + '</div></div>';
+    return '<div class="vn-item"' + katAttr + '>' + caption + '<div class="vn-pair">' + vorherTile + nachherTile + '</div>' + extraRow + '</div>';
   }
 
   // Homepage preview: filter buttons + capped list (max 5) + link to the full gallery page

@@ -24,6 +24,8 @@
     --paper:#FFFEFB;
     --shadow: 0 20px 50px -25px rgba(18,40,34,0.4);
     --radius: 4px;
+    --section-gap: 96px;
+    --section-gap-mobile: 64px;
   }
 
   *{box-sizing:border-box;}
@@ -216,7 +218,7 @@
   }
 
   /* SECTIONS */
-  section{ padding:96px 0; }
+  section{ padding:var(--section-gap) 0; }
   .section-head{
     max-width:640px;
     margin-bottom:52px;
@@ -618,7 +620,7 @@
     .hero-grid, .about-grid, .area-grid, .contact-grid{ grid-template-columns:1fr; }
     .hero-visual{ display:none; }
     .hero{ padding:70px 0 60px; }
-    section{ padding:64px 0; }
+    section{ padding:var(--section-gap-mobile) 0; }
   }
 </style>
 </head>
@@ -627,8 +629,8 @@
 <header>
   <div class="nav">
     <a href="#top" class="brand">
-      <img src="images/logo-icon.png" alt="Logo Objekt- und Reparaturservice Battermann">
-      <span class="brand-text">Battermann<span>Objekt- &amp; Reparaturservice</span></span>
+      <img src="images/logo-icon.png" alt="Logo Objekt- und Reparaturservice Battermann" id="logoImg">
+      <span class="brand-text"><span id="brandMain">Battermann</span><span id="brandSub">Objekt- &amp; Reparaturservice</span></span>
     </a>
     <nav class="links" id="navLinks">
       <a href="#leistungen">Leistungen</a>
@@ -654,17 +656,17 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <p class="eyebrow">Hausmeisterservice · Objektbetreuung · Allround-Handwerk</p>
-          <h1>Zuverlässig.<br>Vielseitig.<br><em>Für Sie da.</em></h1>
-          <p class="lead">Ihr persönlicher Partner für Hausmeisterservice, Objektbetreuung und handwerkliche Arbeiten rund um Haus, Hof und Garten in Lindhorst, Stadthagen und Umgebung — freundlich im Umgang, verbindlich bei Terminen, gründlich in der Ausführung.</p>
+          <p class="eyebrow" id="heroEyebrow">Hausmeisterservice · Objektbetreuung · Allround-Handwerk</p>
+          <h1 id="heroHeadline">Zuverlässig.<br>Vielseitig.<br><em>Für Sie da.</em></h1>
+          <p class="lead" id="heroLead">Ihr persönlicher Partner für Hausmeisterservice, Objektbetreuung und handwerkliche Arbeiten rund um Haus, Hof und Garten in Lindhorst, Stadthagen und Umgebung — freundlich im Umgang, verbindlich bei Terminen, gründlich in der Ausführung.</p>
           <div class="hero-ctas">
-            <a class="cta-btn accent" href="https://wa.me/4915567467763?text=Hallo%20Herr%20Battermann%2C%20ich%20habe%20eine%20Anfrage.%20Bitte%20melden%20Sie%20sich%20bei%20mir." target="_blank" rel="noopener">
+            <a class="cta-btn accent js-wa-link" href="https://wa.me/4915567467763?text=Hallo%20Herr%20Battermann%2C%20ich%20habe%20eine%20Anfrage.%20Bitte%20melden%20Sie%20sich%20bei%20mir." target="_blank" rel="noopener">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.78 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.02h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.11 8.11 0 0 1-1.24-4.33c0-4.49 3.65-8.14 8.15-8.14 2.17 0 4.21.85 5.75 2.39a8.07 8.07 0 0 1 2.38 5.76c0 4.49-3.66 8.19-8.15 8.19zm4.47-6.13c-.24-.12-1.44-.71-1.67-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42-.14-.01-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
               WhatsApp schreiben
             </a>
-            <a class="cta-btn ghost" href="tel:+4915567467763">
+            <a class="cta-btn ghost js-tel-link" href="tel:+4915567467763">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.2c1.4 2.7 3.5 4.8 6.2 6.2l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1v3.7c0 .6-.4 1-1 1C10.6 20.4 3.6 13.4 3.6 4.5c0-.6.4-1 1-1H8.3c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.2z"/></svg>
-              +49 155 / 674 677 63
+              <span class="js-phone-text">+49 155 / 674 677 63</span>
             </a>
           </div>
           <div class="trust-row">
@@ -683,7 +685,7 @@
           </div>
         </div>
         <div class="hero-visual">
-          <img src="images/portrait-lars.jpg" alt="Lars Battermann, Inhaber von Objekt- und Reparaturservice Battermann">
+          <img src="images/portrait-lars.jpg" alt="Lars Battermann, Inhaber von Objekt- und Reparaturservice Battermann" id="portraitImg1">
         </div>
       </div>
     </div>
@@ -716,16 +718,16 @@
   <section id="ueber-mich">
     <div class="wrap about-grid reveal">
       <div class="portrait">
-        <img src="images/portrait-lars.jpg" alt="Lars Battermann bei der Arbeit">
-        <span class="tag">Lars Battermann · Inhaber</span>
+        <img src="images/portrait-lars.jpg" alt="Lars Battermann bei der Arbeit" id="portraitImg2">
+        <span class="tag" id="aboutTag">Lars Battermann · Inhaber</span>
       </div>
       <div class="about-copy">
-        <p class="eyebrow">Wer steckt dahinter</p>
-        <h2 style="margin:12px 0 20px;">Hallo, ich bin Lars Battermann.</h2>
-        <p class="emph">28 Jahre jung, ehrgeizig, zielstrebig und handwerklich geschickt — mit dem Anspruch, Probleme nicht nur zu lösen, sondern daran zu wachsen.</p>
-        <p>Ich bin gelernter Elektriker und handwerklicher Allrounder und unterstütze Privatkunden, Eigentümer und Hausverwaltungen bei Reparaturen, Objektpflege und regelmäßigen Arbeiten rund um Haus, Hof und Garten.</p>
-        <p>Zuverlässigkeit, saubere Arbeit und eine ehrliche Kommunikation sind mir dabei besonders wichtig — vom ersten Anruf bis zur letzten Schraube.</p>
-        <p class="about-signoff">— Lars Battermann</p>
+        <p class="eyebrow" id="aboutEyebrow">Wer steckt dahinter</p>
+        <h2 style="margin:12px 0 20px;" id="aboutHeadline">Hallo, ich bin Lars Battermann.</h2>
+        <p class="emph" id="aboutEmph">28 Jahre jung, ehrgeizig, zielstrebig und handwerklich geschickt — mit dem Anspruch, Probleme nicht nur zu lösen, sondern daran zu wachsen.</p>
+        <p id="aboutP1">Ich bin gelernter Elektriker und handwerklicher Allrounder und unterstütze Privatkunden, Eigentümer und Hausverwaltungen bei Reparaturen, Objektpflege und regelmäßigen Arbeiten rund um Haus, Hof und Garten.</p>
+        <p id="aboutP2">Zuverlässigkeit, saubere Arbeit und eine ehrliche Kommunikation sind mir dabei besonders wichtig — vom ersten Anruf bis zur letzten Schraube.</p>
+        <p class="about-signoff" id="aboutSignoff">— Lars Battermann</p>
       </div>
     </div>
   </section>
@@ -899,15 +901,15 @@
           <div class="contact-info-list">
             <div class="contact-info-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.2c1.4 2.7 3.5 4.8 6.2 6.2l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1v3.7c0 .6-.4 1-1 1C10.6 20.4 3.6 13.4 3.6 4.5c0-.6.4-1 1-1H8.3c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.2z"/></svg>
-              <a href="tel:+4915567467763"><strong>+49 155 / 674 677 63</strong><span>Telefon &amp; WhatsApp</span></a>
+              <a href="tel:+4915567467763" class="js-tel-link"><strong class="js-phone-text">+49 155 / 674 677 63</strong><span>Telefon &amp; WhatsApp</span></a>
             </div>
             <div class="contact-info-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              <a href="mailto:service.battermann@gmx.de"><strong>service.battermann@gmx.de</strong><span>Antwort meist innerhalb von 24 Stunden</span></a>
+              <a href="mailto:service.battermann@gmx.de" class="js-email-link"><strong class="js-email-text">service.battermann@gmx.de</strong><span>Antwort meist innerhalb von 24 Stunden</span></a>
             </div>
             <div class="contact-info-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
-              <div><strong>Mo – Sa, 09:00 – 20:00 Uhr</strong><span>Terminabsprache nach Vereinbarung</span></div>
+              <div><strong id="hoursText">Mo – Sa, 09:00 – 20:00 Uhr</strong><span>Terminabsprache nach Vereinbarung</span></div>
             </div>
           </div>
           <div class="badges">
@@ -962,7 +964,7 @@
             <textarea id="message" name="message" rows="4" required placeholder="Was kann ich für Sie erledigen?"></textarea>
           </div>
           <button type="submit" class="cta-btn accent form-submit">Anfrage per E-Mail senden</button>
-          <p class="form-note">Öffnet Ihr E-Mail-Programm mit einer vorausgefüllten Nachricht an service.battermann@gmx.de. Haben Sie Fotos zum Anliegen (z. B. von einem Schaden)? Einfach direkt an diese E-Mail anhängen, bevor Sie sie absenden.</p>
+          <p class="form-note" id="formNote">Öffnet Ihr E-Mail-Programm mit einer vorausgefüllten Nachricht an <span class="js-email-text">service.battermann@gmx.de</span>. Haben Sie Fotos zum Anliegen (z. B. von einem Schaden)? Einfach direkt an diese E-Mail anhängen, bevor Sie sie absenden.</p>
         </form>
       </div>
     </div>
@@ -988,7 +990,7 @@
 
 <footer>
   <div class="wrap footer-row">
-    <span>© 2026 Objekt- und Reparaturservice Battermann · Lars Battermann</span>
+    <span id="footerText">© 2026 Objekt- und Reparaturservice Battermann · Lars Battermann</span>
     <span class="footer-links">
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
@@ -1032,6 +1034,7 @@
   }
 
   // Contact form -> mailto
+  window.SITE_CONTACT_EMAIL = 'service.battermann@gmx.de';
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -1052,7 +1055,7 @@
       (termin ? 'Wunschtermin: ' + termin + '\n' : '') +
       '\nAnliegen:\n' + message
     );
-    window.location.href = 'mailto:service.battermann@gmx.de?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:' + window.SITE_CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
   });
 
   // Vorher/Nachher compare modal
@@ -1150,19 +1153,91 @@
       }
     })
     .catch(function(){ /* keep the static fallback content already in the page */ });
-</script>
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", function(user){
-      if (!user) {
-        window.netlifyIdentity.on("login", function(){
-          document.location.href = "/admin/";
+  // Load design & contact settings from content/theme.json.
+  // Falls back to the values already in the HTML/CSS above if the file is missing or fails to load.
+  fetch('content/theme.json', {cache: 'no-store'})
+    .then(function(res){ return res.ok ? res.json() : null; })
+    .then(function(data){
+      if(!data) return;
+
+      // Farben als CSS-Variablen setzen
+      const colorMap = {
+        color_bg: '--bg',
+        color_bg_alt: '--bg-alt',
+        color_ink: '--ink',
+        color_primary: '--primary',
+        color_accent: '--accent',
+        color_sage: '--sage'
+      };
+      Object.keys(colorMap).forEach(function(key){
+        if(data[key]){
+          document.documentElement.style.setProperty(colorMap[key], data[key]);
+        }
+      });
+
+      // Abstand zwischen Abschnitten
+      if(data.section_spacing){
+        const spacingMap = { kompakt: ['64px','48px'], normal: ['96px','64px'], grosszuegig: ['128px','80px'] };
+        const vals = spacingMap[data.section_spacing];
+        if(vals){
+          document.documentElement.style.setProperty('--section-gap', vals[0]);
+          document.documentElement.style.setProperty('--section-gap-mobile', vals[1]);
+        }
+      }
+
+      // Logo & Bilder
+      if(data.logo){
+        document.querySelectorAll('#logoImg').forEach(function(el){ el.src = data.logo; });
+      }
+      if(data.portrait){
+        document.querySelectorAll('#portraitImg1, #portraitImg2').forEach(function(el){ el.src = data.portrait; });
+      }
+
+      // Marke / Firmenname
+      if(data.brand_name){ document.getElementById('brandMain').textContent = data.brand_name; }
+      if(data.brand_sub){ document.getElementById('brandSub').textContent = data.brand_sub; }
+      if(data.footer_text){ document.getElementById('footerText').textContent = data.footer_text; }
+
+      // Hero
+      if(data.hero_eyebrow){ document.getElementById('heroEyebrow').textContent = data.hero_eyebrow; }
+      if(data.hero_headline_1 || data.hero_headline_2 || data.hero_headline_3){
+        const esc = function(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); };
+        document.getElementById('heroHeadline').innerHTML =
+          esc(data.hero_headline_1) + '<br>' + esc(data.hero_headline_2) + '<br><em>' + esc(data.hero_headline_3) + '</em>';
+      }
+      if(data.hero_lead){ document.getElementById('heroLead').textContent = data.hero_lead; }
+
+      // Über mich
+      if(data.about_tag){ document.getElementById('aboutTag').textContent = data.about_tag; }
+      if(data.about_eyebrow){ document.getElementById('aboutEyebrow').textContent = data.about_eyebrow; }
+      if(data.about_headline){ document.getElementById('aboutHeadline').textContent = data.about_headline; }
+      if(data.about_emph){ document.getElementById('aboutEmph').textContent = data.about_emph; }
+      if(data.about_p1){ document.getElementById('aboutP1').textContent = data.about_p1; }
+      if(data.about_p2){ document.getElementById('aboutP2').textContent = data.about_p2; }
+      if(data.about_signoff){ document.getElementById('aboutSignoff').textContent = data.about_signoff; }
+
+      // Telefon / WhatsApp / E-Mail (mehrfach auf der Seite)
+      if(data.phone_display){
+        document.querySelectorAll('.js-phone-text').forEach(function(el){ el.textContent = data.phone_display; });
+      }
+      if(data.phone_tel){
+        document.querySelectorAll('.js-tel-link').forEach(function(el){ el.href = 'tel:' + data.phone_tel; });
+      }
+      if(data.whatsapp_number){
+        document.querySelectorAll('.js-wa-link').forEach(function(el){
+          const msg = el.href.split('?text=')[1] || '';
+          el.href = 'https://wa.me/' + data.whatsapp_number + '?text=' + msg;
         });
       }
-    });
-  }
+      if(data.email){
+        document.querySelectorAll('.js-email-text').forEach(function(el){ el.textContent = data.email; });
+        document.querySelectorAll('.js-email-link').forEach(function(el){ el.href = 'mailto:' + data.email; });
+        window.SITE_CONTACT_EMAIL = data.email;
+      }
+      if(data.hours_text){ document.getElementById('hoursText').textContent = data.hours_text; }
+    })
+    .catch(function(){ /* keep the static fallback content already in the page */ });
 </script>
 
 </body>

@@ -38,11 +38,17 @@ collections:
             name: "vn_intro"
             widget: "text"
 
-          - label: "Vorher/Nachher-Paare"
+          - - label: "Vorher/Nachher-Paare"
             name: "vorher_nachher"
             widget: "list"
-            summary: "{{vorher_alt}}"
+            summary: "{{fields.pair_title}} — {{vorher_alt}}"
             fields:
+              - label: "Titel für dieses Bildpaar (z. B. „Armatur-Reinigung“)"
+                name: "pair_title"
+                widget: "string"
+                required: false
+                default: ""
+                
               - label: "Vorher-Bild"
                 name: "vorher"
                 widget: "image"

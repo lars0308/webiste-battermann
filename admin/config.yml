@@ -110,17 +110,79 @@ collections:
         label: "Design, Logo & Kontaktdaten"
         name: "theme"
         fields:
-          - {label: "— Farben —", name: "color_bg", widget: "color", hint: "Hintergrundfarbe"}
-          - {label: "Hintergrundfarbe (Wechsel-Abschnitte)", name: "color_bg_alt", widget: "color"}
-          - {label: "Textfarbe", name: "color_ink", widget: "color"}
-          - {label: "Hauptfarbe (dunkel, z. B. Header/Fußzeile)", name: "color_primary", widget: "color"}
-          - {label: "Überschriften-Farbe (z. B. Logo-Grün)", name: "color_heading", widget: "color"}
-          - label: "Hintergrundfarbe der Menüleiste oben (mit Transparenz einstellbar)"
+          - label: "— Hintergrundfarbe —"
+            name: "color_bg"
+            widget: "select"
+            options:
+              - {label: "Beige (aktuell)", value: "#EDE6D6"}
+              - {label: "Warmes Weiß", value: "#FAF6EF"}
+              - {label: "Sandbeige", value: "#E8DFC8"}
+              - {label: "Cremeweiß", value: "#F5F0E6"}
+              - {label: "Helles Grau", value: "#EDEDED"}
+
+          - label: "Hintergrundfarbe (Wechsel-Abschnitte)"
+            name: "color_bg_alt"
+            widget: "select"
+            options:
+              - {label: "Beige (aktuell)", value: "#EDE6D6"}
+              - {label: "Warmes Weiß", value: "#FAF6EF"}
+              - {label: "Sandbeige", value: "#E8DFC8"}
+              - {label: "Cremeweiß", value: "#F5F0E6"}
+              - {label: "Helles Grau", value: "#EDEDED"}
+
+          - label: "Textfarbe"
+            name: "color_ink"
+            widget: "select"
+            options:
+              - {label: "Dunkelgrün-Schwarz (aktuell)", value: "#1B231F"}
+              - {label: "Reines Schwarz", value: "#111111"}
+              - {label: "Dunkelbraun", value: "#2B211B"}
+              - {label: "Anthrazit", value: "#262626"}
+
+          - label: "Hauptfarbe (dunkel, z. B. Header/Fußzeile)"
+            name: "color_primary"
+            widget: "select"
+            options:
+              - {label: "Dunkelgrün (aktuell)", value: "#122822"}
+              - {label: "Tiefblau", value: "#16202E"}
+              - {label: "Dunkelbraun", value: "#2B1D12"}
+              - {label: "Schwarzgrün", value: "#0F1A16"}
+
+          - label: "Überschriften-Farbe"
+            name: "color_heading"
+            widget: "select"
+            options:
+              - {label: "Logo-Oliv (aktuell)", value: "#5F6A42"}
+              - {label: "Waldgrün", value: "#3F5B3C"}
+              - {label: "Olivbraun", value: "#6B5B3E"}
+              - {label: "Dunkelgrau", value: "#4A4A4A"}
+
+          - label: "Hintergrundfarbe der Menüleiste oben"
             name: "color_header_bg"
-            widget: "color"
-            enableAlpha: true
-          - {label: "Akzentfarbe (Buttons, Hervorhebungen)", name: "color_accent", widget: "color"}
-          - {label: "Zweitfarbe (Grün-Ton)", name: "color_sage", widget: "color"}
+            widget: "select"
+            options:
+              - {label: "Beige, halbtransparent (aktuell)", value: "rgba(246,243,236,0.92)"}
+              - {label: "Weiß, halbtransparent", value: "rgba(255,255,255,0.9)"}
+              - {label: "Dunkelgrün, halbtransparent", value: "rgba(18,40,34,0.92)"}
+              - {label: "Beige, deckend", value: "#EDE6D6"}
+
+          - label: "Akzentfarbe (Buttons, Hervorhebungen)"
+            name: "color_accent"
+            widget: "select"
+            options:
+              - {label: "Terracotta (aktuell)", value: "#C1622D"}
+              - {label: "Ziegelrot", value: "#B0492E"}
+              - {label: "Senfgelb", value: "#D6A93B"}
+              - {label: "Waldgrün", value: "#4C7A4F"}
+              - {label: "Petrol", value: "#2E7B7B"}
+
+          - label: "Zweitfarbe (Grün-Ton)"
+            name: "color_sage"
+            widget: "select"
+            options:
+              - {label: "Salbeigrün (aktuell)", value: "#6F8F6B"}
+              - {label: "Graugrün", value: "#8A9A8C"}
+              - {label: "Moosgrün", value: "#55724F"}
 
           - label: "Abstand zwischen Abschnitten"
             name: "section_spacing"

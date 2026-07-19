@@ -110,7 +110,7 @@ collections:
         label: "Design, Logo & Kontaktdaten"
         name: "theme"
         fields:
-          - label: "— Hintergrundfarbe —"
+          - label: "— Hintergrundfarbe — (Palette antippen ODER eigenen Hex-Code weiter unten eintragen)"
             name: "color_bg"
             widget: "select"
             options:
@@ -119,6 +119,11 @@ collections:
               - {label: "Sandbeige", value: "#E8DFC8"}
               - {label: "Cremeweiß", value: "#F5F0E6"}
               - {label: "Helles Grau", value: "#EDEDED"}
+          - label: "Eigener Hex-Code für Hintergrundfarbe (optional, überschreibt die Palette oben)"
+            name: "color_bg_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #EDE6D6 — leer lassen, um die Palette oben zu nutzen"
 
           - label: "Hintergrundfarbe (Wechsel-Abschnitte)"
             name: "color_bg_alt"
@@ -129,6 +134,11 @@ collections:
               - {label: "Sandbeige", value: "#E8DFC8"}
               - {label: "Cremeweiß", value: "#F5F0E6"}
               - {label: "Helles Grau", value: "#EDEDED"}
+          - label: "Eigener Hex-Code (optional, überschreibt die Palette oben)"
+            name: "color_bg_alt_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #EDE6D6 — leer lassen, um die Palette oben zu nutzen"
 
           - label: "Textfarbe"
             name: "color_ink"
@@ -138,6 +148,11 @@ collections:
               - {label: "Reines Schwarz", value: "#111111"}
               - {label: "Dunkelbraun", value: "#2B211B"}
               - {label: "Anthrazit", value: "#262626"}
+          - label: "Eigener Hex-Code für Textfarbe (optional, überschreibt die Palette oben)"
+            name: "color_ink_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #1B231F — leer lassen, um die Palette oben zu nutzen"
 
           - label: "Hauptfarbe (dunkel, z. B. Header/Fußzeile)"
             name: "color_primary"
@@ -147,6 +162,11 @@ collections:
               - {label: "Tiefblau", value: "#16202E"}
               - {label: "Dunkelbraun", value: "#2B1D12"}
               - {label: "Schwarzgrün", value: "#0F1A16"}
+          - label: "Eigener Hex-Code für Hauptfarbe (optional, überschreibt die Palette oben)"
+            name: "color_primary_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #122822 — leer lassen, um die Palette oben zu nutzen"
 
           - label: "Überschriften-Farbe"
             name: "color_heading"
@@ -156,6 +176,11 @@ collections:
               - {label: "Waldgrün", value: "#3F5B3C"}
               - {label: "Olivbraun", value: "#6B5B3E"}
               - {label: "Dunkelgrau", value: "#4A4A4A"}
+          - label: "Eigener Hex-Code für Überschriften-Farbe (optional, überschreibt die Palette oben)"
+            name: "color_heading_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #5F6A42 — leer lassen, um die Palette oben zu nutzen"
 
           - label: "Hintergrundfarbe der Menüleiste oben"
             name: "color_header_bg"
@@ -165,6 +190,11 @@ collections:
               - {label: "Weiß, halbtransparent", value: "rgba(255,255,255,0.9)"}
               - {label: "Dunkelgrün, halbtransparent", value: "rgba(18,40,34,0.92)"}
               - {label: "Beige, deckend", value: "#EDE6D6"}
+          - label: "Eigener Hex-/rgba-Code für Menüleiste (optional, überschreibt die Palette oben)"
+            name: "color_header_bg_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. rgba(246,243,236,0.92) oder #EDE6D6 — leer lassen, um die Palette oben zu nutzen"
 
           - label: "Akzentfarbe (Buttons, Hervorhebungen)"
             name: "color_accent"
@@ -175,6 +205,11 @@ collections:
               - {label: "Senfgelb", value: "#D6A93B"}
               - {label: "Waldgrün", value: "#4C7A4F"}
               - {label: "Petrol", value: "#2E7B7B"}
+          - label: "Eigener Hex-Code für Akzentfarbe (optional, überschreibt die Palette oben)"
+            name: "color_accent_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #C1622D — leer lassen, um die Palette oben zu nutzen"
 
           - label: "Zweitfarbe (Grün-Ton)"
             name: "color_sage"
@@ -183,6 +218,11 @@ collections:
               - {label: "Salbeigrün (aktuell)", value: "#6F8F6B"}
               - {label: "Graugrün", value: "#8A9A8C"}
               - {label: "Moosgrün", value: "#55724F"}
+          - label: "Eigener Hex-Code für Zweitfarbe (optional, überschreibt die Palette oben)"
+            name: "color_sage_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #6F8F6B — leer lassen, um die Palette oben zu nutzen"
 
           - label: "Abstand zwischen Abschnitten"
             name: "section_spacing"

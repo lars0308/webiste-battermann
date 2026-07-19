@@ -9,6 +9,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+(function(){
+  var saved = localStorage.getItem('themeMode');
+  var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if(dark){
+    document.documentElement.setAttribute('data-theme', 'dark');
+    var d = document.documentElement.style;
+    d.setProperty('--bg', '#1B1F1C');
+    d.setProperty('--ink', '#EDEAE2');
+    d.setProperty('--ink-soft', '#B7BDB6');
+    d.setProperty('--primary', '#24463C');
+    d.setProperty('--line', '#3A3F38');
+    d.setProperty('--paper', '#262B26');
+  }
+})();
+</script>
 <style>
   :root{
     --bg:#EDE6D6;
@@ -39,7 +55,7 @@
   header img{ width:34px; height:34px; }
   header .brand-text{
     font-family:'Zilla Slab', serif;
-    color:var(--paper);
+    color:#FFFEFB;
     font-weight:600;
     text-decoration:none;
   }
@@ -78,7 +94,7 @@
   .placeholder{
     background:#FBE9D6;
     border:1px dashed var(--accent);
-    color:var(--ink);
+    color:#1B231F;
     padding:2px 8px;
     border-radius:3px;
     font-size:0.92rem;

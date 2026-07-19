@@ -34,6 +34,12 @@ collections:
                 name: "alt"
                 widget: "string"
 
+              - label: "Kategorie (optional, für die Filter-Buttons im Bildertagebuch, z. B. „Elektro“, „Garten“)"
+                name: "kategorie"
+                widget: "string"
+                required: false
+                default: ""
+
               - label: "Datum (optional — neueste Bilder erscheinen automatisch zuerst)"
                 name: "datum"
                 widget: "datetime"
@@ -52,6 +58,7 @@ collections:
             fields:
               - {label: "Bild", name: "bild", widget: "image"}
               - {label: "Notiz (z. B. „Leuchten hatten Brandschaden“)", name: "text", widget: "string"}
+              - {label: "Kategorie (optional, für die Filter-Buttons)", name: "kategorie", widget: "string", required: false, default: ""}
               - label: "Datum (optional — neueste Einträge erscheinen automatisch zuerst)"
                 name: "datum"
                 widget: "datetime"

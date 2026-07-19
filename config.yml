@@ -1,0 +1,124 @@
+backend:
+  name: github
+  repo: lars0308/webiste-battermann
+  branch: main
+  base_url: https://sveltia-cms-auth.lars-batt13.workers.dev
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: "de"
+
+collections:
+  - name: "site"
+    label: "Website-Inhalte"
+    files:
+      - file: "content/site.json"
+        label: "Galerie & Vorher/Nachher"
+        name: "site"
+        fields:
+          - label: "Hinweistext über der Galerie"
+            name: "gallery_note"
+            widget: "text"
+
+          - label: "Galerie-Bilder"
+            name: "gallery"
+            widget: "list"
+            summary: "{{alt}}"
+            fields:
+              - label: "Bild"
+                name: "image"
+                widget: "image"
+
+              - label: "Beschreibung (für Suchmaschinen, nicht sichtbar)"
+                name: "alt"
+                widget: "string"
+
+          - label: "Einleitungstext Vorher/Nachher"
+            name: "vn_intro"
+            widget: "text"
+
+          - label: "Vorher/Nachher-Paare"
+            name: "vorher_nachher"
+            widget: "list"
+            summary: "{{fields.pair_title}} — {{vorher_alt}}"
+            fields:
+              - label: "Titel für dieses Bildpaar (z. B. „Armatur-Reinigung“)"
+                name: "pair_title"
+                widget: "string"
+                required: false
+                default: ""
+
+              - label: "Vorher-Bild"
+                name: "vorher"
+                widget: "image"
+
+              - label: "Vorher – Beschreibung"
+                name: "vorher_alt"
+                widget: "string"
+
+              - label: "Nachher-Bild (leer lassen, solange noch nicht fertig)"
+                name: "nachher"
+                widget: "image"
+                required: false
+
+              - label: "Nachher – Beschreibung"
+                name: "nachher_alt"
+                widget: "string"
+                required: false
+                default: ""
+
+              - label: "Noch in Arbeit? (zeigt „Nachher folgt“ statt Bild)"
+                name: "pending"
+                widget: "boolean"
+                default: false
+
+  - name: "theme"
+    label: "Design & Kontakt"
+    files:
+      - file: "content/theme.json"
+        label: "Design, Logo & Kontaktdaten"
+        name: "theme"
+        fields:
+          - {label: "— Farben —", name: "color_bg", widget: "color", hint: "Hintergrundfarbe"}
+          - {label: "Hintergrundfarbe (Wechsel-Abschnitte)", name: "color_bg_alt", widget: "color"}
+          - {label: "Textfarbe", name: "color_ink", widget: "color"}
+          - {label: "Hauptfarbe (dunkel, z. B. Header/Fußzeile)", name: "color_primary", widget: "color"}
+          - {label: "Akzentfarbe (Buttons, Hervorhebungen)", name: "color_accent", widget: "color"}
+          - {label: "Zweitfarbe (Grün-Ton)", name: "color_sage", widget: "color"}
+
+          - label: "Abstand zwischen Abschnitten"
+            name: "section_spacing"
+            widget: "select"
+            options:
+              - {label: "Kompakt", value: "kompakt"}
+              - {label: "Normal", value: "normal"}
+              - {label: "Großzügig", value: "grosszuegig"}
+            default: "normal"
+
+          - {label: "— Logo & Bild —", name: "logo", widget: "image", hint: "Logo"}
+          - {label: "Portraitbild (Hero & Über mich)", name: "portrait", widget: "image"}
+          - {label: "Firmenname (groß, im Header)", name: "brand_name", widget: "string"}
+          - {label: "Firmenzusatz (klein, im Header)", name: "brand_sub", widget: "string"}
+
+          - {label: "— Startbereich (Hero) —", name: "hero_eyebrow", widget: "string", hint: "Kleiner Text über der Überschrift"}
+          - {label: "Überschrift – Zeile 1", name: "hero_headline_1", widget: "string"}
+          - {label: "Überschrift – Zeile 2", name: "hero_headline_2", widget: "string"}
+          - {label: "Überschrift – Zeile 3 (kursiv)", name: "hero_headline_3", widget: "string"}
+          - {label: "Beschreibungstext", name: "hero_lead", widget: "text"}
+
+          - {label: "— Über-mich-Bereich —", name: "about_tag", widget: "string", hint: "Kurzer Titel am Bild"}
+          - {label: "Kleiner Text über der Überschrift", name: "about_eyebrow", widget: "string"}
+          - {label: "Überschrift", name: "about_headline", widget: "string"}
+          - {label: "Hervorgehobener erster Satz", name: "about_emph", widget: "text"}
+          - {label: "Absatz 1", name: "about_p1", widget: "text"}
+          - {label: "Absatz 2", name: "about_p2", widget: "text"}
+          - {label: "Unterschrift", name: "about_signoff", widget: "string"}
+
+          - {label: "— Kontaktdaten —", name: "phone_display", widget: "string", hint: "Telefonnummer, angezeigt, z. B. +49 155 / 674 677 63"}
+          - {label: "Telefonnummer (technisch, für Anruf-Link, z. B. +4915567467763)", name: "phone_tel", widget: "string"}
+          - {label: "WhatsApp-Nummer (technisch, nur Ziffern, z. B. 4915567467763)", name: "whatsapp_number", widget: "string"}
+          - {label: "E-Mail-Adresse", name: "email", widget: "string"}
+          - {label: "Öffnungszeiten (Text)", name: "hours_text", widget: "string"}
+
+          - {label: "— Fußzeile —", name: "footer_text", widget: "string", hint: "Copyright-Text unten"}

@@ -364,6 +364,14 @@
     grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
     gap:32px;
   }
+  .vn-item{ display:flex; flex-direction:column; gap:10px; }
+  .vn-caption{
+    font-family:'Zilla Slab', serif;
+    font-weight:600;
+    font-size:1rem;
+    color:var(--primary);
+    margin:0;
+  }
   .vn-pair{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -694,7 +702,7 @@
   <!-- KERNBEREICHE -->
   <section style="padding:56px 0;">
     <div class="wrap">
-      <div class="why-grid reveal" style="grid-template-columns:repeat(3,1fr);">
+      <div class="why-grid kernbereiche-grid reveal">
         <div class="why-card" style="text-align:center; padding:32px 24px;">
           <div class="icon" style="margin:0 auto 14px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h12"/></svg></div>
           <h3>Hausmeisterservice</h3>
@@ -842,21 +850,33 @@
         <p id="vnIntro">Drei abgeschlossene Beispiele aus einer Bad-Grundreinigung sowie ein laufendes Elektro-Projekt — auf ein Bildpaar klicken für den direkten Vergleich mit Schieberegler.</p>
       </div>
       <div class="vn-grid reveal" id="vnGrid">
-        <div class="vn-pair">
-          <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-2.jpg" alt="Armatur vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
-          <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-2.jpg" alt="Armatur nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+        <div class="vn-item">
+          <p class="vn-caption">Armatur-Reinigung</p>
+          <div class="vn-pair">
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-2.jpg" alt="Armatur vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-2.jpg" alt="Armatur nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+          </div>
         </div>
-        <div class="vn-pair">
-          <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-3.jpg" alt="Fliesenfugen vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
-          <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-3.jpg" alt="Fliesenfugen nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+        <div class="vn-item">
+          <p class="vn-caption">Fliesenfugen-Reinigung</p>
+          <div class="vn-pair">
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-3.jpg" alt="Fliesenfugen vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-3.jpg" alt="Fliesenfugen nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+          </div>
         </div>
-        <div class="vn-pair">
-          <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-1.jpg" alt="Fugenecke vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
-          <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-1.jpg" alt="Fugenecke nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+        <div class="vn-item">
+          <p class="vn-caption">Fugenecke-Reinigung</p>
+          <div class="vn-pair">
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-1.jpg" alt="Fugenecke vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-1.jpg" alt="Fugenecke nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+          </div>
         </div>
-        <div class="vn-pair vn-pending">
-          <div class="vn-photo"><img src="images/elektro/elektro-vorbereitung.jpg" alt="Elektroinstallation vor dem Austausch der Schalter und Leuchten"><span class="vn-tag vn-before">Vorher</span></div>
-          <div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>nächste Woche</span><span class="vn-tag vn-after">Nachher</span></div>
+        <div class="vn-item">
+          <p class="vn-caption">Elektro-Projekt</p>
+          <div class="vn-pair vn-pending">
+            <div class="vn-photo"><img src="images/elektro/elektro-vorbereitung.jpg" alt="Elektroinstallation vor dem Austausch der Schalter und Leuchten"><span class="vn-tag vn-before">Vorher</span></div>
+            <div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>nächste Woche</span><span class="vn-tag vn-after">Nachher</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1142,13 +1162,14 @@
       if(Array.isArray(data.vorher_nachher) && data.vorher_nachher.length){
         const vgrid = document.getElementById('vnGrid');
         vgrid.innerHTML = data.vorher_nachher.map(function(pair){
+          const caption = pair.pair_title ? '<p class="vn-caption">' + pair.pair_title.replace(/</g,'&lt;') + '</p>' : '';
           const vorherTile = '<div class="vn-photo"><img src="' + pair.vorher + '" alt="' + (pair.vorher_alt||'').replace(/"/g,'&quot;') + '"><span class="vn-tag vn-before">Vorher</span></div>';
           if(pair.pending || !pair.nachher){
-            return '<div class="vn-pair vn-pending">' + vorherTile +
-              '<div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>in Kürze</span><span class="vn-tag vn-after">Nachher</span></div></div>';
+            return '<div class="vn-item">' + caption + '<div class="vn-pair vn-pending">' + vorherTile +
+              '<div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>in Kürze</span><span class="vn-tag vn-after">Nachher</span></div></div></div>';
           }
           const nachherTile = '<div class="vn-photo"><img src="' + pair.nachher + '" alt="' + (pair.nachher_alt||'').replace(/"/g,'&quot;') + '"><span class="vn-tag vn-after">Nachher</span></div>';
-          return '<div class="vn-pair">' + vorherTile + nachherTile + '</div>';
+          return '<div class="vn-item">' + caption + '<div class="vn-pair">' + vorherTile + nachherTile + '</div></div>';
         }).join('');
       }
     })

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alle Vorher/Nachher-Beispiele — Objekt- und Reparaturservice Battermann</title>
-<meta name="description" content="Alle abgeschlossenen Vorher/Nachher-Beispiele von Objekt- und Reparaturservice Battermann, sortiert nach Kategorie.">
+<title>Alle Projekte — Objekt- und Reparaturservice Battermann</title>
+<meta name="description" content="Alle abgeschlossenen Projekte von Objekt- und Reparaturservice Battermann im Überblick.">
 <link rel="icon" type="image/png" href="images/logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -571,6 +571,9 @@
   .vn-more-wrap{ margin-top:28px; text-align:center; }
 
   .vn-accordion{ display:flex; flex-direction:column; gap:14px; }
+  .proj-accordion{ display:flex; flex-direction:column; gap:14px; }
+  .proj-accordion-body{ padding:0 22px 22px; }
+  .proj-panel-desc{ color:var(--ink-soft); margin:0 0 18px; max-width:640px; }
   .vn-group{
     background:var(--paper);
     border:1px solid var(--line);
@@ -628,11 +631,12 @@
     transition:box-shadow 0.2s ease, transform 0.2s ease;
     position:relative;
   }
-  .vn-pair:hover{
+  .vn-pair.vn-static{ cursor:default; }
+  .vn-pair:not(.vn-static):hover{
     box-shadow:var(--shadow);
     transform:translateY(-2px);
   }
-  .vn-pair::after{
+  .vn-pair:not(.vn-static)::after{
     content:"Zum Vergleichen antippen";
     position:absolute; top:10px; left:50%; transform:translateX(-50%);
     background:rgba(255,255,255,0.92);
@@ -648,7 +652,7 @@
     white-space:nowrap;
     z-index:2;
   }
-  .vn-pair:hover::after{ opacity:1; }
+  .vn-pair:not(.vn-static):hover::after{ opacity:1; }
   .vn-photo{
     position:relative;
     aspect-ratio:3/4;
@@ -1049,7 +1053,7 @@
     <nav class="links" id="navLinks">
       <a href="index.html#ueber-mich" id="navUeberMich">Über mich</a>
       <a href="index.html#leistungen" id="navLeistungen">Leistungen</a>
-      <a href="vorher-nachher.html" id="navBilder">Bilder</a>
+      <a href="vorher-nachher.html" id="navBilder">Projekte</a>
       <a href="index.html#einsatzgebiet" id="navEinsatzgebiet">Einsatzgebiet</a>
       <a href="faq.html" id="navFaq">FAQ</a>
       <a href="index.html#kontakt" class="cta-btn mobile-only-cta" style="margin-top:8px;">Kontaktformular</a>
@@ -1076,50 +1080,10 @@
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow"><a href="index.html" style="color:var(--accent); text-decoration:none;">&larr; Zur Startseite</a></p>
-        <h1 style="font-size:2.1rem;">Alle Vorher/Nachher-Beispiele</h1>
-        <p class="intro-block">Alle bisherigen Bildpaare im Überblick, sortiert nach Kategorie — auf ein Bildpaar klicken für den direkten Vergleich mit Schieberegler.</p>
+        <h1 style="font-size:2.1rem;">Alle Projekte</h1>
+        <p class="intro-block">Meine abgeschlossenen Aufträge aus der Vergangenheit — auf ein Projekt tippen, um es zu öffnen.</p>
       </div>
-      <div class="vn-filters" id="vnFullFilters"></div>
-      <div class="vn-accordion" id="vnAccordionFull">
-        <details class="vn-group" open>
-          <summary><span>Bad</span><span class="vn-group-count">3 Bildpaare</span></summary>
-          <div class="vn-grid">
-            <div class="vn-item">
-              <p class="vn-caption">Armatur-Reinigung</p>
-              <div class="vn-pair">
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-2.jpg" alt="Armatur vor der Reinigung" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-2.jpg" alt="Armatur nach der Reinigung" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>
-              </div>
-            </div>
-            <div class="vn-item">
-              <p class="vn-caption">Fliesenfugen-Reinigung</p>
-              <div class="vn-pair">
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-3.jpg" alt="Fliesenfugen vor der Reinigung" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-3.jpg" alt="Fliesenfugen nach der Reinigung" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>
-              </div>
-            </div>
-            <div class="vn-item">
-              <p class="vn-caption">Fugenecke-Reinigung</p>
-              <div class="vn-pair">
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-1.jpg" alt="Fugenecke vor der Reinigung" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-1.jpg" alt="Fugenecke nach der Reinigung" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>
-              </div>
-            </div>
-          </div>
-        </details>
-        <details class="vn-group" open>
-          <summary><span>Elektro</span><span class="vn-group-count">1 Bildpaar</span></summary>
-          <div class="vn-grid">
-            <div class="vn-item">
-              <p class="vn-caption">Elektro-Projekt</p>
-              <div class="vn-pair vn-pending">
-                <div class="vn-photo"><img src="images/elektro/elektro-vorbereitung.jpg" alt="Elektroinstallation vor dem Austausch der Schalter und Leuchten" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
-                <div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>nächste Woche</span><span class="vn-tag vn-after">Nachher</span></div>
-              </div>
-            </div>
-          </div>
-        </details>
-      </div>
+      <div class="proj-accordion" id="projAccordionFull"></div>
     </div>
   </section>
 
@@ -1246,7 +1210,7 @@
     vnModalCounter.style.display = showNav ? 'block' : 'none';
     if(showNav){ vnModalCounter.textContent = (pairIndex + 1) + ' / ' + pairs.length; }
   }
-  document.getElementById('vnAccordionFull').addEventListener('click', function(e){
+  document.getElementById('projAccordionFull').addEventListener('click', function(e){
     const pairEl = e.target.closest('.vn-pair');
     if(!pairEl) return;
     const projectIndex = parseInt(pairEl.getAttribute('data-project'), 10);
@@ -1294,7 +1258,7 @@
     .then(function(data){
       if(!data) return;
       if(Array.isArray(data.vorher_nachher) && data.vorher_nachher.length){
-        renderVnAccordionFull(data.vorher_nachher);
+        renderProjectAccordionFull(data.vorher_nachher);
       }
       renderTagebuch(data);
     })
@@ -1395,21 +1359,23 @@
     });
   }
 
-  function vnItemHtml(project, projectIndex){
-    const caption = project.pair_title ? '<p class="vn-caption">' + project.pair_title.replace(/</g,'&lt;') + '</p>' : '';
+  function projTileHtml(project, projectIndex){
     const pairs = Array.isArray(project.bildpaare) ? project.bildpaare : [];
     const first = pairs[0] || {};
-    const multiBadge = pairs.length > 1 ? '<span class="vn-multi-badge">1 / ' + pairs.length + '</span>' : '';
+    const useSlider = project.mit_schieberegler !== false;
+    const multiBadge = (useSlider && pairs.length > 1) ? '<span class="vn-multi-badge">1 / ' + pairs.length + '</span>' : '';
     const vorherTile = '<div class="vn-photo"><img src="' + (first.vorher || '') + '" alt="' + (first.vorher_alt||'').replace(/"/g,'&quot;') + '" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>';
+    const clickAttr = useSlider ? ' data-project="' + projectIndex + '"' : '';
+    const pairClass = useSlider ? 'vn-pair' : 'vn-pair vn-static';
     if(first.pending || !first.nachher){
-      return '<div class="vn-item">' + caption + '<div class="vn-pair vn-pending" data-project="' + projectIndex + '">' + multiBadge + vorherTile +
-        '<div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>in Kürze</span><span class="vn-tag vn-after">Nachher</span></div></div></div>';
+      return '<div class="' + pairClass + ' vn-pending"' + clickAttr + '>' + multiBadge + vorherTile +
+        '<div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>in Kürze</span><span class="vn-tag vn-after">Nachher</span></div></div>';
     }
     const nachherTile = '<div class="vn-photo"><img src="' + first.nachher + '" alt="' + (first.nachher_alt||'').replace(/"/g,'&quot;') + '" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>';
-    return '<div class="vn-item">' + caption + '<div class="vn-pair" data-project="' + projectIndex + '">' + multiBadge + vorherTile + nachherTile + '</div></div>';
+    return '<div class="' + pairClass + '"' + clickAttr + '>' + multiBadge + vorherTile + nachherTile + '</div>';
   }
 
-  function renderVnAccordionFull(pairs){
+  function renderProjectAccordionFull(pairs){
     const sorted = pairs.slice().sort(function(a, b){
       if(a.datum && b.datum) return b.datum.localeCompare(a.datum);
       if(a.datum) return -1;
@@ -1417,42 +1383,14 @@
       return 0;
     });
     window.vnProjectsData = sorted;
-    const groups = {};
-    const order = [];
-    sorted.forEach(function(pair){
-      const kat = pair.kategorie || 'Weitere';
-      if(!groups[kat]){ groups[kat] = []; order.push(kat); }
-      groups[kat].push(pair);
-    });
-    const html = order.map(function(kat){
-      const list = groups[kat];
-      const count = list.length + (list.length === 1 ? ' Bildpaar' : ' Bildpaare');
-      return '<details class="vn-group" open data-kategorie="' + kat.replace(/"/g,'&quot;') + '"><summary><span>' + kat.replace(/</g,'&lt;') + '</span><span class="vn-group-count">' + count + '</span></summary>' +
-        '<div class="vn-grid">' + list.map(function(p){ return vnItemHtml(p, sorted.indexOf(p)); }).join('') + '</div></details>';
+    const html = sorted.map(function(project, i){
+      const idx = sorted.indexOf(project);
+      const title = (project.ueberschrift_zeigen !== false && project.pair_title) ? project.pair_title.replace(/</g,'&lt;') : ('Projekt ' + (i + 1));
+      const desc = project.beschreibung ? '<p class="proj-panel-desc" style="margin-top:14px;">' + project.beschreibung.replace(/</g,'&lt;') + '</p>' : '';
+      return '<details class="vn-group"' + (i === 0 ? ' open' : '') + '><summary><span>' + title + '</span></summary>' +
+        '<div class="proj-accordion-body">' + desc + projTileHtml(project, idx) + '</div></details>';
     }).join('');
-    document.getElementById('vnAccordionFull').innerHTML = html;
-
-    const filterBar = document.getElementById('vnFullFilters');
-    if(filterBar && order.length > 1){
-      filterBar.innerHTML = '<button type="button" class="vn-filter-btn active" data-filter="">Alle</button>' +
-        order.map(function(k){ return '<button type="button" class="vn-filter-btn" data-filter="' + k.replace(/"/g,'&quot;') + '">' + k.replace(/</g,'&lt;') + '</button>'; }).join('');
-      filterBar.addEventListener('click', function(e){
-        const btn = e.target.closest('.vn-filter-btn');
-        if(!btn) return;
-        filterBar.querySelectorAll('.vn-filter-btn').forEach(function(b){ b.classList.remove('active'); });
-        btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
-        document.querySelectorAll('#vnAccordionFull .vn-group').forEach(function(group){
-          const show = !filter || group.getAttribute('data-kategorie') === filter;
-          group.style.display = show ? '' : 'none';
-          if(show) group.setAttribute('open', '');
-        });
-        if(filter){
-          const target = document.querySelector('#vnAccordionFull .vn-group[data-kategorie="' + CSS.escape(filter) + '"]');
-          if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    }
+    document.getElementById('projAccordionFull').innerHTML = html;
   }
 
   // Dark/Light mode toggle

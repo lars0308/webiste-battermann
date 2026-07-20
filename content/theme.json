@@ -60,9 +60,9 @@
   "contact_intro_privat": "Erreichbar Mo–Sa von 09:00 bis 20:00 Uhr. Für eine unverbindliche Anfrage genügt das Formular — oder schreiben Sie direkt per Telefon, WhatsApp oder E-Mail.",
   "contact_intro_business": "Für Hausverwaltungen und Firmen: Erreichbar Mo–Sa von 09:00 bis 20:00 Uhr. Gerne besprechen wir eine Rahmenvereinbarung für mehrere Objekte — nutzen Sie das Formular oder schreiben Sie direkt per Telefon, WhatsApp oder E-Mail.",
   "footer_text": "© 2026 Objekt- und Reparaturservice Battermann · Lars Battermann",
-  "announce_active": false,
-  "announce_text": "",
-  "announce_until": "",
+  "announce_active": true,
+  "announce_text": "Bis zum 30.07.2026 gibt es 15% Rabatt für Neukunden",
+  "announce_until": "2026-07-31",
   "reviews_headline": "Das sagen Kunden",
   "section_order": [
     {

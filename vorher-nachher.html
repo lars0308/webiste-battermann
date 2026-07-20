@@ -137,6 +137,23 @@
     display:flex; align-items:center; gap:30px;
   }
   nav.links .mobile-only-cta{ display:none; }
+  .announce-bar{
+    background:var(--accent);
+    color:var(--on-dark-text);
+    display:flex; align-items:center; justify-content:center;
+    gap:14px;
+    padding:10px 44px 10px 16px;
+    font-size:0.85rem;
+    text-align:center;
+    position:relative;
+  }
+  .announce-bar-close{
+    position:absolute; right:12px; top:50%; transform:translateY(-50%);
+    background:none; border:none; color:var(--on-dark-text);
+    font-size:1.3rem; line-height:1; cursor:pointer;
+    padding:2px 6px;
+  }
+
   .announce-overlay{
     display:none;
     position:fixed; inset:0; z-index:200;
@@ -990,8 +1007,8 @@
     .nav{ padding:12px 16px; gap:8px; }
     .brand{ gap:8px; min-width:0; }
     .brand svg, .brand img{ width:30px; height:30px; }
-    .brand-text{ font-size:0.85rem; }
-    .brand-text span{ display:none; }
+    .brand-text{ font-size:0.8rem; }
+    .brand-text #brandSub{ display:none; }
     #headerCta{ padding:9px 12px; font-size:0.78rem; }
     .header-icon-btn{ width:32px; height:32px; }
     .header-icon-btn svg{ width:15px; height:15px; }
@@ -1007,6 +1024,11 @@
     <button type="button" class="announce-close" id="announceClose" aria-label="Schließen">&times;</button>
     <p id="announceText"></p>
   </div>
+</div>
+
+<div class="announce-bar" id="announceBar" style="display:none;">
+  <span id="announceBarText"></span>
+  <button type="button" class="announce-bar-close" id="announceBarClose" aria-label="Hinweis ausblenden">&times;</button>
 </div>
 
 <header>
@@ -1032,10 +1054,6 @@
       <a href="mailto:service.battermann@gmx.de" class="header-icon-btn js-email-link" aria-label="E-Mail schreiben" title="E-Mail schreiben">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
       </a>
-      <button type="button" class="header-icon-btn" id="themeToggleBtn" aria-label="Hell-/Dunkelmodus umschalten" title="Hell-/Dunkelmodus umschalten">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="themeIconSun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="themeIconMoon" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
       <a href="index.html#kontakt" class="cta-btn" id="headerCta">Termin anfragen</a>
       <button class="burger" id="burgerBtn" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div>
@@ -1505,9 +1523,14 @@
         const until = new Date(data.announce_until + 'T23:59:59');
         if(!isNaN(until.getTime()) && new Date() > until) return;
       }
-      if(sessionStorage.getItem('announceDismissed') === data.announce_text) return;
-      document.getElementById('announceText').textContent = data.announce_text;
-      document.getElementById('announceOverlay').classList.add('open');
+      if(sessionStorage.getItem('announceDismissed') !== data.announce_text){
+        document.getElementById('announceText').textContent = data.announce_text;
+        document.getElementById('announceOverlay').classList.add('open');
+      }
+      if(localStorage.getItem('announceBarDismissed') !== data.announce_text){
+        document.getElementById('announceBarText').textContent = data.announce_text;
+        document.getElementById('announceBar').style.display = 'flex';
+      }
     })
     .catch(function(){});
 
@@ -1516,6 +1539,11 @@
     const txt = document.getElementById('announceText').textContent;
     sessionStorage.setItem('announceDismissed', txt);
     announceOverlay.classList.remove('open');
+  });
+  document.getElementById('announceBarClose').addEventListener('click', function(){
+    const txt = document.getElementById('announceBarText').textContent;
+    localStorage.setItem('announceBarDismissed', txt);
+    document.getElementById('announceBar').style.display = 'none';
   });
   announceOverlay.addEventListener('click', function(e){
     if(e.target === announceOverlay){ document.getElementById('announceClose').click(); }

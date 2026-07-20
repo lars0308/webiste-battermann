@@ -268,6 +268,31 @@ collections:
             required: false
             hint: "z. B. #4B564F — leer lassen, um die Auswahl oben zu nutzen"
 
+          - label: "— Menüpunkte im Header —"
+            name: "nav_label_ueber_mich"
+            widget: "string"
+            default: "Über mich"
+            hint: "Text für den Menüpunkt „Über mich“"
+          - {label: "Menüpunkt „Leistungen“", name: "nav_label_leistungen", widget: "string", default: "Leistungen"}
+          - {label: "Menüpunkt „Bilder“", name: "nav_label_bilder", widget: "string", default: "Bilder"}
+          - {label: "Menüpunkt „Einsatzgebiet“", name: "nav_label_einsatzgebiet", widget: "string", default: "Einsatzgebiet"}
+
+          - label: "Farbe der Menüpunkte im Header"
+            name: "color_nav_links"
+            widget: "select"
+            required: false
+            options:
+              - {label: "Wie Textfarbe (Standard)", value: ""}
+              - {label: "Dunkelgrün", value: "#122822"}
+              - {label: "Terracotta", value: "#C1622D"}
+              - {label: "Schwarz", value: "#111111"}
+              - {label: "Logo-Oliv", value: "#5F6A42"}
+          - label: "Eigener Hex-Code dafür (optional, überschreibt die Auswahl oben)"
+            name: "color_nav_links_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #122822 — leer lassen, um die Auswahl oben zu nutzen"
+
           - label: "Bilder-Karussell dreht automatisch weiter?"
             name: "gallery_autoplay"
             widget: "boolean"

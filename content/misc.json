@@ -1,0 +1,16 @@
+{
+  "reviews_headline": "Das sagen Kunden",
+  "footer_text": "© 2026 Objekt- und Reparaturservice Battermann · Lars Battermann",
+  "section_order": [
+    {"section": "hero"},
+    {"section": "kernbereiche"},
+    {"section": "ueber-mich"},
+    {"section": "warum"},
+    {"section": "leistungen"},
+    {"section": "galerie"},
+    {"section": "vorher-nachher"},
+    {"section": "bewertungen"},
+    {"section": "einsatzgebiet"},
+    {"section": "kontakt"}
+  ]
+}

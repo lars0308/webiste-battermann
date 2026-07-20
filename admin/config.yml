@@ -293,6 +293,23 @@ collections:
             required: false
             hint: "z. B. #122822 — leer lassen, um die Auswahl oben zu nutzen"
 
+          - label: "Farbe der Buttons (z. B. „Termin anfragen“) — unabhängig von der Hauptfarbe"
+            name: "color_btn"
+            widget: "select"
+            required: false
+            options:
+              - {label: "Wie Hauptfarbe (Standard)", value: ""}
+              - {label: "Dunkelgrün", value: "#122822"}
+              - {label: "Terracotta", value: "#C1622D"}
+              - {label: "Waldgrün", value: "#4C7A4F"}
+              - {label: "Petrol", value: "#2E7B7B"}
+              - {label: "Schwarz", value: "#111111"}
+          - label: "Eigener Hex-Code für Buttons (optional, überschreibt die Auswahl oben)"
+            name: "color_btn_custom"
+            widget: "string"
+            required: false
+            hint: "z. B. #C1622D — leer lassen, um die Auswahl oben zu nutzen"
+
           - label: "Bilder-Karussell dreht automatisch weiter?"
             name: "gallery_autoplay"
             widget: "boolean"

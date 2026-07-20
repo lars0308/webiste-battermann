@@ -11,10 +11,10 @@ locale: "de"
 
 collections:
   - name: "site"
-    label: "Website-Inhalte"
+    label: "🖼️ Bilder & Projekte"
     files:
       - file: "content/site.json"
-        label: "Galerie & Vorher/Nachher"
+        label: "🖼️  Galerie, Vorher/Nachher & Tagebuch"
         name: "site"
         fields:
           - label: "Hinweistext über der Galerie"
@@ -102,13 +102,13 @@ collections:
                   - {label: "Noch in Arbeit? (zeigt „Nachher folgt“ statt Bild)", name: "pending", widget: "boolean", default: false}
 
   - name: "theme"
-    label: "Design & Kontakt"
+    label: "🎨 Design & Inhalte"
     files:
-      - file: "content/theme.json"
-        label: "Design, Logo & Kontaktdaten"
-        name: "theme"
+      - file: "content/design.json"
+        label: "🎨  Farben & Design"
+        name: "design"
         fields:
-          - label: "— Hintergrundfarbe — (Palette antippen ODER eigenen Hex-Code weiter unten eintragen)"
+          - label: "Hintergrundfarbe"
             name: "color_bg"
             widget: "select"
             options:
@@ -117,11 +117,7 @@ collections:
               - {label: "Sandbeige", value: "#E8DFC8"}
               - {label: "Cremeweiß", value: "#F5F0E6"}
               - {label: "Helles Grau", value: "#EDEDED"}
-          - label: "Eigener Hex-Code für Hintergrundfarbe (optional, überschreibt die Palette oben)"
-            name: "color_bg_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #EDE6D6 — leer lassen, um die Palette oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_bg_custom", widget: "string", required: false, hint: "z. B. #EDE6D6 — leer lassen für die Auswahl oben"}
 
           - label: "Hintergrundfarbe (Wechsel-Abschnitte)"
             name: "color_bg_alt"
@@ -132,11 +128,7 @@ collections:
               - {label: "Sandbeige", value: "#E8DFC8"}
               - {label: "Cremeweiß", value: "#F5F0E6"}
               - {label: "Helles Grau", value: "#EDEDED"}
-          - label: "Eigener Hex-Code (optional, überschreibt die Palette oben)"
-            name: "color_bg_alt_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #EDE6D6 — leer lassen, um die Palette oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_bg_alt_custom", widget: "string", required: false, hint: "z. B. #EDE6D6 — leer lassen für die Auswahl oben"}
 
           - label: "Textfarbe"
             name: "color_ink"
@@ -146,13 +138,9 @@ collections:
               - {label: "Reines Schwarz", value: "#111111"}
               - {label: "Dunkelbraun", value: "#2B211B"}
               - {label: "Anthrazit", value: "#262626"}
-          - label: "Eigener Hex-Code für Textfarbe (optional, überschreibt die Palette oben)"
-            name: "color_ink_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #1B231F — leer lassen, um die Palette oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_ink_custom", widget: "string", required: false, hint: "z. B. #1B231F — leer lassen für die Auswahl oben"}
 
-          - label: "Hauptfarbe (dunkel, z. B. Header/Fußzeile)"
+          - label: "Hauptfarbe (Header/Hero/Fußzeile-Hintergrund)"
             name: "color_primary"
             widget: "select"
             options:
@@ -160,11 +148,7 @@ collections:
               - {label: "Tiefblau", value: "#16202E"}
               - {label: "Dunkelbraun", value: "#2B1D12"}
               - {label: "Schwarzgrün", value: "#0F1A16"}
-          - label: "Eigener Hex-Code für Hauptfarbe (optional, überschreibt die Palette oben)"
-            name: "color_primary_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #122822 — leer lassen, um die Palette oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_primary_custom", widget: "string", required: false, hint: "z. B. #122822 — leer lassen für die Auswahl oben"}
 
           - label: "Überschriften-Farbe"
             name: "color_heading"
@@ -174,25 +158,7 @@ collections:
               - {label: "Waldgrün", value: "#3F5B3C"}
               - {label: "Olivbraun", value: "#6B5B3E"}
               - {label: "Dunkelgrau", value: "#4A4A4A"}
-          - label: "Eigener Hex-Code für Überschriften-Farbe (optional, überschreibt die Palette oben)"
-            name: "color_heading_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #5F6A42 — leer lassen, um die Palette oben zu nutzen"
-
-          - label: "Hintergrundfarbe der Menüleiste oben"
-            name: "color_header_bg"
-            widget: "select"
-            options:
-              - {label: "Beige, halbtransparent (aktuell)", value: "rgba(246,243,236,0.92)"}
-              - {label: "Weiß, halbtransparent", value: "rgba(255,255,255,0.9)"}
-              - {label: "Dunkelgrün, halbtransparent", value: "rgba(18,40,34,0.92)"}
-              - {label: "Beige, deckend", value: "#EDE6D6"}
-          - label: "Eigener Hex-/rgba-Code für Menüleiste (optional, überschreibt die Palette oben)"
-            name: "color_header_bg_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. rgba(246,243,236,0.92) oder #EDE6D6 — leer lassen, um die Palette oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_heading_custom", widget: "string", required: false, hint: "z. B. #5F6A42 — leer lassen für die Auswahl oben"}
 
           - label: "Akzentfarbe (Buttons, Hervorhebungen)"
             name: "color_accent"
@@ -203,11 +169,7 @@ collections:
               - {label: "Senfgelb", value: "#D6A93B"}
               - {label: "Waldgrün", value: "#4C7A4F"}
               - {label: "Petrol", value: "#2E7B7B"}
-          - label: "Eigener Hex-Code für Akzentfarbe (optional, überschreibt die Palette oben)"
-            name: "color_accent_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #C1622D — leer lassen, um die Palette oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_accent_custom", widget: "string", required: false, hint: "z. B. #C1622D — leer lassen für die Auswahl oben"}
 
           - label: "Zweitfarbe (Grün-Ton)"
             name: "color_sage"
@@ -216,25 +178,17 @@ collections:
               - {label: "Salbeigrün (aktuell)", value: "#6F8F6B"}
               - {label: "Graugrün", value: "#8A9A8C"}
               - {label: "Moosgrün", value: "#55724F"}
-          - label: "Eigener Hex-Code für Zweitfarbe (optional, überschreibt die Palette oben)"
-            name: "color_sage_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #6F8F6B — leer lassen, um die Palette oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_sage_custom", widget: "string", required: false, hint: "z. B. #6F8F6B — leer lassen für die Auswahl oben"}
 
-          - label: "Abstand zwischen Abschnitten"
-            name: "section_spacing"
+          - label: "Hintergrundfarbe der Menüleiste oben"
+            name: "color_header_bg"
             widget: "select"
             options:
-              - {label: "Kompakt", value: "kompakt"}
-              - {label: "Normal", value: "normal"}
-              - {label: "Großzügig", value: "grosszuegig"}
-            default: "normal"
-
-          - {label: "— Logo & Bild —", name: "logo", widget: "image", hint: "Logo"}
-          - {label: "Portraitbild (Hero & Über mich)", name: "portrait", widget: "image"}
-          - {label: "Firmenname (groß, im Header)", name: "brand_name", widget: "string"}
-          - {label: "Firmenzusatz (klein, im Header)", name: "brand_sub", widget: "string"}
+              - {label: "Beige, halbtransparent (aktuell)", value: "rgba(246,243,236,0.92)"}
+              - {label: "Weiß, halbtransparent", value: "rgba(255,255,255,0.9)"}
+              - {label: "Dunkelgrün, halbtransparent", value: "rgba(18,40,34,0.92)"}
+              - {label: "Beige, deckend", value: "#EDE6D6"}
+          - {label: "Eigener Hex-/rgba-Code (überschreibt die Auswahl oben)", name: "color_header_bg_custom", widget: "string", required: false, hint: "z. B. rgba(246,243,236,0.92) oder #EDE6D6"}
 
           - label: "Farbe „Battermann“ im Header (großer Text)"
             name: "color_brand"
@@ -246,11 +200,7 @@ collections:
               - {label: "Terracotta", value: "#C1622D"}
               - {label: "Schwarz", value: "#111111"}
               - {label: "Logo-Oliv", value: "#5F6A42"}
-          - label: "Eigener Hex-Code dafür (optional, überschreibt die Auswahl oben)"
-            name: "color_brand_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #122822 — leer lassen, um die Auswahl oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_brand_custom", widget: "string", required: false, hint: "z. B. #122822 — leer lassen für die Auswahl oben"}
 
           - label: "Farbe „Objekt- & Reparaturservice“ im Header (kleiner Text)"
             name: "color_brand_sub"
@@ -262,22 +212,9 @@ collections:
               - {label: "Terracotta", value: "#C1622D"}
               - {label: "Logo-Oliv", value: "#5F6A42"}
               - {label: "Grau", value: "#767676"}
-          - label: "Eigener Hex-Code dafür (optional, überschreibt die Auswahl oben)"
-            name: "color_brand_sub_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #4B564F — leer lassen, um die Auswahl oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_brand_sub_custom", widget: "string", required: false, hint: "z. B. #4B564F — leer lassen für die Auswahl oben"}
 
-          - label: "— Menüpunkte im Header —"
-            name: "nav_label_ueber_mich"
-            widget: "string"
-            default: "Über mich"
-            hint: "Text für den Menüpunkt „Über mich“"
-          - {label: "Menüpunkt „Leistungen“", name: "nav_label_leistungen", widget: "string", default: "Leistungen"}
-          - {label: "Menüpunkt „Bilder“", name: "nav_label_bilder", widget: "string", default: "Bilder"}
-          - {label: "Menüpunkt „Einsatzgebiet“", name: "nav_label_einsatzgebiet", widget: "string", default: "Einsatzgebiet"}
-
-          - label: "Farbe der Menüpunkte im Header"
+          - label: "Farbe der Menüpunkte (Über mich, Leistungen, …)"
             name: "color_nav_links"
             widget: "select"
             required: false
@@ -287,13 +224,9 @@ collections:
               - {label: "Terracotta", value: "#C1622D"}
               - {label: "Schwarz", value: "#111111"}
               - {label: "Logo-Oliv", value: "#5F6A42"}
-          - label: "Eigener Hex-Code dafür (optional, überschreibt die Auswahl oben)"
-            name: "color_nav_links_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #122822 — leer lassen, um die Auswahl oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_nav_links_custom", widget: "string", required: false, hint: "z. B. #122822 — leer lassen für die Auswahl oben"}
 
-          - label: "Farbe der Buttons (z. B. „Termin anfragen“) — unabhängig von der Hauptfarbe"
+          - label: "Farbe der Buttons (z. B. „Termin anfragen“)"
             name: "color_btn"
             widget: "select"
             required: false
@@ -304,39 +237,55 @@ collections:
               - {label: "Waldgrün", value: "#4C7A4F"}
               - {label: "Petrol", value: "#2E7B7B"}
               - {label: "Schwarz", value: "#111111"}
-          - label: "Eigener Hex-Code für Buttons (optional, überschreibt die Auswahl oben)"
-            name: "color_btn_custom"
-            widget: "string"
-            required: false
-            hint: "z. B. #C1622D — leer lassen, um die Auswahl oben zu nutzen"
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_btn_custom", widget: "string", required: false, hint: "z. B. #C1622D — leer lassen für die Auswahl oben"}
 
-          - label: "Bilder-Karussell dreht automatisch weiter?"
-            name: "gallery_autoplay"
-            widget: "boolean"
-            default: true
+          - label: "Abstand zwischen Abschnitten"
+            name: "section_spacing"
+            widget: "select"
+            options:
+              - {label: "Kompakt", value: "kompakt"}
+              - {label: "Normal", value: "normal"}
+              - {label: "Großzügig", value: "grosszuegig"}
+            default: "normal"
 
-          - label: "Geschwindigkeit (Sekunden zwischen den Schritten)"
-            name: "gallery_autoplay_seconds"
-            widget: "number"
-            default: 4
-            min: 2
-            max: 15
-            required: false
+          - {label: "Logo", name: "logo", widget: "image"}
+          - {label: "Portraitbild (Hero & Über mich)", name: "portrait", widget: "image"}
 
-          - {label: "— Zielgruppen-Umschalter —", name: "audience_label_privat", widget: "string", hint: "Beschriftung Button 1", default: "Privatkunden"}
-          - {label: "Beschriftung Button 2", name: "audience_label_business", widget: "string", default: "Hausverwaltung & Firmen"}
+          - {label: "Bilder-Karussell dreht automatisch weiter?", name: "gallery_autoplay", widget: "boolean", default: true}
+          - {label: "Geschwindigkeit (Sekunden zwischen den Schritten)", name: "gallery_autoplay_seconds", widget: "number", default: 4, min: 2, max: 15, required: false}
 
-          - {label: "— Startbereich (Hero) —", name: "hero_eyebrow", widget: "string", hint: "Kleiner Text über der Überschrift"}
+      - file: "content/header.json"
+        label: "🧭  Header & Menü"
+        name: "header"
+        fields:
+          - {label: "Firmenname (groß, im Header)", name: "brand_name", widget: "string"}
+          - {label: "Firmenzusatz (klein, im Header)", name: "brand_sub", widget: "string"}
+          - {label: "Menüpunkt „Über mich“", name: "nav_label_ueber_mich", widget: "string"}
+          - {label: "Menüpunkt „Leistungen“", name: "nav_label_leistungen", widget: "string"}
+          - {label: "Menüpunkt „Bilder“", name: "nav_label_bilder", widget: "string"}
+          - {label: "Menüpunkt „Einsatzgebiet“", name: "nav_label_einsatzgebiet", widget: "string"}
+
+      - file: "content/hero.json"
+        label: "🏠  Startseite – Hero"
+        name: "hero"
+        fields:
+          - {label: "Beschriftung Zielgruppen-Button 1", name: "audience_label_privat", widget: "string"}
+          - {label: "Beschriftung Zielgruppen-Button 2", name: "audience_label_business", widget: "string"}
+          - {label: "Kleiner Text über der Überschrift", name: "hero_eyebrow", widget: "string"}
           - {label: "Überschrift – Zeile 1", name: "hero_headline_1", widget: "string"}
           - {label: "Überschrift – Zeile 2", name: "hero_headline_2", widget: "string"}
           - {label: "Überschrift – Zeile 3 (kursiv)", name: "hero_headline_3", widget: "string"}
-          - {label: "Beschreibungstext (für Privatkunden, Standard-Ansicht)", name: "hero_lead", widget: "text"}
-          - {label: "Beschreibungstext (für Hausverwaltung & Firmen)", name: "hero_lead_business", widget: "text", required: false}
-          - {label: "Vertrauens-Punkt 4 (unter den Hero-Buttons, z. B. „Kein Callcenter“)", name: "trust_item_4", widget: "string", required: false}
-          - {label: "Zusatz-Hinweis für Privatkunden (optional, erscheint zusätzlich unter dem Text)", name: "audience_note_privat", widget: "text", required: false}
+          - {label: "Beschreibungstext (Privatkunden)", name: "hero_lead", widget: "text"}
+          - {label: "Beschreibungstext (Hausverwaltung & Firmen)", name: "hero_lead_business", widget: "text", required: false}
+          - {label: "Vertrauens-Punkt 4 (unter den Hero-Buttons)", name: "trust_item_4", widget: "string", required: false}
+          - {label: "Zusatz-Hinweis für Privatkunden (optional)", name: "audience_note_privat", widget: "text", required: false}
           - {label: "Zusatz-Hinweis für Hausverwaltung & Firmen (optional)", name: "audience_note_business", widget: "text", required: false}
 
-          - {label: "— Über-mich-Bereich —", name: "about_tag", widget: "string", hint: "Kurzer Titel am Bild"}
+      - file: "content/about.json"
+        label: "👤  Über mich"
+        name: "about"
+        fields:
+          - {label: "Kurzer Titel am Bild", name: "about_tag", widget: "string"}
           - {label: "Kleiner Text über der Überschrift", name: "about_eyebrow", widget: "string"}
           - {label: "Überschrift", name: "about_headline", widget: "string"}
           - {label: "Hervorgehobener erster Satz", name: "about_emph", widget: "text"}
@@ -344,53 +293,51 @@ collections:
           - {label: "Absatz 2", name: "about_p2", widget: "text"}
           - {label: "Unterschrift", name: "about_signoff", widget: "string"}
 
-          - {label: "— Kontaktdaten —", name: "phone_display", widget: "string", hint: "Telefonnummer, angezeigt, z. B. +49 155 / 674 677 63"}
-          - {label: "Telefonnummer (technisch, für Anruf-Link, z. B. +4915567467763)", name: "phone_tel", widget: "string"}
-          - {label: "WhatsApp-Nummer (technisch, nur Ziffern, z. B. 4915567467763)", name: "whatsapp_number", widget: "string"}
+      - file: "content/contact.json"
+        label: "📞  Kontaktdaten"
+        name: "contact"
+        fields:
+          - {label: "Telefonnummer (angezeigt)", name: "phone_display", widget: "string", hint: "z. B. +49 155 / 674 677 63"}
+          - {label: "Telefonnummer (technisch, für Anruf-Link)", name: "phone_tel", widget: "string", hint: "z. B. +4915567467763"}
+          - {label: "WhatsApp-Nummer (nur Ziffern)", name: "whatsapp_number", widget: "string", hint: "z. B. 4915567467763"}
           - {label: "E-Mail-Adresse", name: "email", widget: "string"}
           - {label: "Öffnungszeiten (Text)", name: "hours_text", widget: "string"}
-          - {label: "Kontakt-Einleitungstext (für Privatkunden)", name: "contact_intro_privat", widget: "text", required: false}
-          - {label: "Kontakt-Einleitungstext (für Hausverwaltung & Firmen)", name: "contact_intro_business", widget: "text", required: false}
+          - {label: "Kontakt-Einleitungstext (Privatkunden)", name: "contact_intro_privat", widget: "text", required: false}
+          - {label: "Kontakt-Einleitungstext (Hausverwaltung & Firmen)", name: "contact_intro_business", widget: "text", required: false}
 
-          - {label: "— Fußzeile —", name: "footer_text", widget: "string", hint: "Copyright-Text unten"}
-
-          - label: "Ankündigung anzeigen? (z. B. Rabatt-Aktion oder Urlaubshinweis)"
-            name: "announce_active"
-            widget: "boolean"
-            default: false
-
-          - label: "Ankündigungstext"
-            name: "announce_text"
-            widget: "string"
-            required: false
-            hint: "z. B. „Bis zum 30.07.2026 gibt es 15% Rabatt für Neukunden“"
-
+      - file: "content/popup.json"
+        label: "📢  Popup & Hinweis-Banner"
+        name: "popup"
+        fields:
+          - {label: "Ankündigung anzeigen? (z. B. Rabatt-Aktion oder Urlaubshinweis)", name: "announce_active", widget: "boolean", default: false}
+          - label: "Anzeige-Art"
+            name: "announce_style"
+            widget: "select"
+            default: "popup"
+            options:
+              - {label: "Als Popup (schließbares Fenster beim Laden)", value: "popup"}
+              - {label: "Als dauerhafter Hinweis-Balken oben (nicht störend)", value: "banner"}
+              - {label: "Beides gleichzeitig", value: "both"}
+          - {label: "Ankündigungstext", name: "announce_text", widget: "string", required: false, hint: "z. B. „Bis zum 30.07.2026 gibt es 15% Rabatt für Neukunden“"}
           - label: "Automatisch ausblenden ab diesem Datum (optional)"
             name: "announce_until"
             widget: "datetime"
             type: "date"
             required: false
-            hint: "Nach diesem Tag erscheint das Popup nicht mehr, auch wenn oben noch aktiviert ist"
+            hint: "Nach diesem Tag erscheint das Popup/der Banner nicht mehr, auch wenn oben noch aktiviert ist"
 
+      - file: "content/misc.json"
+        label: "⚙️  Sonstiges"
+        name: "misc"
+        fields:
           - {label: "Überschrift des Bewertungs-Bereichs", name: "reviews_headline", widget: "string", default: "Das sagen Kunden", required: false}
-
+          - {label: "Copyright-Text unten (Fußzeile)", name: "footer_text", widget: "string"}
           - label: "Reihenfolge der Bereiche auf der Startseite"
             name: "section_order"
             widget: "list"
             required: false
             summary: "{{fields.section}}"
             hint: "So sortierst du die Startseite um: Auf das Symbol ⋮⋮ links neben einem Eintrag tippen, gedrückt halten und an die gewünschte Stelle ziehen. Der oberste Eintrag in dieser Liste erscheint ganz oben auf der Seite, der unterste ganz unten."
-            default:
-              - section: "hero"
-              - section: "kernbereiche"
-              - section: "ueber-mich"
-              - section: "warum"
-              - section: "leistungen"
-              - section: "galerie"
-              - section: "vorher-nachher"
-              - section: "bewertungen"
-              - section: "einsatzgebiet"
-              - section: "kontakt"
             fields:
               - label: "Abschnitt"
                 name: "section"

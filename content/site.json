@@ -4,31 +4,23 @@
     {
       "image": "/images/arbeit-leuchte.jpg",
       "alt": "Montage einer Außenleuchte auf der Leiter",
-      "kategorie": "",
-      "datum": ""
+      "kategorie": ""
     },
     {
       "image": "/images/arbeit-garten.jpg",
-      "alt": "Kantenschnitt und Rasenpflege an einer Einfahrt",
-      "kategorie": "",
-      "datum": ""
+      "alt": "Kantenschnitt und Rasenpflege an einer Einfahrt"
     },
     {
       "image": "/images/arbeit-montage.jpg",
-      "alt": "Ausrichten eines Zaunpfostens mit der Wasserwaage",
-      "kategorie": "",
-      "datum": ""
+      "alt": "Ausrichten eines Zaunpfostens mit der Wasserwaage"
     },
     {
       "image": "/images/elektro/elektro-fehlersuche.jpg",
-      "alt": "Fehlersuche an einer Elektroinstallation",
-      "kategorie": "",
-      "datum": ""
+      "alt": "Fehlersuche an einer Elektroinstallation"
     },
     {
       "image": "/images/elektro/elektro-ursache.jpg",
-      "alt": "Ursache gefunden: durchgebrannte Ader an einer Lampe",
-      "kategorie": ""
+      "alt": "Ursache gefunden: durchgebrannte Ader an einer Lampe"
     },
     {
       "image": "/images/elektro/elektro-vorbereitung.jpg",
@@ -54,15 +46,9 @@
           "nachher": "/images/vorher-nachher/bad-nachher-2.jpg",
           "nachher_alt": "Armatur nach der Reinigung",
           "pending": false
-        },
-        {
-          "vorher": "/images/IMG_20260612_170056.jpg",
-          "vorher_alt": "",
-          "nachher": "",
-          "nachher_alt": "",
-          "pending": false
         }
-      ]
+      ],
+      "einzelbilder": []
     },
     {
       "datum": "",
@@ -85,7 +71,8 @@
           "nachher_alt": "",
           "pending": true
         }
-      ]
+      ],
+      "einzelbilder": []
     },
     {
       "datum": "",
@@ -101,7 +88,8 @@
           "nachher_alt": "Fugenecke nach der Reinigung",
           "pending": false
         }
-      ]
+      ],
+      "einzelbilder": []
     },
     {
       "datum": "",
@@ -131,7 +119,8 @@
           "nachher_alt": "",
           "pending": true
         }
-      ]
+      ],
+      "einzelbilder": []
     }
   ]
 }

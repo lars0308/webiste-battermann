@@ -1,5 +1,6 @@
 {
   "announce_active": false,
+  "announce_style": "popup",
   "announce_text": "",
   "announce_until": ""
 }

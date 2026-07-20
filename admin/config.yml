@@ -264,6 +264,7 @@ collections:
           - {label: "Menüpunkt „Leistungen“", name: "nav_label_leistungen", widget: "string"}
           - {label: "Menüpunkt „Bilder“", name: "nav_label_bilder", widget: "string"}
           - {label: "Menüpunkt „Einsatzgebiet“", name: "nav_label_einsatzgebiet", widget: "string"}
+          - {label: "Menüpunkt „FAQ“", name: "nav_label_faq", widget: "string"}
 
       - file: "content/hero.json"
         label: "🏠  Startseite – Hero"
@@ -352,7 +353,6 @@ collections:
                   - {label: "Vorher/Nachher", value: "vorher-nachher"}
                   - {label: "Bewertungen", value: "bewertungen"}
                   - {label: "Einsatzgebiet", value: "einsatzgebiet"}
-                  - {label: "Häufige Fragen (FAQ)", value: "faq"}
                   - {label: "Kontakt", value: "kontakt"}
               - {label: "Sichtbar?", name: "sichtbar", widget: "boolean", default: true}
 

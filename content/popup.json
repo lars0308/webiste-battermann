@@ -1,6 +1,6 @@
 {
-  "announce_active": false,
-  "announce_style": "popup",
-  "announce_text": "",
-  "announce_until": ""
+  "announce_active": true,
+  "announce_style": "banner",
+  "announce_text": "Bis zum 30.07.2026 15% Rabatt für Neukunden",
+  "announce_until": "2026-07-31"
 }

@@ -51,6 +51,7 @@
     --brand-color: var(--ink);
     --brand-sub-color: var(--ink-soft);
     --nav-link-color: var(--ink);
+    --btn-color: var(--primary);
     --on-dark-text: #FFFEFB;
   }
 
@@ -209,7 +210,7 @@
 
   .cta-btn{
     display:inline-flex; align-items:center; gap:9px;
-    background:var(--primary);
+    background:var(--btn-color);
     color:var(--on-dark-text) !important;
     padding:11px 20px;
     border-radius:var(--radius);
@@ -217,7 +218,7 @@
     font-weight:600;
     font-size:0.9rem;
     white-space:nowrap;
-    border:1px solid var(--primary);
+    border:1px solid var(--btn-color);
     transition:background 0.2s ease, transform 0.15s ease;
   }
   .cta-btn:hover{ background:var(--primary-light); transform:translateY(-1px); }
@@ -1947,6 +1948,8 @@
 
       const navLinkColor = (data.color_nav_links_custom && data.color_nav_links_custom.trim()) ? data.color_nav_links_custom.trim() : data.color_nav_links;
       if(navLinkColor){ document.documentElement.style.setProperty('--nav-link-color', navLinkColor); }
+      const btnColor = (data.color_btn_custom && data.color_btn_custom.trim()) ? data.color_btn_custom.trim() : data.color_btn;
+      if(btnColor){ document.documentElement.style.setProperty('--btn-color', btnColor); }
       if(data.nav_label_ueber_mich){ document.getElementById('navUeberMich').textContent = data.nav_label_ueber_mich; }
       if(data.nav_label_leistungen){ document.getElementById('navLeistungen').textContent = data.nav_label_leistungen; }
       if(data.nav_label_bilder){ document.getElementById('navBilder').textContent = data.nav_label_bilder; }

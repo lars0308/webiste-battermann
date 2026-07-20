@@ -510,6 +510,23 @@
     grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
     gap:32px;
   }
+  .tagebuch-list{ display:flex; flex-direction:column; gap:18px; }
+  .tagebuch-entry{
+    display:flex; gap:20px; align-items:center;
+    background:var(--paper);
+    border-radius:var(--radius);
+    padding:16px;
+    cursor:pointer;
+  }
+  .tagebuch-entry img{
+    width:120px; height:120px; object-fit:cover; border-radius:4px; flex:none;
+  }
+  .tagebuch-entry-text{ font-size:0.98rem; color:var(--ink); }
+  @media (max-width: 560px){
+    .tagebuch-entry{ flex-direction:column; align-items:flex-start; gap:12px; }
+    .tagebuch-entry img{ width:100%; height:200px; }
+  }
+
   .vn-filters{
     display:flex; flex-wrap:wrap; gap:10px;
     margin:0 0 28px;

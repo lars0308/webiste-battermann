@@ -10,15 +10,19 @@
     },
     {
       "frage": "Was kostet eine Anfahrt oder ein erstes Gespräch?",
-      "antwort": "Ein erstes, unverbindliches Gespräch zur Einschätzung Ihres Anliegens ist für Sie kostenlos."
+      "antwort": "Ein erstes, unverbindliches Beratungsgespräch ist selbstverständlich kostenlos. Die Anfahrtskosten richten sich nach der tatsächlichen Entfernung und werden transparent vorab mitgeteilt."
     },
     {
       "frage": "Übernimmst du auch kleine Aufträge?",
-      "antwort": "Ja, auch kleine Arbeiten sind willkommen — einfach kurz schildern, ich sage Ihnen ehrlich, ob und wie ich helfen kann."
+      "antwort": "Ja. Auch kleinere Reparaturen, Montagen oder kurzfristige Arbeiten übernehme ich gerne. Kein Auftrag ist zu klein."
     },
     {
       "frage": "Arbeitest du auch für Hausverwaltungen und Firmen?",
-      "antwort": "Ja, gerne auch für die laufende Betreuung mehrerer Objekte — mit verlässlichen Terminabsprachen und, auf Wunsch, Abrechnung per E-Rechnung."
+      "antwort": "Ja. Ich arbeite sowohl für Privatkunden als auch für Hausverwaltungen, Unternehmen und Vermieter. Eine zuverlässige und langfristige Zusammenarbeit ist jederzeit möglich."
+    },
+    {
+      "frage": "Wie berechnest du deine Preise?",
+      "antwort": "Die Preisgestaltung richtet sich nach dem tatsächlichen Arbeitsaufwand, den Materialkosten, der Anfahrt und dem Umfang des Auftrags. Je nach Leistung erfolgt die Abrechnung transparent zum Festpreis oder nach Stundenaufwand."
     }
   ]
 }

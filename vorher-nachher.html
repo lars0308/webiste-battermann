@@ -53,6 +53,8 @@
     --nav-link-color: var(--ink);
     --btn-color: var(--primary);
     --on-dark-text: #FFFEFB;
+    --tag-bg-color: var(--paper);
+    --tag-text-color: var(--primary);
   }
 
   *{box-sizing:border-box;}
@@ -364,8 +366,8 @@
   }
   .portrait .tag{
     position:absolute; left:18px; bottom:18px;
-    background:var(--paper);
-    color:var(--primary);
+    background:var(--tag-bg-color);
+    color:var(--tag-text-color);
     font-family:'JetBrains Mono', monospace;
     font-size:0.72rem;
     padding:8px 12px;
@@ -478,7 +480,7 @@
     font-size:0.92rem;
   }
   .gallery-note svg{ margin-top:2px; }
-  .gallery-carousel-wrap{ position:relative; height:280px; overflow:hidden; touch-action:pan-y; cursor:grab; }
+  .gallery-carousel-wrap{ position:relative; height:360px; overflow:hidden; touch-action:pan-y; cursor:grab; }
   .gallery-grid{
     position:relative;
     width:100%; height:100%;
@@ -486,9 +488,9 @@
   .gallery-tile{
     position:absolute;
     top:50%; left:50%;
-    width:220px;
+    width:290px;
     aspect-ratio:1;
-    margin:-110px 0 0 -110px;
+    margin:-145px 0 0 -145px;
     background:var(--primary);
     border-radius:var(--radius);
     display:flex; align-items:center; justify-content:center;
@@ -519,8 +521,8 @@
   .gallery-nav-row{ display:flex; align-items:center; gap:14px; }
   .gallery-nav-row .gallery-carousel-wrap{ flex:1; min-width:0; }
   @media (max-width: 640px){
-    .gallery-carousel-wrap{ height:220px; }
-    .gallery-tile{ width:170px; margin:-85px 0 0 -85px; }
+    .gallery-carousel-wrap{ height:270px; }
+    .gallery-tile{ width:210px; margin:-105px 0 0 -105px; }
   }
 
 
@@ -1536,6 +1538,10 @@
       if(navLinkColor){ document.documentElement.style.setProperty('--nav-link-color', navLinkColor); }
       const btnColor = (data.color_btn_custom && data.color_btn_custom.trim()) ? data.color_btn_custom.trim() : data.color_btn;
       if(btnColor){ document.documentElement.style.setProperty('--btn-color', btnColor); }
+      const tagBgColor = (data.color_tag_bg_custom && data.color_tag_bg_custom.trim()) ? data.color_tag_bg_custom.trim() : data.color_tag_bg;
+      if(tagBgColor){ document.documentElement.style.setProperty('--tag-bg-color', tagBgColor); }
+      const tagTextColor = (data.color_tag_text_custom && data.color_tag_text_custom.trim()) ? data.color_tag_text_custom.trim() : data.color_tag_text;
+      if(tagTextColor){ document.documentElement.style.setProperty('--tag-text-color', tagTextColor); }
       if(data.nav_label_ueber_mich){ document.getElementById('navUeberMich').textContent = data.nav_label_ueber_mich; }
       if(data.nav_label_leistungen){ document.getElementById('navLeistungen').textContent = data.nav_label_leistungen; }
       if(data.nav_label_bilder){ document.getElementById('navBilder').textContent = data.nav_label_bilder; }

@@ -31,13 +31,14 @@
       "alt": "Firmenfahrzeug von Objekt- und Reparaturservice Battermann"
     }
   ],
-  "vn_intro": "Drei abgeschlossene Beispiele aus einer Bad-Grundreinigung sowie ein laufendes Elektro-Projekt — auf ein Bildpaar klicken für den direkten Vergleich mit Schieberegler.",
   "bildertagebuch": [],
   "vorher_nachher": [
     {
-      "kategorie": "Bad",
       "datum": "",
       "pair_title": "Fliesenfugen erneuert",
+      "ueberschrift_zeigen": true,
+      "beschreibung": "Die alten, brüchigen Fliesenfugen wurden komplett rausgeschnitten und neu verfugt.",
+      "mit_schieberegler": true,
       "bildpaare": [
         {
           "vorher": "/images/vorher-nachher/bad-vorher-2.jpg",
@@ -49,9 +50,11 @@
       ]
     },
     {
-      "kategorie": "Bad",
       "datum": "",
       "pair_title": "Schimmel an den Fugen Bekämpft",
+      "ueberschrift_zeigen": true,
+      "beschreibung": "Schimmelbefall an der Fugenecke professionell entfernt und die Stelle neu abgedichtet.",
+      "mit_schieberegler": true,
       "bildpaare": [
         {
           "vorher": "/images/vorher-nachher/bad-vorher-1.jpg",
@@ -70,9 +73,11 @@
       ]
     },
     {
-      "kategorie": "Bad",
       "datum": "",
       "pair_title": "Duscharmatur wieder Montiert und geprüft",
+      "ueberschrift_zeigen": true,
+      "beschreibung": "Die Duscharmatur wurde ausgebaut, geprüft und wieder fachgerecht montiert.",
+      "mit_schieberegler": true,
       "bildpaare": [
         {
           "vorher": "/images/IMG_20260703_152722.jpg",
@@ -84,9 +89,11 @@
       ]
     },
     {
-      "kategorie": "Elektro",
       "datum": "",
       "pair_title": "Fehlersuche in der Kellerbeleuchtung",
+      "ueberschrift_zeigen": true,
+      "beschreibung": "Fehlersuche an einer Leitung, bei der eine Lampe die Adern durchgebrannt hatte und die Sicherung immer wieder herausgesprungen ist. Die neuen Schalter und Leuchten werden als Nächstes installiert.",
+      "mit_schieberegler": true,
       "bildpaare": [
         {
           "vorher": "/images/elektro/elektro-vorbereitung.jpg",

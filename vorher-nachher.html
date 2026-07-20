@@ -1086,22 +1086,22 @@
             <div class="vn-item">
               <p class="vn-caption">Armatur-Reinigung</p>
               <div class="vn-pair">
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-2.jpg" alt="Armatur vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-2.jpg" alt="Armatur nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+                <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-2.jpg" alt="Armatur vor der Reinigung" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
+                <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-2.jpg" alt="Armatur nach der Reinigung" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>
               </div>
             </div>
             <div class="vn-item">
               <p class="vn-caption">Fliesenfugen-Reinigung</p>
               <div class="vn-pair">
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-3.jpg" alt="Fliesenfugen vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-3.jpg" alt="Fliesenfugen nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+                <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-3.jpg" alt="Fliesenfugen vor der Reinigung" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
+                <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-3.jpg" alt="Fliesenfugen nach der Reinigung" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>
               </div>
             </div>
             <div class="vn-item">
               <p class="vn-caption">Fugenecke-Reinigung</p>
               <div class="vn-pair">
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-1.jpg" alt="Fugenecke vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
-                <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-1.jpg" alt="Fugenecke nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+                <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-1.jpg" alt="Fugenecke vor der Reinigung" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
+                <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-1.jpg" alt="Fugenecke nach der Reinigung" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>
               </div>
             </div>
           </div>
@@ -1112,7 +1112,7 @@
             <div class="vn-item">
               <p class="vn-caption">Elektro-Projekt</p>
               <div class="vn-pair vn-pending">
-                <div class="vn-photo"><img src="images/elektro/elektro-vorbereitung.jpg" alt="Elektroinstallation vor dem Austausch der Schalter und Leuchten"><span class="vn-tag vn-before">Vorher</span></div>
+                <div class="vn-photo"><img src="images/elektro/elektro-vorbereitung.jpg" alt="Elektroinstallation vor dem Austausch der Schalter und Leuchten" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
                 <div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>nächste Woche</span><span class="vn-tag vn-after">Nachher</span></div>
               </div>
             </div>
@@ -1330,7 +1330,7 @@
     const list = document.getElementById('tagebuchList');
     list.innerHTML = sorted.map(function(entry){
       return '<div class="tagebuch-entry" data-kategorie="' + entry.kategorie.replace(/"/g,'&quot;') + '">' +
-        '<img src="' + entry.bild + '" alt="' + (entry.text || '').replace(/"/g,'&quot;') + '">' +
+        '<img src="' + entry.bild + '" alt="' + (entry.text || '').replace(/"/g,'&quot;') + '" loading="lazy">' +
         '<p class="tagebuch-entry-text">' + (entry.text || '').replace(/</g,'&lt;') + '</p>' +
         '</div>';
     }).join('');
@@ -1398,12 +1398,12 @@
     const pairs = Array.isArray(project.bildpaare) ? project.bildpaare : [];
     const first = pairs[0] || {};
     const multiBadge = pairs.length > 1 ? '<span class="vn-multi-badge">1 / ' + pairs.length + '</span>' : '';
-    const vorherTile = '<div class="vn-photo"><img src="' + (first.vorher || '') + '" alt="' + (first.vorher_alt||'').replace(/"/g,'&quot;') + '"><span class="vn-tag vn-before">Vorher</span></div>';
+    const vorherTile = '<div class="vn-photo"><img src="' + (first.vorher || '') + '" alt="' + (first.vorher_alt||'').replace(/"/g,'&quot;') + '" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>';
     if(first.pending || !first.nachher){
       return '<div class="vn-item">' + caption + '<div class="vn-pair vn-pending" data-project="' + projectIndex + '">' + multiBadge + vorherTile +
         '<div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>in Kürze</span><span class="vn-tag vn-after">Nachher</span></div></div></div>';
     }
-    const nachherTile = '<div class="vn-photo"><img src="' + first.nachher + '" alt="' + (first.nachher_alt||'').replace(/"/g,'&quot;') + '"><span class="vn-tag vn-after">Nachher</span></div>';
+    const nachherTile = '<div class="vn-photo"><img src="' + first.nachher + '" alt="' + (first.nachher_alt||'').replace(/"/g,'&quot;') + '" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>';
     return '<div class="vn-item">' + caption + '<div class="vn-pair" data-project="' + projectIndex + '">' + multiBadge + vorherTile + nachherTile + '</div></div>';
   }
 

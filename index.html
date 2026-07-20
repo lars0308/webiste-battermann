@@ -554,6 +554,33 @@
   .vn-more-wrap{ margin-top:28px; text-align:center; }
 
   .vn-accordion{ display:flex; flex-direction:column; gap:14px; }
+  .faq-list{ display:flex; flex-direction:column; gap:10px; max-width:760px; }
+  .faq-item{
+    background:var(--paper);
+    border-radius:var(--radius);
+    padding:0;
+  }
+  .faq-item summary{
+    padding:18px 22px;
+    cursor:pointer;
+    font-weight:600;
+    color:var(--primary);
+    list-style:none;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{
+    content:"+";
+    float:right;
+    font-size:1.3rem;
+    color:var(--accent);
+  }
+  .faq-item[open] summary::after{ content:"−"; }
+  .faq-item p{
+    margin:0; padding:0 22px 20px;
+    color:var(--ink-soft);
+    font-size:0.94rem;
+  }
+
   .vn-group{
     background:var(--paper);
     border:1px solid var(--line);
@@ -1153,7 +1180,7 @@
   <section id="ueber-mich" data-section-key="ueber-mich">
     <div class="wrap about-grid reveal">
       <div class="portrait">
-        <img src="images/portrait-lars.jpg" alt="Lars Battermann bei der Arbeit" id="portraitImg2">
+        <img src="images/portrait-lars.jpg" alt="Lars Battermann bei der Arbeit" id="portraitImg2" loading="lazy">
         <span class="tag" id="aboutTag">Lars Battermann · Inhaber</span>
       </div>
       <div class="about-copy">
@@ -1268,13 +1295,13 @@
         <button type="button" class="gallery-nav" id="galleryPrev" aria-label="Vorherige Bilder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
         <div class="gallery-carousel-wrap">
           <div class="gallery-grid reveal" id="galleryGrid">
-            <div class="gallery-tile"><img src="images/arbeit-leuchte.jpg" alt="Montage einer Außenleuchte auf der Leiter"></div>
-            <div class="gallery-tile"><img src="images/arbeit-garten.jpg" alt="Kantenschnitt und Rasenpflege an einer Einfahrt"></div>
-            <div class="gallery-tile"><img src="images/arbeit-montage.jpg" alt="Ausrichten eines Zaunpfostens mit der Wasserwaage"></div>
-            <div class="gallery-tile"><img src="images/elektro/elektro-fehlersuche.jpg" alt="Fehlersuche an einer Elektroinstallation"></div>
-            <div class="gallery-tile"><img src="images/elektro/elektro-ursache.jpg" alt="Ursache gefunden: durchgebrannte Ader an einer Lampe"></div>
-            <div class="gallery-tile"><img src="images/elektro/elektro-vorbereitung.jpg" alt="Vorbereitung für den Austausch von Schaltern und Lampen"></div>
-            <div class="gallery-tile"><img src="images/fahrzeug-logo.jpg" alt="Firmenfahrzeug von Objekt- und Reparaturservice Battermann"></div>
+            <div class="gallery-tile"><img src="images/arbeit-leuchte.jpg" alt="Montage einer Außenleuchte auf der Leiter" loading="lazy"></div>
+            <div class="gallery-tile"><img src="images/arbeit-garten.jpg" alt="Kantenschnitt und Rasenpflege an einer Einfahrt" loading="lazy"></div>
+            <div class="gallery-tile"><img src="images/arbeit-montage.jpg" alt="Ausrichten eines Zaunpfostens mit der Wasserwaage" loading="lazy"></div>
+            <div class="gallery-tile"><img src="images/elektro/elektro-fehlersuche.jpg" alt="Fehlersuche an einer Elektroinstallation" loading="lazy"></div>
+            <div class="gallery-tile"><img src="images/elektro/elektro-ursache.jpg" alt="Ursache gefunden: durchgebrannte Ader an einer Lampe" loading="lazy"></div>
+            <div class="gallery-tile"><img src="images/elektro/elektro-vorbereitung.jpg" alt="Vorbereitung für den Austausch von Schaltern und Lampen" loading="lazy"></div>
+            <div class="gallery-tile"><img src="images/fahrzeug-logo.jpg" alt="Firmenfahrzeug von Objekt- und Reparaturservice Battermann" loading="lazy"></div>
           </div>
         </div>
         <button type="button" class="gallery-nav" id="galleryNext" aria-label="Nächste Bilder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
@@ -1299,34 +1326,66 @@
         <div class="vn-item" data-kategorie="Bad">
           <p class="vn-caption">Armatur-Reinigung</p>
           <div class="vn-pair">
-            <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-2.jpg" alt="Armatur vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
-            <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-2.jpg" alt="Armatur nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-2.jpg" alt="Armatur vor der Reinigung" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-2.jpg" alt="Armatur nach der Reinigung" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>
           </div>
         </div>
         <div class="vn-item" data-kategorie="Bad">
           <p class="vn-caption">Fliesenfugen-Reinigung</p>
           <div class="vn-pair">
-            <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-3.jpg" alt="Fliesenfugen vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
-            <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-3.jpg" alt="Fliesenfugen nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-3.jpg" alt="Fliesenfugen vor der Reinigung" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-3.jpg" alt="Fliesenfugen nach der Reinigung" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>
           </div>
         </div>
         <div class="vn-item" data-kategorie="Bad">
           <p class="vn-caption">Fugenecke-Reinigung</p>
           <div class="vn-pair">
-            <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-1.jpg" alt="Fugenecke vor der Reinigung"><span class="vn-tag vn-before">Vorher</span></div>
-            <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-1.jpg" alt="Fugenecke nach der Reinigung"><span class="vn-tag vn-after">Nachher</span></div>
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-vorher-1.jpg" alt="Fugenecke vor der Reinigung" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
+            <div class="vn-photo"><img src="images/vorher-nachher/bad-nachher-1.jpg" alt="Fugenecke nach der Reinigung" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>
           </div>
         </div>
         <div class="vn-item" data-kategorie="Elektro">
           <p class="vn-caption">Elektro-Projekt</p>
           <div class="vn-pair vn-pending">
-            <div class="vn-photo"><img src="images/elektro/elektro-vorbereitung.jpg" alt="Elektroinstallation vor dem Austausch der Schalter und Leuchten"><span class="vn-tag vn-before">Vorher</span></div>
+            <div class="vn-photo"><img src="images/elektro/elektro-vorbereitung.jpg" alt="Elektroinstallation vor dem Austausch der Schalter und Leuchten" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>
             <div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>nächste Woche</span><span class="vn-tag vn-after">Nachher</span></div>
           </div>
         </div>
       </div>
       <div class="vn-more-wrap" id="vnMoreWrap" style="display:none;">
         <a href="vorher-nachher.html" class="cta-btn ghost">Alle Bildpaare ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="alt" id="faqSection" data-section-key="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Häufige Fragen</p>
+        <h2>Kurz &amp; klar beantwortet</h2>
+      </div>
+      <div class="faq-list" id="faqList">
+        <details class="faq-item" open>
+          <summary>Wie schnell bekomme ich eine Antwort?</summary>
+          <p>In der Regel melde ich mich innerhalb von 24 Stunden zurück — meist sogar deutlich schneller.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Welche Gebiete deckst du ab?</summary>
+          <p>Hauptsächlich Lindhorst, Stadthagen, Bückeburg, Bad Nenndorf, Beckedorf, Barsinghausen und Umgebung — Einsätze sind in der Regel im Umkreis von ca. 30 km möglich.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Was kostet eine Anfahrt oder ein erstes Gespräch?</summary>
+          <p>Ein erstes, unverbindliches Gespräch zur Einschätzung Ihres Anliegens ist für Sie kostenlos.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Übernimmst du auch kleine Aufträge?</summary>
+          <p>Ja, auch kleine Arbeiten sind willkommen — einfach kurz schildern, ich sage Ihnen ehrlich, ob und wie ich helfen kann.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Arbeitest du auch für Hausverwaltungen und Firmen?</summary>
+          <p>Ja, gerne auch für die laufende Betreuung mehrerer Objekte — mit verlässlichen Terminabsprachen und, auf Wunsch, Abrechnung per E-Rechnung.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -1388,6 +1447,7 @@
             <div class="badge-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Privatkunden, Eigentümer und Hausverwaltungen willkommen</div>
             <div class="badge-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Auch kleine Arbeiten sind willkommen</div>
             <div class="badge-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Unverbindliche Anfragen jederzeit möglich</div>
+            <div class="badge-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Kostenvoranschlag auf Wunsch kostenlos</div>
           </div>
         </div>
         <div class="tally-toggle-wrap" id="kontaktFormArea">
@@ -1799,7 +1859,7 @@
           return 0;
         });
         grid.innerHTML = sortedGallery.map(function(item){
-          return '<div class="gallery-tile"><img src="' + item.image + '" alt="' + (item.alt || '').replace(/"/g,'&quot;') + '"></div>';
+          return '<div class="gallery-tile"><img src="' + item.image + '" alt="' + (item.alt || '').replace(/"/g,'&quot;') + '" loading="lazy"></div>';
         }).join('');
         if(window.relayoutGalleryCarousel) window.relayoutGalleryCarousel();
       }
@@ -1837,12 +1897,12 @@
     const pairs = Array.isArray(project.bildpaare) ? project.bildpaare : [];
     const first = pairs[0] || {};
     const multiBadge = pairs.length > 1 ? '<span class="vn-multi-badge">1 / ' + pairs.length + '</span>' : '';
-    const vorherTile = '<div class="vn-photo"><img src="' + (first.vorher || '') + '" alt="' + (first.vorher_alt||'').replace(/"/g,'&quot;') + '"><span class="vn-tag vn-before">Vorher</span></div>';
+    const vorherTile = '<div class="vn-photo"><img src="' + (first.vorher || '') + '" alt="' + (first.vorher_alt||'').replace(/"/g,'&quot;') + '" loading="lazy"><span class="vn-tag vn-before">Vorher</span></div>';
     if(first.pending || !first.nachher){
       return '<div class="vn-item"' + katAttr + '>' + caption + '<div class="vn-pair vn-pending" data-project="' + projectIndex + '">' + multiBadge + vorherTile +
         '<div class="vn-photo vn-placeholder"><span class="vn-placeholder-text">Nachher folgt<br>in Kürze</span><span class="vn-tag vn-after">Nachher</span></div></div></div>';
     }
-    const nachherTile = '<div class="vn-photo"><img src="' + first.nachher + '" alt="' + (first.nachher_alt||'').replace(/"/g,'&quot;') + '"><span class="vn-tag vn-after">Nachher</span></div>';
+    const nachherTile = '<div class="vn-photo"><img src="' + first.nachher + '" alt="' + (first.nachher_alt||'').replace(/"/g,'&quot;') + '" loading="lazy"><span class="vn-tag vn-after">Nachher</span></div>';
     return '<div class="vn-item"' + katAttr + '>' + caption + '<div class="vn-pair" data-project="' + projectIndex + '">' + multiBadge + vorherTile + nachherTile + '</div></div>';
   }
 
@@ -1917,14 +1977,14 @@
 
   // Load design & contact settings — now split into several smaller CMS files.
   // Fetched in parallel and merged into one object; the rest of the code below works exactly as before.
-  const THEME_FILES = ['design', 'header', 'hero', 'about', 'contact', 'popup', 'misc'];
+  const THEME_FILES = ['design', 'header', 'hero', 'about', 'contact', 'popup', 'misc', 'faq'];
   Promise.all(THEME_FILES.map(function(name){
     return fetch('content/' + name + '.json', {cache: 'no-store'})
       .then(function(res){ return res.ok ? res.json() : {}; })
       .catch(function(){ return {}; });
   }))
     .then(function(parts){
-      const data = Object.assign({}, parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
+      const data = Object.assign({}, parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7]);
       window.SITE_THEME = data;
 
       // Farben als CSS-Variablen setzen
@@ -1992,6 +2052,7 @@
       applyAnnouncement(data);
       applyReviews(data);
       applySectionOrder(data.section_order);
+      applyFaq(data.faq_items);
       if(data.audience_label_privat){ document.getElementById('audienceBtnPrivat').textContent = data.audience_label_privat; }
       if(data.audience_label_business){ document.getElementById('audienceBtnBusiness').textContent = data.audience_label_business; }
 
@@ -2063,8 +2124,22 @@
       const key = entry && entry.section;
       if(!key) return;
       const el = main.querySelector('[data-section-key="' + key + '"]');
-      if(el) main.appendChild(el);
+      if(!el) return;
+      main.appendChild(el);
+      el.style.display = (entry.sichtbar === false) ? 'none' : '';
     });
+  }
+
+  function applyFaq(items){
+    if(!Array.isArray(items) || !items.length) return; // keep the static fallback already in the HTML
+    const valid = items.filter(function(i){ return i && i.frage && i.antwort; });
+    if(!valid.length) return;
+    document.getElementById('faqList').innerHTML = valid.map(function(item, idx){
+      return '<details class="faq-item"' + (idx === 0 ? ' open' : '') + '>' +
+        '<summary>' + item.frage.replace(/</g,'&lt;') + '</summary>' +
+        '<p>' + item.antwort.replace(/</g,'&lt;') + '</p>' +
+        '</details>';
+    }).join('');
   }
 
   function applyReviews(data){

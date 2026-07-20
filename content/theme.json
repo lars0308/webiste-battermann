@@ -30,6 +30,8 @@
   "nav_label_einsatzgebiet": "Einsatzgebiet",
   "color_nav_links": "",
   "color_nav_links_custom": "",
+  "color_btn": "",
+  "color_btn_custom": "",
   "gallery_autoplay": true,
   "gallery_autoplay_seconds": 3,
   "audience_label_privat": "Privatkunden",

@@ -92,6 +92,7 @@ collections:
                 name: "bildpaare"
                 widget: "list"
                 collapsed: true
+                required: false
                 summary: "Bildpaar {{index}}"
                 fields:
                   - {label: "Vorher-Bild", name: "vorher", widget: "image"}
@@ -99,6 +100,16 @@ collections:
                   - {label: "Nachher-Bild (leer lassen, solange noch nicht fertig)", name: "nachher", widget: "image", required: false}
                   - {label: "Nachher – Beschreibung", name: "nachher_alt", widget: "string", required: false, default: ""}
                   - {label: "Noch in Arbeit? (zeigt „Nachher folgt“ statt Bild)", name: "pending", widget: "boolean", default: false}
+
+              - label: "Einzelne Bilder ohne Vorher/Nachher (z. B. mehrere Fotos vom fertigen Ergebnis — beliebig viele möglich)"
+                name: "einzelbilder"
+                widget: "list"
+                collapsed: true
+                required: false
+                summary: "Bild {{index}}"
+                fields:
+                  - {label: "Bild", name: "bild", widget: "image"}
+                  - {label: "Beschreibung (optional)", name: "beschreibung", widget: "string", required: false, default: ""}
 
   - name: "theme"
     label: "🎨 Design & Inhalte"

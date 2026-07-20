@@ -1475,10 +1475,14 @@
   }
   setDarkMode(isDarkMode(), false);
 
-  fetch('content/theme.json', {cache: 'no-store'})
-    .then(function(res){ return res.ok ? res.json() : null; })
-    .then(function(data){
-      if(!data) return;
+  const THEME_FILES = ['design', 'header', 'hero', 'about', 'contact', 'popup', 'misc'];
+  Promise.all(THEME_FILES.map(function(name){
+    return fetch('content/' + name + '.json', {cache: 'no-store'})
+      .then(function(res){ return res.ok ? res.json() : {}; })
+      .catch(function(){ return {}; });
+  }))
+    .then(function(parts){
+      const data = Object.assign({}, parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
 
       const colorMap = {
         color_bg: '--bg',

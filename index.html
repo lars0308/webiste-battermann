@@ -1908,12 +1908,16 @@
   // Reflect current state (already applied by the early flash-prevention script in <head>) in the icon
   setDarkMode(isDarkMode(), false);
 
-  // Load design & contact settings from content/theme.json.
-  // Falls back to the values already in the HTML/CSS above if the file is missing or fails to load.
-  fetch('content/theme.json', {cache: 'no-store'})
-    .then(function(res){ return res.ok ? res.json() : null; })
-    .then(function(data){
-      if(!data) return;
+  // Load design & contact settings — now split into several smaller CMS files.
+  // Fetched in parallel and merged into one object; the rest of the code below works exactly as before.
+  const THEME_FILES = ['design', 'header', 'hero', 'about', 'contact', 'popup', 'misc'];
+  Promise.all(THEME_FILES.map(function(name){
+    return fetch('content/' + name + '.json', {cache: 'no-store'})
+      .then(function(res){ return res.ok ? res.json() : {}; })
+      .catch(function(){ return {}; });
+  }))
+    .then(function(parts){
+      const data = Object.assign({}, parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
       window.SITE_THEME = data;
 
       // Farben als CSS-Variablen setzen

@@ -1063,6 +1063,7 @@
       <a href="#leistungen" id="navLeistungen">Leistungen</a>
       <a href="vorher-nachher.html" id="navBilder">Bilder</a>
       <a href="#einsatzgebiet" id="navEinsatzgebiet">Einsatzgebiet</a>
+      <a href="faq.html" id="navFaq">FAQ</a>
       <a href="#kontakt" class="cta-btn mobile-only-cta" style="margin-top:8px;">Kontaktformular</a>
     </nav>
     <div style="display:flex; align-items:center; gap:10px;">
@@ -1358,38 +1359,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="alt" id="faqSection" data-section-key="faq">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Häufige Fragen</p>
-        <h2>Kurz &amp; klar beantwortet</h2>
-      </div>
-      <div class="faq-list" id="faqList">
-        <details class="faq-item" open>
-          <summary>Wie schnell bekomme ich eine Antwort?</summary>
-          <p>In der Regel melde ich mich innerhalb von 24 Stunden zurück — meist sogar deutlich schneller.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Welche Gebiete deckst du ab?</summary>
-          <p>Hauptsächlich Lindhorst, Stadthagen, Bückeburg, Bad Nenndorf, Beckedorf, Barsinghausen und Umgebung — Einsätze sind in der Regel im Umkreis von ca. 30 km möglich.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Was kostet eine Anfahrt oder ein erstes Gespräch?</summary>
-          <p>Ein erstes, unverbindliches Gespräch zur Einschätzung Ihres Anliegens ist für Sie kostenlos.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Übernimmst du auch kleine Aufträge?</summary>
-          <p>Ja, auch kleine Arbeiten sind willkommen — einfach kurz schildern, ich sage Ihnen ehrlich, ob und wie ich helfen kann.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Arbeitest du auch für Hausverwaltungen und Firmen?</summary>
-          <p>Ja, gerne auch für die laufende Betreuung mehrerer Objekte — mit verlässlichen Terminabsprachen und, auf Wunsch, Abrechnung per E-Rechnung.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
   <!-- AREA -->
   <section id="einsatzgebiet" data-section-key="einsatzgebiet">
     <div class="wrap area-grid reveal">
@@ -1494,6 +1463,7 @@
   <div class="wrap footer-row">
     <span id="footerText">© 2026 Objekt- und Reparaturservice Battermann · Lars Battermann</span>
     <span class="footer-links">
+      <a href="faq.html">Häufige Fragen</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
     </span>
@@ -1977,14 +1947,14 @@
 
   // Load design & contact settings — now split into several smaller CMS files.
   // Fetched in parallel and merged into one object; the rest of the code below works exactly as before.
-  const THEME_FILES = ['design', 'header', 'hero', 'about', 'contact', 'popup', 'misc', 'faq'];
+  const THEME_FILES = ['design', 'header', 'hero', 'about', 'contact', 'popup', 'misc'];
   Promise.all(THEME_FILES.map(function(name){
     return fetch('content/' + name + '.json', {cache: 'no-store'})
       .then(function(res){ return res.ok ? res.json() : {}; })
       .catch(function(){ return {}; });
   }))
     .then(function(parts){
-      const data = Object.assign({}, parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7]);
+      const data = Object.assign({}, parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
       window.SITE_THEME = data;
 
       // Farben als CSS-Variablen setzen
@@ -2025,6 +1995,7 @@
       if(data.nav_label_leistungen){ document.getElementById('navLeistungen').textContent = data.nav_label_leistungen; }
       if(data.nav_label_bilder){ document.getElementById('navBilder').textContent = data.nav_label_bilder; }
       if(data.nav_label_einsatzgebiet){ document.getElementById('navEinsatzgebiet').textContent = data.nav_label_einsatzgebiet; }
+      if(data.nav_label_faq){ document.getElementById('navFaq').textContent = data.nav_label_faq; }
 
       // Abstand zwischen Abschnitten
       if(data.section_spacing){
@@ -2052,7 +2023,6 @@
       applyAnnouncement(data);
       applyReviews(data);
       applySectionOrder(data.section_order);
-      applyFaq(data.faq_items);
       if(data.audience_label_privat){ document.getElementById('audienceBtnPrivat').textContent = data.audience_label_privat; }
       if(data.audience_label_business){ document.getElementById('audienceBtnBusiness').textContent = data.audience_label_business; }
 
@@ -2128,18 +2098,6 @@
       main.appendChild(el);
       el.style.display = (entry.sichtbar === false) ? 'none' : '';
     });
-  }
-
-  function applyFaq(items){
-    if(!Array.isArray(items) || !items.length) return; // keep the static fallback already in the HTML
-    const valid = items.filter(function(i){ return i && i.frage && i.antwort; });
-    if(!valid.length) return;
-    document.getElementById('faqList').innerHTML = valid.map(function(item, idx){
-      return '<details class="faq-item"' + (idx === 0 ? ' open' : '') + '>' +
-        '<summary>' + item.frage.replace(/</g,'&lt;') + '</summary>' +
-        '<p>' + item.antwort.replace(/</g,'&lt;') + '</p>' +
-        '</details>';
-    }).join('');
   }
 
   function applyReviews(data){

@@ -112,82 +112,82 @@ collections:
             name: "color_bg"
             widget: "select"
             options:
-              - {label: "Beige (aktuell)", value: "#EDE6D6"}
-              - {label: "Warmes Weiß", value: "#FAF6EF"}
-              - {label: "Sandbeige", value: "#E8DFC8"}
-              - {label: "Cremeweiß", value: "#F5F0E6"}
-              - {label: "Helles Grau", value: "#EDEDED"}
+              - {label: "⬜ Beige (aktuell)", value: "#EDE6D6"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "🟫 Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Cremeweiß", value: "#F5F0E6"}
+              - {label: "⬜ Helles Grau", value: "#EDEDED"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_bg_custom", widget: "string", required: false, hint: "z. B. #EDE6D6 — leer lassen für die Auswahl oben"}
 
           - label: "Hintergrundfarbe (Wechsel-Abschnitte)"
             name: "color_bg_alt"
             widget: "select"
             options:
-              - {label: "Beige (aktuell)", value: "#EDE6D6"}
-              - {label: "Warmes Weiß", value: "#FAF6EF"}
-              - {label: "Sandbeige", value: "#E8DFC8"}
-              - {label: "Cremeweiß", value: "#F5F0E6"}
-              - {label: "Helles Grau", value: "#EDEDED"}
+              - {label: "⬜ Beige (aktuell)", value: "#EDE6D6"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "🟫 Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Cremeweiß", value: "#F5F0E6"}
+              - {label: "⬜ Helles Grau", value: "#EDEDED"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_bg_alt_custom", widget: "string", required: false, hint: "z. B. #EDE6D6 — leer lassen für die Auswahl oben"}
 
           - label: "Textfarbe"
             name: "color_ink"
             widget: "select"
             options:
-              - {label: "Dunkelgrün-Schwarz (aktuell)", value: "#1B231F"}
-              - {label: "Reines Schwarz", value: "#111111"}
-              - {label: "Dunkelbraun", value: "#2B211B"}
-              - {label: "Anthrazit", value: "#262626"}
+              - {label: "⬛ Dunkelgrün-Schwarz (aktuell)", value: "#1B231F"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "🟫 Dunkelbraun", value: "#2B211B"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_ink_custom", widget: "string", required: false, hint: "z. B. #1B231F — leer lassen für die Auswahl oben"}
 
           - label: "Hauptfarbe (Header/Hero/Fußzeile-Hintergrund)"
             name: "color_primary"
             widget: "select"
             options:
-              - {label: "Dunkelgrün (aktuell)", value: "#122822"}
-              - {label: "Tiefblau", value: "#16202E"}
-              - {label: "Dunkelbraun", value: "#2B1D12"}
-              - {label: "Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟩 Dunkelgrün (aktuell)", value: "#122822"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_primary_custom", widget: "string", required: false, hint: "z. B. #122822 — leer lassen für die Auswahl oben"}
 
           - label: "Überschriften-Farbe"
             name: "color_heading"
             widget: "select"
             options:
-              - {label: "Logo-Oliv (aktuell)", value: "#5F6A42"}
-              - {label: "Waldgrün", value: "#3F5B3C"}
-              - {label: "Olivbraun", value: "#6B5B3E"}
-              - {label: "Dunkelgrau", value: "#4A4A4A"}
+              - {label: "🟩 Logo-Oliv (aktuell)", value: "#5F6A42"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟫 Olivbraun", value: "#6B5B3E"}
+              - {label: "⬛ Dunkelgrau", value: "#4A4A4A"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_heading_custom", widget: "string", required: false, hint: "z. B. #5F6A42 — leer lassen für die Auswahl oben"}
 
           - label: "Akzentfarbe (Buttons, Hervorhebungen)"
             name: "color_accent"
             widget: "select"
             options:
-              - {label: "Terracotta (aktuell)", value: "#C1622D"}
-              - {label: "Ziegelrot", value: "#B0492E"}
-              - {label: "Senfgelb", value: "#D6A93B"}
-              - {label: "Waldgrün", value: "#4C7A4F"}
-              - {label: "Petrol", value: "#2E7B7B"}
+              - {label: "🟧 Terracotta (aktuell)", value: "#C1622D"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟩 Waldgrün", value: "#4C7A4F"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_accent_custom", widget: "string", required: false, hint: "z. B. #C1622D — leer lassen für die Auswahl oben"}
 
           - label: "Zweitfarbe (Grün-Ton)"
             name: "color_sage"
             widget: "select"
             options:
-              - {label: "Salbeigrün (aktuell)", value: "#6F8F6B"}
-              - {label: "Graugrün", value: "#8A9A8C"}
-              - {label: "Moosgrün", value: "#55724F"}
+              - {label: "🟩 Salbeigrün (aktuell)", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_sage_custom", widget: "string", required: false, hint: "z. B. #6F8F6B — leer lassen für die Auswahl oben"}
 
           - label: "Hintergrundfarbe der Menüleiste oben"
             name: "color_header_bg"
             widget: "select"
             options:
-              - {label: "Beige, halbtransparent (aktuell)", value: "rgba(246,243,236,0.92)"}
-              - {label: "Weiß, halbtransparent", value: "rgba(255,255,255,0.9)"}
-              - {label: "Dunkelgrün, halbtransparent", value: "rgba(18,40,34,0.92)"}
-              - {label: "Beige, deckend", value: "#EDE6D6"}
+              - {label: "⬜ Beige, halbtransparent (aktuell)", value: "rgba(246,243,236,0.92)"}
+              - {label: "⬜ Weiß, halbtransparent", value: "rgba(255,255,255,0.9)"}
+              - {label: "🟩 Dunkelgrün, halbtransparent", value: "rgba(18,40,34,0.92)"}
+              - {label: "⬜ Beige, deckend", value: "#EDE6D6"}
           - {label: "Eigener Hex-/rgba-Code (überschreibt die Auswahl oben)", name: "color_header_bg_custom", widget: "string", required: false, hint: "z. B. rgba(246,243,236,0.92) oder #EDE6D6"}
 
           - label: "Farbe „Battermann“ im Header (großer Text)"
@@ -196,9 +196,9 @@ collections:
             required: false
             options:
               - {label: "Wie Hauptfarbe (Standard)", value: ""}
-              - {label: "Dunkelgrün", value: "#122822"}
-              - {label: "Terracotta", value: "#C1622D"}
-              - {label: "Schwarz", value: "#111111"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "⬛ Schwarz", value: "#111111"}
               - {label: "Logo-Oliv", value: "#5F6A42"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_brand_custom", widget: "string", required: false, hint: "z. B. #122822 — leer lassen für die Auswahl oben"}
 
@@ -209,7 +209,7 @@ collections:
             options:
               - {label: "Wie gedämpfte Textfarbe (Standard)", value: ""}
               - {label: "Grau-Grün", value: "#4B564F"}
-              - {label: "Terracotta", value: "#C1622D"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
               - {label: "Logo-Oliv", value: "#5F6A42"}
               - {label: "Grau", value: "#767676"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_brand_sub_custom", widget: "string", required: false, hint: "z. B. #4B564F — leer lassen für die Auswahl oben"}
@@ -220,9 +220,9 @@ collections:
             required: false
             options:
               - {label: "Wie Textfarbe (Standard)", value: ""}
-              - {label: "Dunkelgrün", value: "#122822"}
-              - {label: "Terracotta", value: "#C1622D"}
-              - {label: "Schwarz", value: "#111111"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "⬛ Schwarz", value: "#111111"}
               - {label: "Logo-Oliv", value: "#5F6A42"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_nav_links_custom", widget: "string", required: false, hint: "z. B. #122822 — leer lassen für die Auswahl oben"}
 
@@ -232,11 +232,11 @@ collections:
             required: false
             options:
               - {label: "Wie Hauptfarbe (Standard)", value: ""}
-              - {label: "Dunkelgrün", value: "#122822"}
-              - {label: "Terracotta", value: "#C1622D"}
-              - {label: "Waldgrün", value: "#4C7A4F"}
-              - {label: "Petrol", value: "#2E7B7B"}
-              - {label: "Schwarz", value: "#111111"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "🟩 Waldgrün", value: "#4C7A4F"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "⬛ Schwarz", value: "#111111"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_btn_custom", widget: "string", required: false, hint: "z. B. #C1622D — leer lassen für die Auswahl oben"}
 
           - label: "Abstand zwischen Abschnitten"

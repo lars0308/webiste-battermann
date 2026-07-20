@@ -1,0 +1,24 @@
+{
+  "faq_items": [
+    {
+      "frage": "Wie schnell bekomme ich eine Antwort?",
+      "antwort": "In der Regel melde ich mich innerhalb von 24 Stunden zurück — meist sogar deutlich schneller."
+    },
+    {
+      "frage": "Welche Gebiete deckst du ab?",
+      "antwort": "Hauptsächlich Lindhorst, Stadthagen, Bückeburg, Bad Nenndorf, Beckedorf, Barsinghausen und Umgebung — Einsätze sind in der Regel im Umkreis von ca. 30 km möglich."
+    },
+    {
+      "frage": "Was kostet eine Anfahrt oder ein erstes Gespräch?",
+      "antwort": "Ein erstes, unverbindliches Gespräch zur Einschätzung Ihres Anliegens ist für Sie kostenlos."
+    },
+    {
+      "frage": "Übernimmst du auch kleine Aufträge?",
+      "antwort": "Ja, auch kleine Arbeiten sind willkommen — einfach kurz schildern, ich sage Ihnen ehrlich, ob und wie ich helfen kann."
+    },
+    {
+      "frage": "Arbeitest du auch für Hausverwaltungen und Firmen?",
+      "antwort": "Ja, gerne auch für die laufende Betreuung mehrerer Objekte — mit verlässlichen Terminabsprachen und, auf Wunsch, Abrechnung per E-Rechnung."
+    }
+  ]
+}

@@ -4,31 +4,44 @@
     {
       "image": "/images/arbeit-leuchte.jpg",
       "alt": "Montage einer Außenleuchte auf der Leiter",
-      "kategorie": ""
+      "kategorie": "",
+      "datum": ""
     },
     {
       "image": "/images/arbeit-garten.jpg",
-      "alt": "Kantenschnitt und Rasenpflege an einer Einfahrt"
+      "alt": "Kantenschnitt und Rasenpflege an einer Einfahrt",
+      "kategorie": "",
+      "datum": ""
     },
     {
       "image": "/images/arbeit-montage.jpg",
-      "alt": "Ausrichten eines Zaunpfostens mit der Wasserwaage"
+      "alt": "Ausrichten eines Zaunpfostens mit der Wasserwaage",
+      "kategorie": "",
+      "datum": ""
     },
     {
       "image": "/images/elektro/elektro-fehlersuche.jpg",
-      "alt": "Fehlersuche an einer Elektroinstallation"
+      "alt": "Fehlersuche an einer Elektroinstallation",
+      "kategorie": "",
+      "datum": ""
     },
     {
       "image": "/images/elektro/elektro-ursache.jpg",
-      "alt": "Ursache gefunden: durchgebrannte Ader an einer Lampe"
+      "alt": "Ursache gefunden: durchgebrannte Ader an einer Lampe",
+      "kategorie": "",
+      "datum": ""
     },
     {
       "image": "/images/elektro/elektro-vorbereitung.jpg",
-      "alt": "Vorbereitung für den Austausch von Schaltern und Lampen"
+      "alt": "Vorbereitung für den Austausch von Schaltern und Lampen",
+      "kategorie": "",
+      "datum": ""
     },
     {
       "image": "/images/fahrzeug-logo.jpg",
-      "alt": "Firmenfahrzeug von Objekt- und Reparaturservice Battermann"
+      "alt": "Firmenfahrzeug von Objekt- und Reparaturservice Battermann",
+      "kategorie": "",
+      "datum": ""
     }
   ],
   "bildertagebuch": [],
@@ -41,38 +54,34 @@
       "mit_schieberegler": true,
       "bildpaare": [
         {
-          "vorher": "/images/vorher-nachher/bad-vorher-2.jpg",
-          "vorher_alt": "Armatur vor der Reinigung",
+          "vorher": "/images/IMG_20260612_170922.jpg",
+          "vorher_alt": "Vor dem neu verfugen",
           "nachher": "/images/vorher-nachher/bad-nachher-2.jpg",
-          "nachher_alt": "Armatur nach der Reinigung",
-          "pending": false
-        }
-      ],
-      "einzelbilder": []
-    },
-    {
-      "datum": "",
-      "pair_title": "Schimmel an den Fugen Bekämpft",
-      "ueberschrift_zeigen": true,
-      "beschreibung": "Schimmelbefall an der Fugenecke professionell entfernt und die Stelle neu abgedichtet.",
-      "mit_schieberegler": true,
-      "bildpaare": [
-        {
-          "vorher": "/images/vorher-nachher/bad-vorher-1.jpg",
-          "vorher_alt": "Fliesenfugen vor der Reinigung",
-          "nachher": "/images/vorher-nachher/bad-nachher-3.jpg",
-          "nachher_alt": "Fliesenfugen nach der Reinigung",
+          "nachher_alt": "Nach dem neu Verfugen",
           "pending": false
         },
         {
-          "vorher": "/images/IMG_20260612_170056.jpg",
+          "vorher": "/images/vorher-nachher/bad-vorher-1.jpg",
           "vorher_alt": "",
-          "nachher": "",
+          "nachher": "/images/vorher-nachher/bad-nachher-3.jpg",
           "nachher_alt": "",
-          "pending": true
+          "pending": false
         }
       ],
-      "einzelbilder": []
+      "einzelbilder": [
+        {
+          "bild": "/images/vorher-nachher/bad-vorher-2.jpg",
+          "beschreibung": ""
+        },
+        {
+          "bild": "/images/vorher-nachher/bad-vorher-3.jpg",
+          "beschreibung": ""
+        },
+        {
+          "bild": "/images/IMG_20260612_170056.jpg",
+          "beschreibung": ""
+        }
+      ]
     },
     {
       "datum": "",
@@ -83,9 +92,9 @@
       "bildpaare": [
         {
           "vorher": "/images/IMG_20260703_152722.jpg",
-          "vorher_alt": "Fugenecke vor der Reinigung",
+          "vorher_alt": "Ohne Armatur",
           "nachher": "/images/vorher-nachher/bad-nachher-1.jpg",
-          "nachher_alt": "Fugenecke nach der Reinigung",
+          "nachher_alt": "Mit Armatur",
           "pending": false
         }
       ],
@@ -96,31 +105,22 @@
       "pair_title": "Fehlersuche in der Kellerbeleuchtung",
       "ueberschrift_zeigen": true,
       "beschreibung": "Fehlersuche an einer Leitung, bei der eine Lampe die Adern durchgebrannt hatte und die Sicherung immer wieder herausgesprungen ist. Die neuen Schalter und Leuchten werden als Nächstes installiert.",
-      "mit_schieberegler": true,
-      "bildpaare": [
+      "mit_schieberegler": false,
+      "bildpaare": [],
+      "einzelbilder": [
         {
-          "vorher": "/images/elektro/elektro-vorbereitung.jpg",
-          "vorher_alt": "Elektroinstallation vor dem Austausch der Schalter und Leuchten",
-          "nachher": "",
-          "nachher_alt": "",
-          "pending": true
+          "bild": "/images/elektro/elektro-fehlersuche.jpg",
+          "beschreibung": "Gebrochenes Leuchtmittel in der Fassung"
         },
         {
-          "vorher": "/images/elektro/elektro-ursache.jpg",
-          "vorher_alt": "",
-          "nachher": "",
-          "nachher_alt": "",
-          "pending": true
+          "bild": "/images/elektro/elektro-ursache.jpg",
+          "beschreibung": "Fehler gefunden, Adern sind geschmolzen und das Erbebnis war ein Kurzschluss."
         },
         {
-          "vorher": "/images/elektro/elektro-fehlersuche.jpg",
-          "vorher_alt": "",
-          "nachher": "",
-          "nachher_alt": "",
-          "pending": true
+          "bild": "/images/elektro/elektro-vorbereitung.jpg",
+          "beschreibung": "Provisorisches Licht hergestellt für den sicheren Durchgang im Kellerflur"
         }
-      ],
-      "einzelbilder": []
+      ]
     }
   ]
 }

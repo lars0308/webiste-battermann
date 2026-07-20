@@ -1,8 +1,9 @@
 {
-  "brand_name": "Objekt- & Reparaturservice",
-  "brand_sub": "Battermann",
+  "brand_name": "Battermann",
+  "brand_sub": "Objekt- & Reparaturservice",
   "nav_label_ueber_mich": "Über mich",
   "nav_label_leistungen": "Leistungen",
   "nav_label_bilder": "Bilder",
-  "nav_label_einsatzgebiet": "Einsatzgebiet"
+  "nav_label_einsatzgebiet": "Einsatzgebiet",
+  "nav_label_faq": "FAQ"
 }

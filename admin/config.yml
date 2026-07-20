@@ -46,10 +46,6 @@ collections:
                 type: "date"
                 required: false
 
-          - label: "Einleitungstext Vorher/Nachher"
-            name: "vn_intro"
-            widget: "text"
-
           - label: "Zusätzliche Bildertagebuch-Einträge (nur nötig für Bilder, die NICHT schon oben in Galerie oder Vorher/Nachher stehen — die erscheinen automatisch mit ihrer bestehenden Beschriftung im Bildertagebuch)"
             name: "bildertagebuch"
             widget: "list"
@@ -69,27 +65,30 @@ collections:
             name: "vorher_nachher"
             widget: "list"
             collapsed: true
-            summary: "{{fields.kategorie}} · {{fields.pair_title}}"
+            summary: "{{fields.pair_title}}"
             fields:
-              - label: "Kategorie (frei wählbar, z. B. „Elektro“, „Sanitär“, „Garten“, „Holz“ — Projekte mit gleicher Kategorie werden automatisch in einer aufklappbaren Gruppe zusammengefasst)"
-                name: "kategorie"
-                widget: "string"
-                required: false
-                default: ""
-
-              - label: "Datum (optional — neueste Projekte erscheinen automatisch zuerst)"
+              - label: "Datum (bestimmt die Reihenfolge — neueste Projekte erscheinen zuerst)"
                 name: "datum"
                 widget: "datetime"
                 type: "date"
                 required: false
 
-              - label: "Titel für dieses Projekt (z. B. „Armatur-Reinigung“)"
+              - label: "Projekt-Titel (z. B. „Duschfugen erneuert“)"
                 name: "pair_title"
                 widget: "string"
                 required: false
                 default: ""
 
-              - label: "Bildpaare (meist reicht eins — hast du 2 oder 3 Vergleiche zum selben Thema, einfach mehrere hinzufügen; im Schieberegler kann man dann zwischen ihnen durchblättern)"
+              - {label: "Titel anzeigen? (bei Aus wird nur der Text ohne Überschrift gezeigt)", name: "ueberschrift_zeigen", widget: "boolean", default: true}
+
+              - label: "Kurzer Beschreibungstext (z. B. „Hier haben wir die Fugen rausgeschnitten und mit Flexmörtel neu verfugt…“)"
+                name: "beschreibung"
+                widget: "text"
+                required: false
+
+              - {label: "Mit Schieberegler vergleichen? (bei Aus: Bilder einfach nebeneinander, ohne Wisch-Funktion)", name: "mit_schieberegler", widget: "boolean", default: true}
+
+              - label: "Bildpaare (meist reicht eins — hast du 2 oder 3 Vergleiche zum selben Projekt, einfach mehrere hinzufügen; man kann dann zwischen ihnen durchblättern)"
                 name: "bildpaare"
                 widget: "list"
                 collapsed: true
@@ -262,7 +261,7 @@ collections:
           - {label: "Firmenzusatz (klein, im Header)", name: "brand_sub", widget: "string"}
           - {label: "Menüpunkt „Über mich“", name: "nav_label_ueber_mich", widget: "string"}
           - {label: "Menüpunkt „Leistungen“", name: "nav_label_leistungen", widget: "string"}
-          - {label: "Menüpunkt „Bilder“", name: "nav_label_bilder", widget: "string"}
+          - {label: "Menüpunkt „Projekte“ (früher „Bilder“)", name: "nav_label_bilder", widget: "string"}
           - {label: "Menüpunkt „Einsatzgebiet“", name: "nav_label_einsatzgebiet", widget: "string"}
           - {label: "Menüpunkt „FAQ“", name: "nav_label_faq", widget: "string"}
 

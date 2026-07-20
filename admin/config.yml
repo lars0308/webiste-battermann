@@ -336,8 +336,8 @@ collections:
             name: "section_order"
             widget: "list"
             required: false
-            summary: "{{fields.section}}"
-            hint: "So sortierst du die Startseite um: Auf das Symbol ⋮⋮ links neben einem Eintrag tippen, gedrückt halten und an die gewünschte Stelle ziehen. Der oberste Eintrag in dieser Liste erscheint ganz oben auf der Seite, der unterste ganz unten."
+            summary: "{{fields.section}} — {{fields.sichtbar}}"
+            hint: "Reihenfolge: Auf das Symbol ⋮⋮ links neben einem Eintrag tippen, gedrückt halten und an die gewünschte Stelle ziehen (oberster Eintrag = ganz oben auf der Seite). Sichtbarkeit: mit dem Schalter „Sichtbar?“ einen ganzen Bereich ein- oder ausblenden, ohne ihn zu löschen."
             fields:
               - label: "Abschnitt"
                 name: "section"
@@ -352,4 +352,19 @@ collections:
                   - {label: "Vorher/Nachher", value: "vorher-nachher"}
                   - {label: "Bewertungen", value: "bewertungen"}
                   - {label: "Einsatzgebiet", value: "einsatzgebiet"}
+                  - {label: "Häufige Fragen (FAQ)", value: "faq"}
                   - {label: "Kontakt", value: "kontakt"}
+              - {label: "Sichtbar?", name: "sichtbar", widget: "boolean", default: true}
+
+      - file: "content/faq.json"
+        label: "❓  Häufige Fragen (FAQ)"
+        name: "faq"
+        fields:
+          - label: "Fragen & Antworten"
+            name: "faq_items"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.frage}}"
+            fields:
+              - {label: "Frage", name: "frage", widget: "string"}
+              - {label: "Antwort", name: "antwort", widget: "text"}

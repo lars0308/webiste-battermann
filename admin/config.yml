@@ -127,6 +127,24 @@ collections:
               - {label: "🟫 Sandbeige", value: "#E8DFC8"}
               - {label: "⬜ Cremeweiß", value: "#F5F0E6"}
               - {label: "⬜ Helles Grau", value: "#EDEDED"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Logo-Oliv", value: "#5F6A42"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_bg_custom", widget: "string", required: false, hint: "z. B. #EDE6D6 — leer lassen für die Auswahl oben"}
 
           - label: "Hintergrundfarbe (Wechsel-Abschnitte)"
@@ -138,6 +156,24 @@ collections:
               - {label: "🟫 Sandbeige", value: "#E8DFC8"}
               - {label: "⬜ Cremeweiß", value: "#F5F0E6"}
               - {label: "⬜ Helles Grau", value: "#EDEDED"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Logo-Oliv", value: "#5F6A42"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_bg_alt_custom", widget: "string", required: false, hint: "z. B. #EDE6D6 — leer lassen für die Auswahl oben"}
 
           - label: "Textfarbe"
@@ -148,6 +184,24 @@ collections:
               - {label: "⬛ Reines Schwarz", value: "#111111"}
               - {label: "🟫 Dunkelbraun", value: "#2B211B"}
               - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Logo-Oliv", value: "#5F6A42"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_ink_custom", widget: "string", required: false, hint: "z. B. #1B231F — leer lassen für die Auswahl oben"}
 
           - label: "Hauptfarbe (Header/Hero/Fußzeile-Hintergrund)"
@@ -158,6 +212,22 @@ collections:
               - {label: "🟦 Tiefblau", value: "#16202E"}
               - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
               - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Logo-Oliv", value: "#5F6A42"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_primary_custom", widget: "string", required: false, hint: "z. B. #122822 — leer lassen für die Auswahl oben"}
 
           - label: "Überschriften-Farbe"
@@ -168,6 +238,24 @@ collections:
               - {label: "🟩 Waldgrün", value: "#3F5B3C"}
               - {label: "🟫 Olivbraun", value: "#6B5B3E"}
               - {label: "⬛ Dunkelgrau", value: "#4A4A4A"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_heading_custom", widget: "string", required: false, hint: "z. B. #5F6A42 — leer lassen für die Auswahl oben"}
 
           - label: "Akzentfarbe (Buttons, Hervorhebungen)"
@@ -179,6 +267,22 @@ collections:
               - {label: "🟨 Senfgelb", value: "#D6A93B"}
               - {label: "🟩 Waldgrün", value: "#4C7A4F"}
               - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Logo-Oliv", value: "#5F6A42"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_accent_custom", widget: "string", required: false, hint: "z. B. #C1622D — leer lassen für die Auswahl oben"}
 
           - label: "Zweitfarbe (Grün-Ton)"
@@ -188,6 +292,23 @@ collections:
               - {label: "🟩 Salbeigrün (aktuell)", value: "#6F8F6B"}
               - {label: "🟩 Graugrün", value: "#8A9A8C"}
               - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Logo-Oliv", value: "#5F6A42"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_sage_custom", widget: "string", required: false, hint: "z. B. #6F8F6B — leer lassen für die Auswahl oben"}
 
           - label: "Hintergrundfarbe der Menüleiste oben"
@@ -198,6 +319,26 @@ collections:
               - {label: "⬜ Weiß, halbtransparent", value: "rgba(255,255,255,0.9)"}
               - {label: "🟩 Dunkelgrün, halbtransparent", value: "rgba(18,40,34,0.92)"}
               - {label: "⬜ Beige, deckend", value: "#EDE6D6"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Logo-Oliv", value: "#5F6A42"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-/rgba-Code (überschreibt die Auswahl oben)", name: "color_header_bg_custom", widget: "string", required: false, hint: "z. B. rgba(246,243,236,0.92) oder #EDE6D6"}
 
           - label: "Farbe „Battermann“ im Header (großer Text)"
@@ -210,6 +351,22 @@ collections:
               - {label: "🟧 Terracotta", value: "#C1622D"}
               - {label: "⬛ Schwarz", value: "#111111"}
               - {label: "Logo-Oliv", value: "#5F6A42"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_brand_custom", widget: "string", required: false, hint: "z. B. #122822 — leer lassen für die Auswahl oben"}
 
           - label: "Farbe „Objekt- & Reparaturservice“ im Header (kleiner Text)"
@@ -222,6 +379,24 @@ collections:
               - {label: "🟧 Terracotta", value: "#C1622D"}
               - {label: "Logo-Oliv", value: "#5F6A42"}
               - {label: "Grau", value: "#767676"}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_brand_sub_custom", widget: "string", required: false, hint: "z. B. #4B564F — leer lassen für die Auswahl oben"}
 
           - label: "Farbe der Menüpunkte (Über mich, Leistungen, …)"
@@ -234,6 +409,22 @@ collections:
               - {label: "🟧 Terracotta", value: "#C1622D"}
               - {label: "⬛ Schwarz", value: "#111111"}
               - {label: "Logo-Oliv", value: "#5F6A42"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_nav_links_custom", widget: "string", required: false, hint: "z. B. #122822 — leer lassen für die Auswahl oben"}
 
           - label: "Farbe der Buttons (z. B. „Termin anfragen“)"
@@ -247,7 +438,79 @@ collections:
               - {label: "🟩 Waldgrün", value: "#4C7A4F"}
               - {label: "🟦 Petrol", value: "#2E7B7B"}
               - {label: "⬛ Schwarz", value: "#111111"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Logo-Oliv", value: "#5F6A42"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
           - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_btn_custom", widget: "string", required: false, hint: "z. B. #C1622D — leer lassen für die Auswahl oben"}
+
+          - label: "Farbe des „Lars Battermann · Inhaber“-Labels (Hintergrund)"
+            name: "color_tag_bg"
+            widget: "select"
+            required: false
+            options:
+              - {label: "Wie gedämpfter Hintergrund (Standard)", value: ""}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Logo-Oliv", value: "#5F6A42"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_tag_bg_custom", widget: "string", required: false, hint: "z. B. #262B26 — leer lassen für die Auswahl oben"}
+
+          - label: "Farbe des „Lars Battermann · Inhaber“-Labels (Text)"
+            name: "color_tag_text"
+            widget: "select"
+            required: false
+            options:
+              - {label: "Wie Hauptfarbe (Standard)", value: ""}
+              - {label: "🟩 Dunkelgrün", value: "#122822"}
+              - {label: "⬛ Schwarzgrün", value: "#0F1A16"}
+              - {label: "🟦 Tiefblau", value: "#16202E"}
+              - {label: "🟫 Dunkelbraun", value: "#2B1D12"}
+              - {label: "🟫 Walnussbraun", value: "#4A3524"}
+              - {label: "⬛ Reines Schwarz", value: "#111111"}
+              - {label: "⬛ Anthrazit", value: "#262626"}
+              - {label: "🟩 Waldgrün", value: "#3F5B3C"}
+              - {label: "🟩 Moosgrün", value: "#55724F"}
+              - {label: "🟩 Logo-Oliv", value: "#5F6A42"}
+              - {label: "🟩 Salbeigrün", value: "#6F8F6B"}
+              - {label: "🟩 Graugrün", value: "#8A9A8C"}
+              - {label: "🟦 Petrol", value: "#2E7B7B"}
+              - {label: "🟧 Terracotta", value: "#C1622D"}
+              - {label: "🟥 Ziegelrot", value: "#B0492E"}
+              - {label: "🟨 Senfgelb", value: "#D6A93B"}
+              - {label: "🟨 Ockergelb", value: "#B8863B"}
+              - {label: "⬜ Sandbeige", value: "#E8DFC8"}
+              - {label: "⬜ Warmes Weiß", value: "#FAF6EF"}
+              - {label: "⬜ Steingrau", value: "#9A9A92"}
+          - {label: "Eigener Hex-Code (überschreibt die Auswahl oben)", name: "color_tag_text_custom", widget: "string", required: false, hint: "z. B. #122822 — leer lassen für die Auswahl oben"}
 
           - label: "Abstand zwischen Abschnitten"
             name: "section_spacing"

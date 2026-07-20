@@ -50,11 +50,12 @@
     --header-bg: rgba(246,243,236,0.92);
     --brand-color: var(--ink);
     --brand-sub-color: var(--ink-soft);
+    --nav-link-color: var(--ink);
     --on-dark-text: #FFFEFB;
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; overflow-x:hidden; max-width:100%;}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
@@ -194,7 +195,7 @@
     text-decoration:none;
     font-size:0.92rem;
     font-weight:500;
-    color:var(--ink);
+    color:var(--nav-link-color);
     position:relative;
     padding:4px 0;
   }
@@ -1007,8 +1008,8 @@
     .nav{ padding:12px 16px; gap:8px; }
     .brand{ gap:8px; min-width:0; }
     .brand svg, .brand img{ width:30px; height:30px; }
-    .brand-text{ font-size:0.8rem; }
-    .brand-text #brandSub{ display:none; }
+    .brand-text{ font-size:0.85rem; }
+    .brand-text span{ display:none; }
     #headerCta{ padding:9px 12px; font-size:0.78rem; }
     .header-icon-btn{ width:32px; height:32px; }
     .header-icon-btn svg{ width:15px; height:15px; }
@@ -1038,10 +1039,10 @@
       <span class="brand-text"><span id="brandMain">Battermann</span><span id="brandSub">Objekt- &amp; Reparaturservice</span></span>
     </a>
     <nav class="links" id="navLinks">
-      <a href="index.html#ueber-mich">Über mich</a>
-      <a href="index.html#leistungen">Leistungen</a>
-      <a href="vorher-nachher.html">Bilder</a>
-      <a href="index.html#einsatzgebiet">Einsatzgebiet</a>
+      <a href="index.html#ueber-mich" id="navUeberMich">Über mich</a>
+      <a href="index.html#leistungen" id="navLeistungen">Leistungen</a>
+      <a href="vorher-nachher.html" id="navBilder">Bilder</a>
+      <a href="index.html#einsatzgebiet" id="navEinsatzgebiet">Einsatzgebiet</a>
       <a href="index.html#kontakt" class="cta-btn mobile-only-cta" style="margin-top:8px;">Termin anfragen</a>
     </nav>
     <div style="display:flex; align-items:center; gap:10px;">
@@ -1479,20 +1480,40 @@
       if(!data) return;
 
       const colorMap = {
-        color_bg: '--bg', color_bg_alt: '--bg-alt', color_ink: '--ink',
-        color_primary: '--primary', color_heading: '--heading-green', color_accent: '--accent', color_sage: '--sage'
+        color_bg: '--bg',
+        color_bg_alt: '--bg-alt',
+        color_ink: '--ink',
+        color_primary: '--primary',
+        color_accent: '--accent',
+        color_heading: '--heading-green',
+        color_header_bg: '--header-bg',
+        color_sage: '--sage'
       };
       Object.keys(colorMap).forEach(function(key){
-        const value = data[key];
-        if(!value) return;
-        const cssVar = colorMap[key];
-        if(DARK_VALUES.hasOwnProperty(cssVar)){
-          LIGHT_VALUES[cssVar] = value;
-          if(!isDarkMode()){ document.documentElement.style.setProperty(cssVar, value); }
-        } else {
-          document.documentElement.style.setProperty(cssVar, value);
+        const customValue = data[key + '_custom'];
+        const value = (customValue && customValue.trim()) ? customValue.trim() : data[key];
+        if(value){
+          const cssVar = colorMap[key];
+          if(DARK_VALUES.hasOwnProperty(cssVar)){
+            LIGHT_VALUES[cssVar] = value;
+            if(!isDarkMode()){ document.documentElement.style.setProperty(cssVar, value); }
+          } else {
+            document.documentElement.style.setProperty(cssVar, value);
+          }
         }
       });
+
+      const brandColor = (data.color_brand_custom && data.color_brand_custom.trim()) ? data.color_brand_custom.trim() : data.color_brand;
+      if(brandColor){ document.documentElement.style.setProperty('--brand-color', brandColor); }
+      const brandSubColor = (data.color_brand_sub_custom && data.color_brand_sub_custom.trim()) ? data.color_brand_sub_custom.trim() : data.color_brand_sub;
+      if(brandSubColor){ document.documentElement.style.setProperty('--brand-sub-color', brandSubColor); }
+
+      const navLinkColor = (data.color_nav_links_custom && data.color_nav_links_custom.trim()) ? data.color_nav_links_custom.trim() : data.color_nav_links;
+      if(navLinkColor){ document.documentElement.style.setProperty('--nav-link-color', navLinkColor); }
+      if(data.nav_label_ueber_mich){ document.getElementById('navUeberMich').textContent = data.nav_label_ueber_mich; }
+      if(data.nav_label_leistungen){ document.getElementById('navLeistungen').textContent = data.nav_label_leistungen; }
+      if(data.nav_label_bilder){ document.getElementById('navBilder').textContent = data.nav_label_bilder; }
+      if(data.nav_label_einsatzgebiet){ document.getElementById('navEinsatzgebiet').textContent = data.nav_label_einsatzgebiet; }
       if(data.section_spacing){
         const spacingMap = { kompakt: ['64px','48px'], normal: ['96px','64px'], grosszuegig: ['128px','80px'] };
         const vals = spacingMap[data.section_spacing];

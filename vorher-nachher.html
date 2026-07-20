@@ -997,7 +997,14 @@
       display:none; gap:18px;
     }
     nav.links.open{ display:flex; }
-    nav.links.open .mobile-only-cta{ display:inline-flex; }
+    nav.links.open .mobile-only-cta{
+      display:flex; justify-content:center;
+      width:100%;
+      margin-top:6px !important;
+      padding-top:14px;
+      padding-bottom:14px;
+      font-size:0.95rem;
+    }
     .burger{ display:block; }
     .hero-grid, .about-grid, .area-grid, .contact-grid{ grid-template-columns:1fr; }
     .hero-visual{ display:none; }
@@ -1044,7 +1051,7 @@
       <a href="index.html#leistungen" id="navLeistungen">Leistungen</a>
       <a href="vorher-nachher.html" id="navBilder">Bilder</a>
       <a href="index.html#einsatzgebiet" id="navEinsatzgebiet">Einsatzgebiet</a>
-      <a href="index.html#kontakt" class="cta-btn mobile-only-cta" style="margin-top:8px;">Termin anfragen</a>
+      <a href="index.html#kontakt" class="cta-btn mobile-only-cta" style="margin-top:8px;">Kontaktformular</a>
     </nav>
     <div style="display:flex; align-items:center; gap:10px;">
       <a href="tel:+4915567467763" class="header-icon-btn js-tel-link" aria-label="Anrufen" title="Anrufen">

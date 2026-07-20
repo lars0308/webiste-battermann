@@ -56,7 +56,7 @@
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth; overflow-x:hidden; max-width:100%;}
+  html{scroll-behavior:smooth; overflow-x:clip; max-width:100%;}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
@@ -69,7 +69,7 @@
     font-family:'Inter', sans-serif;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    overflow-x:clip;
   }
 
   h1,h2,h3{
@@ -1551,11 +1551,14 @@
         const until = new Date(data.announce_until + 'T23:59:59');
         if(!isNaN(until.getTime()) && new Date() > until) return;
       }
-      if(sessionStorage.getItem('announceDismissed') !== data.announce_text){
+      const style = data.announce_style || 'popup';
+      const showPopup = style === 'popup' || style === 'both';
+      const showBar = style === 'banner' || style === 'both';
+      if(showPopup && sessionStorage.getItem('announceDismissed') !== data.announce_text){
         document.getElementById('announceText').textContent = data.announce_text;
         document.getElementById('announceOverlay').classList.add('open');
       }
-      if(localStorage.getItem('announceBarDismissed') !== data.announce_text){
+      if(showBar && localStorage.getItem('announceBarDismissed') !== data.announce_text){
         document.getElementById('announceBarText').textContent = data.announce_text;
         document.getElementById('announceBar').style.display = 'flex';
       }

@@ -34,6 +34,8 @@
     --accent:#C1622D;
     --line:#D2C6AC;
     --paper:#FFFEFB;
+    --on-dark-text:#FFFEFB;
+    --muted-footer:#B9C4BE;
   }
   *{ box-sizing:border-box; }
   body{
@@ -55,7 +57,7 @@
   header img{ width:34px; height:34px; }
   header .brand-text{
     font-family:'Zilla Slab', serif;
-    color:#FFFEFB;
+    color:var(--on-dark-text);
     font-weight:600;
     text-decoration:none;
   }
@@ -102,12 +104,12 @@
   }
   footer{
     background:var(--primary);
-    color:#B9C4BE;
+    color:var(--muted-footer);
     text-align:center;
     padding:24px;
     font-size:0.82rem;
   }
-  footer a{ color:#B9C4BE; }
+  footer a{ color:var(--muted-footer); }
 </style>
 </head>
 <body>
@@ -115,8 +117,8 @@
 <header>
   <div class="wrap">
     <a href="index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
-      <img src="images/logo-icon.png" alt="Logo Objekt- und Reparaturservice Battermann">
-      <span class="brand-text">Battermann</span>
+      <img id="logoImg" src="images/logo-icon.png" alt="Logo Objekt- und Reparaturservice Battermann">
+      <span class="brand-text" id="brandMain">Battermann</span>
     </a>
   </div>
 </header>
@@ -190,8 +192,32 @@
 </main>
 
 <footer>
-  <div>© 2026 Objekt- und Reparaturservice Battermann · <a href="faq.html">Häufige Fragen</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
+  <div><span id="footerText">© 2026 Objekt- und Reparaturservice Battermann</span> · <a href="faq.html">Häufige Fragen</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
 </footer>
+
+<script>
+  // Farben, Logo, Firmenname & Fußzeile aus dem CMS laden (gleiche Werte wie auf der Startseite)
+  Promise.all(['design', 'header', 'misc'].map(function(name){
+    return fetch('content/' + name + '.json', {cache: 'no-store'})
+      .then(function(res){ return res.ok ? res.json() : {}; })
+      .catch(function(){ return {}; });
+  })).then(function(parts){
+    const data = Object.assign({}, parts[0], parts[1], parts[2]);
+    const colorMap = {
+      color_bg: '--bg', color_ink: '--ink', color_primary: '--primary',
+      color_accent: '--accent', color_on_dark_text: '--on-dark-text',
+      color_muted_footer: '--muted-footer'
+    };
+    Object.keys(colorMap).forEach(function(key){
+      const customValue = data[key + '_custom'];
+      const value = (customValue && customValue.trim()) ? customValue.trim() : data[key];
+      if(value){ document.documentElement.style.setProperty(colorMap[key], value); }
+    });
+    if(data.logo){ document.getElementById('logoImg').src = data.logo; }
+    if(data.brand_name){ document.getElementById('brandMain').textContent = data.brand_name; }
+    if(data.footer_text){ document.getElementById('footerText').textContent = data.footer_text; }
+  });
+</script>
 
 </body>
 </html>
